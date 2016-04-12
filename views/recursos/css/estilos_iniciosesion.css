@@ -1,0 +1,87 @@
+* {
+margin: 0;
+padding: 0;
+border: 0;
+outline: 0;
+font-weight: inherit;
+font-style: inherit;
+font-size: 100%;
+font-family: inherit;
+vertical-align: baseline;
+}
+/* remember to define focus styles! */
+:focus {
+outline: 0;
+}
+body {
+line-height: 1;
+color: black;
+background: white;
+}
+ol, ul {
+list-style: none;
+}
+/* tables still need ‘cellspacing=”0″‘ in the markup */
+table {
+border-collapse: separate;
+border-spacing: 0;
+}
+caption, th, td {
+text-align: left;
+font-weight: normal;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+content: “”;
+}
+blockquote, q {
+quotes: “” “”;
+}
+/* Este  es  el css  de pagina Inicio De SEsion */
+@media screen and (min-width: 680px) {
+    
+    #fondoinicio{
+	background-image: url("../img/fondo-login-pc.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-attachment: fixed;
+}
+
+.login{
+	margin: 20%; 
+	position: fixed;
+}
+
+.img{
+	height: 100%;
+	width: 100%;
+}
+
+.input-field label{
+     color: #ffffff;
+}
+}
+@media screen and (max-width: 679px){
+	#fondoinicio{
+	background-image: url("../img/login-mobile.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-attachment: fixed;
+}
+.login{
+	margin: 30%;
+	margin-top: 50%;
+	position: fixed; 
+}
+
+.img{
+	height: 100%;
+	width: 100%;
+}
+
+.input-field label{
+     color: #ffffff;
+}
+
+}
+
