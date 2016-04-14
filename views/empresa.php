@@ -11,45 +11,51 @@
 	
 	<div class="row">
 		<div class="col s12">
+		<form class="col s12 center" action="../controller/empresa.controller.php" method="POST">
 			<div class="row">
 				<div class="input-field col s6 l5 m3 black-text">
 	            <label>Nombre Empresa</label>
 	            <br></br>
-	            <input type="text" name="razon_social" class="validate"></div>
+	            <input required type="text" name="razon_social" class="validate"></div>
 
 	            <div class="input-field col s6 l5 m5 black-text">
             	<label>Nit</label>
 	            <br></br>
-	            <input type="text" name="nit" class="validate"></div>
+	            <input required type="number" name="nit" class="validate"></div>
 
 	            <div class="input-field col s6 l5 m5 black-text">
             	<label>Telefono</label>
             	<br></br>
-            	<input type="text" name="telefono" class="validate"></div>
+            	<input required type="text" name="telefono" class="validate"></div>
 			</div>
 			<div class="row">
             	<div class="input-field col s6 l5 m5 black-text">
             	<label>Direccion</label>
             	<br></br>
-            	<input type="text" name="direccion" class="validate"></div>
+            	<input required type="text" name="direccion" class="validate"></div>
 
             	<div class="input-field col s10 l5 m5 black-text">
             	<label>Correo Electronico</label>
             	<br></br>
-            	<input type="email" name="razon_social" class="validate"></div>
+            	<input required type="email" name="correo" class="validate"></div>
 
             	<div class="input-field col s10 l5 m5 black-text">
             	<label>Actividades de la Empresa</label>
             	<br></br>
-            	<input type="text" name="descripcion" class="validate"></div>
-				</div>
+            	<input required type="text" name="descripcion" class="validate"></div>
 			</div>
+			</div>
+			<input type="hidden" name="id_usuario" value="1"></div>
+			<input type="hidden" name="autor" value="David"></div>
+
+			
+		
 	</div>
 
-			<button  type="botton" name="acc" value="c" class="waves-effect black btn"> Enviar</button>
-         	<button type="button" class="waves-effect black btn"><a href="iniciosesion.php">Cancelar</a></button>
+			<button name="acc" value="c" class="waves-effect black btn"> Enviar</button>
+         	<button class="waves-effect black btn"><a href="iniciosesion.php">Cancelar</a></button>
 
-			</form>
+		</form>
 	</div>
 </div>	
 
