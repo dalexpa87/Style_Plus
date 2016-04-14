@@ -74,8 +74,28 @@
 			$numero_documento      	=$_POST["numero_documento"];
 			
 			try {
-				Gestion_usuarios::update($tipo_documento,$numero_documento,$clave,$nombre,$apellido,$telefono,$direccion,$correo,$celular,$fecha_nacimiento,$sexo,$estado,$id_rol,$autor,$oldnumerodedocumento);
+				Gestion_usuarios::delete($numero_documento);
 				$mensaje= "se elimino correctamente :D";
+				
+			} catch (Exception $e) {
+				$mensaje=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
+			}
+			header("location: ../formusupub.php?msn=".$mensaje);
+
+
+				break;
+
+		 case 'l':
+				# loguear usuario
+				#iniciamos las variables   que se envian desde el  formulario  
+			       
+			
+			$correo      	=$_POST["correo"];
+			$clave      	=$_POST["clave"];
+			
+			try {
+				Gestion_usuarios::update($correo,$clave);
+				$mensaje= "inicio de sesion correcto :D";
 				
 			} catch (Exception $e) {
 				$mensaje=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();

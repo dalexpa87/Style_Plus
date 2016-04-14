@@ -17,17 +17,17 @@
                 <form  class="login">
                     <div class="row">
                         <div class="input-field col  white-text">
-                          <input id="email" type="email" class="validete">
+                          <input id="email" type="email" class="validete" required>
                           <label for="email">Usuario</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col ">
-                          <input id="password" type="password" class="validete">
+                          <input id="password" type="password" class="validete" required>
                           <label for="password">Contraseña</label>
                         </div>
                     </div>
-                   <button class="btn s12 grey darken-4" type="botton " name="acc" value="c">Iniciar Sesión</button>
+                   <button class="btn s12 grey darken-4"  name="acc" value="l">Iniciar Sesión</button>
                    <a href="registrate.php" class="flow-text black-text ">Registrate</a>
                    
                 </form>           

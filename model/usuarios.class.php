@@ -93,9 +93,9 @@ function Readbydocumento($numero_documento)
 		$conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 		
 		//crear  el  query  que vamos a realizar.
-		$consulta= "SELECT * FROM usuario WHERE correo=?,clave=?";
+		$consulta= "SELECT * FROM usuario WHERE correo=? And clave=?";
 		$query=$conexion->prepare($consulta);
-		$query=execute(array($numero_documento,$clave));
+		$query=execute(array($correo,$clave));
 		// devolmemos el resultado en un arreglo
 		//Fetch:Es  el  resultado que arroja la   consultta   en forma   de vector   o matris  segun sea el caso
 		//para  consultas donde arroja mas de un dato    el  fetch  debe  ir  acompañado   con la  palabra ALL
