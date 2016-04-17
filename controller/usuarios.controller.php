@@ -1,4 +1,5 @@
 <?php
+		session_start();
 		//1. llamar  la conexion de la base de datos
 		require_once("../Model/db_conn.php");
 		//2. llamar las  clases necesarias o que se requieran
@@ -33,7 +34,7 @@
 			} catch (Exception $e) {
 				$mensaje=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
 			}
-			header("location: ../views/iniciosesion.php?msn=".$mensaje);
+			header("location: ../views/index.php?msn=".$mensaje);
 
 
 				break;
@@ -63,7 +64,7 @@
 			} catch (Exception $e) {
 				$mensaje=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
 			}
-			header("location: ../formusupub.php?msn=".$mensaje);
+			header("location: ../Gestion_usuarios.php?msn=".$mensaje);
 
 
 				break;
@@ -94,14 +95,46 @@
 			$clave      	=$_POST["clave"];
 			
 			try {
-				Gestion_usuarios::update($correo,$clave);
-				$mensaje= "inicio de sesion correcto :D";
+				$usuario=Gestion_usuarios::loguear($correo,$clave);
+				// El metodo count nos sirve para contar el numero de registros que retorno de la consulta
+                $usuario_exite = count($usuario[0]);
+
+				if($usuario_exite == 0){
+				       $m= base64_encode("Debe de Registrarse Primero");
+				       $tm = base64_encode("advertencia");
+
+				       header("Location: ../views/index.php?m=".$m."&tm=".$tm);
+				    }else{
+				    	if ($usuario[13]=="Activo" || $usuario[13]=="activo" || $usuario[13]=="ACTIVO") {
+				    		
+				    		// Creamos variables de SESSION las  que necesitemos en sesion
+
+						      $_SESSION["id_usuario"]     = $usuario[0];
+						      $_SESSION["nombre"]         = $usuario[4];
+						      $_SESSION["apellido"]       = $usuario[5];
+						      $_SESSION["id_rol"]         = $usuario[13];
+						      
+						      
+						     header("Location: ../views/dashboard.php");
+
+						    }
+						    else
+						    {
+						    	$m= base64_encode("El usuario se encuentra inactivo, Por favor comunicate  con el ADMIN");
+						       $tm = base64_encode("advertencia");
+
+						       header("Location: ../views/index.php?m=".$m."&tm=".$tm);
+
+						    }				    	}
+
+				      
 				
 			} catch (Exception $e) {
-				$mensaje=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
-			}
-			header("location: ../formusupub.php?msn=".$mensaje);
+				$m = base64_encode("A ocurrido un error ".$e->getMessage());
+				$tm = base64_encode("error");
 
+				header("Location: ../views/index.php?m=".$m."&tm=".$tm);
+				  }
 
 				break;
 			
