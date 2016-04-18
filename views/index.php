@@ -20,7 +20,7 @@
                     </div>
                     <div class="row">
                         <div class="input-field col ">
-                          <input id="password" type="password" class="valideate" required name="clave">
+                          <input id="password" type="password" class="validate" required name="clave">
                           <label for="password">Contraseña</label>
                         </div>
                     </div>
@@ -29,7 +29,7 @@
                    
                 </form>
                 <?php
-                  if( base64_decode(@$_GET["tm"]) == "advertencia"){
+                  if(base64_decode(@$_GET["tm"]) == "advertencia"){
                     $estilos = "orange";
                   }else{
                     $estilos = "red";

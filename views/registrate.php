@@ -9,8 +9,8 @@
 
 	<title>Registro</title>
 </head>
-<body class="grey lighten-1">      
-  <div class="container col s12 l7 m9">
+
+      <div class="container col s12 l7 m9">
 
       <form class="col s12 center" action="../controller/usuarios.controller.php" method="POST">
         <h1 class="center">Regístrate</h1>
@@ -127,6 +127,11 @@
     
       </form>
       </div>
+    </div>
+    
+  </div>
+<body class="grey lighten-1">      
+  
   
         
    <script type="text/javascript" src="jquery-1.12.1.min.js"></script>
