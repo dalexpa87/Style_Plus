@@ -49,22 +49,24 @@
 			$telefono    	=$_POST["telefono"];
 			$direccion   	=$_POST["direccion"];
 			$ciudad			=$_POST["ciudad"];
-			$correo      	=$_POST["email"];
+			$correo      	=$_POST["correo"];
 			$celular     	=$_POST["celular"];
 			$fecha_nacimiento=$_POST["fecha_nacimiento"];
 			$sexo        	=$_POST["sexo"];
 			$estado         =$_POST["Estado"];			
 			$id_rol			=$_POST["id_rol"];
 			$autor			=$_POST["autor"];
-			$oldnumerodedocumento =$_POST["oldnumerodedocumento"];
+			$id_usuario =$_POST["id_usuario"];
+
 			try {
-				Gestion_usuarios::update($tipo_documento,$numero_documento,$clave,$nombre,$apellido,$telefono,$direccion,$correo,$celular,$fecha_nacimiento,$sexo,$estado,$id_rol,$oldnumerodedocumento);
-				$mensaje= "se ha  actualizado correctamente :D";
+				Gestion_usuarios::update($tipo_documento,$numero_documento,$clave,$nombre,$apellido,$telefono,$direccion,$ciudad,$correo,$celular,$fecha_nacimiento,$sexo,$estado,$id_rol,$autor,$id_usuario);
+				$m= base64_encode("se ha  actualizado correctamente :D");
+				$tm=base64_encode("Advertencia");
 				
 			} catch (Exception $e) {
 				$mensaje=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
 			}
-			header("location: ../Gestion_usuarios.php?msn=".$mensaje);
+			header("location: ../views/Gestion_usuarios.php?m=".$m."&tm=".$tm);
 
 
 				break;
@@ -72,16 +74,17 @@
 				# delete
 				#iniciamos las variables   que se envian desde el  formulario  y las  que necesito  para  almacenar la tabla.
 			       
-			$numero_documento      	=$_POST["numero_documento"];
+			$id_usuario=base64_decode($_REQUEST["ui"]);
 			
 			try {
-				Gestion_usuarios::delete($numero_documento);
-				$mensaje= "se elimino correctamente :D";
+				Gestion_usuarios::desactivar($id_usuario);
+				$m=base64_encode("se Desactivo correctamente :D");
+				$tm=base64_encode("Advertencia");
 				
 			} catch (Exception $e) {
 				$mensaje=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
 			}
-			header("location: ../formusupub.php?msn=".$mensaje);
+			header("location: ../views/Gestion_usuarios.php?m=".$m."&tm=".$tm);
 
 
 				break;

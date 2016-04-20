@@ -60,7 +60,7 @@ function ReadbyId($id_usuario)
 		style_plus_BD::Disconnect();
 	}
 	//METODO UPDATE
-	function update($tipo_documento,$numero_documento,$clave,$nombre,$apellido,$telefono,$direccion,$ciudad,$correo,$celular,$fecha_nacimiento,$sexo,$estado,$id_rol,$autor,$oldnumerodedocumento)
+	function update($tipo_documento,$numero_documento,$clave,$nombre,$apellido,$telefono,$direccion,$ciudad,$correo,$celular,$fecha_nacimiento,$sexo,$estado,$id_rol,$autor,$id_usuario)
 	{
 		//instacioamos y nos conectamos a la  base de  datos
 		$conexion=style_plus_BD::Connect();
@@ -68,22 +68,23 @@ function ReadbyId($id_usuario)
 		//CAPTURAMOS LA  FECHA DEL SISTEMA
 		$fecha_creacion=date("Y-m-d");
 		//crear  el  quiery  que vamos a realizar.
-		$consulta= "UPDATE usuario SET tipo_documento=?,numero_documento=?, clave=?, =?,nombre=?,apellido=?,telefono=?,direccion=?,ciudad=?,correo=?,celular=?,fecha_nacimiento=?,sexo=?,estado=?,id_rol=?,autor=?,fecha_creacion=?  WHERE numero_documento=?  ";
+		$consulta= "UPDATE usuario SET tipo_documento=?,numero_documento=?, clave=?,nombre=?,apellido=?,telefono=?,direccion=?,ciudad=?,correo=?,celular=?,fecha_nacimiento=?,sexo=?,estado=?,id_rol=?,autor=?,fecha_creacion=?  WHERE id_usuario=?  ";
 		$query=$conexion->prepare($consulta);
-		$query->execute(array($tipo_documento,$numero_documento,$clave,$nombre,$apellido,$telefono,$direccion,$ciudad,$correo,$celular,$fecha_nacimiento,$sexo,$estado,$id_rol,$autor,$fecha_creacion,$oldnumerodedocumento));
+		$query->execute(array($tipo_documento,$numero_documento,$clave,$nombre,$apellido,$telefono,$direccion,$ciudad,$correo,$celular,$fecha_nacimiento,$sexo,$estado,$id_rol,$autor,$fecha_creacion,$id_usuario));
 
 		style_plus_BD::Disconnect();
 	}
- 	function delete($numero_documento)
+ 	function desactivar($id_usuario)
 	{
 		//instacioamos y nos conectamos a la  base de  datos
 		$conexion=style_plus_BD::Connect();
 		$conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 		//CAPTURAMOS LA  FECHA DEL SISTEMA
 		//crear  el  quiery  que vamos a realizar.
-		$consulta= "DELETE FROM usuario WHERE numero_documento=?  ";
+		$estado="Inactivo";
+		$consulta="UPDATE usuario SET estado=? WHERE id_usuario=?  ";
 		$query=$conexion->prepare($consulta);
-		$query->execute(array($numero_documento));
+		$query->execute(array($estado,$id_usuario));
 
 		style_plus_BD::Disconnect();
 	}

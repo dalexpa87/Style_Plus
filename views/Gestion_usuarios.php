@@ -98,7 +98,7 @@
 		                <td>
 
 		                  <a href='ActualizarUsuario.php?ui=".base64_encode($row["id_usuario"])."'><i class='fa fa-pencil'></i></a>
-		                  <a href='controller.usuario.php?ui=".base64_encode($row["id_usuario"])."&acc=d'><i class='fa fa-user-times' aria-hidden='true'></i></a>
+		                  <a href='../controller/usuarios.controller.php?ui=".base64_encode($row["id_usuario"])."&acc=d'><i class='fa fa-user-times' aria-hidden='true'></i></a>
 
 
 		                </td>
@@ -110,6 +110,14 @@
 		
 		    </table>
 	</div>
+	<?php
+                  if( base64_decode(@$_GET["tm"]) == "advertencia"){
+                    $estilos = "orange";
+                  }else{
+                    $estilos = "red";
+                  }
+
+                  echo "<div style='background-color:".$estilos."'>".base64_decode(@$_GET["m"])."</div>";?>
  </body>
 
 
