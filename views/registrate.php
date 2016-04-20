@@ -119,9 +119,8 @@
           </div> 
       </div> 
       <input type="hidden" name="estado" value="Activo">
-      <div>
-        <input type="hidden" name="id_rol">
-        <label>rol</label>
+      <input type="hidden" name="id_rol" value="1">
+        
       </div>
       <input type="hidden" name="autor" value="Autoregistrado">               
          <button  type="botton" name="acc" value="c" class="waves-effect black btn"> Enviar</button>
