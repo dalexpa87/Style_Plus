@@ -53,7 +53,7 @@
 			$celular     	=$_POST["celular"];
 			$fecha_nacimiento=$_POST["fecha_nacimiento"];
 			$sexo        	=$_POST["sexo"];
-			$estado         =$_POST["Estado"];			
+			$estado         =$_POST["estado"];			
 			$id_rol			=$_POST["id_rol"];
 			$autor			=$_POST["autor"];
 			$id_usuario =$_POST["id_usuario"];
