@@ -23,7 +23,7 @@ if($_SESSION["id_rol"]==1){
 </ul>
 
 <?php
-	}elseif($_SESSION["id_rol"]==2){
+}elseif($_SESSION["id_rol"]==2){
 ?>
 <ul >
 	<div id="gest_con">
@@ -52,11 +52,11 @@ if($_SESSION["id_rol"]==1){
 
 
 <?php
-	}elseif($_SESSION["id_rol"]==3){//1 Usuario Publico, 2 Empleado, 3 Cliente Admin, 4 Administador
+}elseif($_SESSION["id_rol"]==3){//1 Usuario Publico, 2 Empleado, 3 Cliente Admin, 4 Administador
 
 ?>
 
-<ul>
+<ul id="menu_elements">
 	<div id="gest_con">
 		<div><li><i class="fa fa-usd" style="font-size: 55px; text-align: center; color: white; margin-left: 32px; padding-top: 2px"></i></li></div>
 		<div><p>Gestion Contable</p></div>
@@ -93,7 +93,7 @@ if($_SESSION["id_rol"]==1){
 ?>
 
 
-<ul>
+<ul id="menu_elements">
 	<div id="gest_con">
 		<div><li><i class="fa fa-usd" style="font-size: 55px; text-align: center; color: white; margin-left: 32px; padding-top: 2px"></i></li></div>
 		<div><p>Gestion Contable</p></div>
@@ -116,11 +116,13 @@ if($_SESSION["id_rol"]==1){
 
 
 <?php
-	}elseif($_SESSION["id_rol"]==5){//1 Usuario Publico, 2 Empleado, 3 Cliente Admin, 4 Administador
+	
+
+}elseif($_SESSION["id_rol"]==5){//1 Usuario Publico, 2 Empleado, 3 Cliente Admin, 4 Administador
 
 ?>
 
-<ul>
+<ul id="menu_elements">
 	<div id="gest_con">
 		<div><li><i class="fa fa-usd" style="font-size: 55px; text-align: center; color: white; margin-left: 32px; padding-top: 2px"></i></li></div>
 		<div><p>Gestion Contable</p></div>
@@ -148,6 +150,8 @@ if($_SESSION["id_rol"]==1){
 	</div>
 </ul>
 
+
+
 <?php
 
 	}elseif($_SESSION["id_rol"]==6){
@@ -155,7 +159,7 @@ if($_SESSION["id_rol"]==1){
 ?>
 
 
-<ul>
+<ul id="menu_elements">
 	<div id="gest_con">
 		<div><li><i class="fa fa-usd" style="font-size: 55px; text-align: center; color: white; margin-left: 32px; padding-top: 2px"></i></li></div>
 		<div><p>Gestion Contable</p></div>
@@ -176,3 +180,7 @@ if($_SESSION["id_rol"]==1){
 	
 </ul>
 
+
+<?php
+	}
+?>
