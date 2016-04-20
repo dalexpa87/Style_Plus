@@ -41,7 +41,7 @@ class Gestion_Proveedores {
 
 		style_plus_BD::Disconnect();
 	}
-function Readbynit($nit)
+    function Readbynit($nit)
 	{
 		//instacioamos y nos conectamos a la  base de  datos
 		$conexion=style_plus_BD::conect();
@@ -85,6 +85,24 @@ function Readbynit($nit)
 		$consulta= "DELETE FROM uproveedor WHERE nit=?  ";
 		$query=$conexion->prepare($consulta);
 		$query=execute(array($nit));
+
+		style_plus_BD::Disconnect();
+	}
+	function ReadbyId($Id_proveedor)
+	{
+		//instacioamos y nos conectamos a la  base de  datos
+		$conexion=style_plus_BD::conect();
+		$conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+		
+		//crear  el  query  que vamos a realizar.
+		$consulta= "SELECT * FROM proveedor WHERE Id_proveedor=?";
+		$query=$conexion->prepare($consulta);
+		$query=execute(array($Id_proveedor));
+		// devolmemos el resultado en un arreglo
+		//Fetch:Es  el  resultado que arroja la   consultta   en forma   de vector   o matris  segun sea el caso
+		//para  consultas donde arroja mas de un dato    el  fetch  debe  ir  acompañado   con la  palabra ALL
+		$resultado=$query->fetch(PDO::FETCH_BOTH);
+		return $resultado;
 
 		style_plus_BD::Disconnect();
 	}

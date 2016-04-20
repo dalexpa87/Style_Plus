@@ -23,12 +23,13 @@
 			
 			try {
 				Gestion_proveedores::Create($razon_social,$nit,$telefono,$direccion,$ciudad,$nombre_contacto,$correo,$numero_cuenta,$banco,$autor);
-				$mensaje= "su registro se creo correctamente :D";
+				$m=base64_encode( "su registro se creo correctamente :D");
+				$tm=base64_encode("alerta");
 				
 			} catch (Exception $e) {
 				$mensaje=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
 			}
-			header("location: ../views/iniciosesion.php?msn=".$mensaje);
+			header("location: ../views/Gestion_proveedores.php??m=".$m."&tm=".$tm);
 
 
 				break;

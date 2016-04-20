@@ -18,7 +18,7 @@
         
       <div class="row" >
           <div class="input-field col s10 l5 m5 black-text">
-            <label>Nombre de La  Empresa o Razon Social</label>
+            <label>Razon Social</label>
             <br></br>
             <input type="text" name="razon_social" class="validate" required/>
           </div>
