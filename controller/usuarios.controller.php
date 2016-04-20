@@ -100,48 +100,33 @@
                 $usuario_exite = count($usuario[0]);
 
 				if($usuario_exite == 0){
-				       $m= base64_encode("Debe de Registrarse Primero");
-				       $tm = base64_encode("advertencia");
+				       $msn= base64_encode("Debe de Registrarse Primero");
+				       $tipo_msn= base64_encode("advertencia");
 
-				       header("Location: ../views/index.php?m=".$m."&tm=".$tm);
-				    }else{
-				    	if ($usuario[13]=="Activo" || $usuario[13]=="activo" || $usuario[13]=="ACTIVO") {
-				    		
+				       header("Location: ../views/index.php?m=".$msn."&tm=".$tipo_msn);
+				    }else{	
 				    		// Creamos variables de SESSION las  que necesitemos en sesion
 
 						      $_SESSION["id_usuario"]     = $usuario[0];
 						      $_SESSION["nombre"]         = $usuario[4];
 						      $_SESSION["apellido"]       = $usuario[5];
-						      $_SESSION["id_rol"]         = $usuario[13];
+						      $_SESSION["id_rol"]         = $usuario[14];
 						      
 						      
 						     header("Location: ../views/dashboard.php");
+						     }
+			}catch (Exception $e) {
+				$msn = base64_encode("A ocurrido un error ".$e->getMessage());
+				$tipo_msn = base64_encode("error");
 
-						    }
-						    else
-						    {
-						    	$m= base64_encode("El usuario se encuentra inactivo, Por favor comunicate  con el ADMIN");
-						       $tm = base64_encode("advertencia");
-
-						       header("Location: ../views/index.php?m=".$m."&tm=".$tm);
-
-						    }				    	}
-
-				      
-				
-			} catch (Exception $e) {
-				$m = base64_encode("A ocurrido un error ".$e->getMessage());
-				$tm = base64_encode("error");
-
-				header("Location: ../views/index.php?m=".$m."&tm=".$tm);
+				header("Location: ../views/index.php?m=".$msn."&tm=".$tipo_msn);
 				  }
 
 				break;
 			
 			
+			}
 			
-			
-		}
 ?>
 
 

@@ -40,33 +40,33 @@
 
           <div class="input-field col s10 l5 m5 black-text ">
             <label>Número de documento</label>
-            <br></br>
+            <br>
             <input type="text" name="numero_documento" class="validate" required/ >
           </div>
       </div>
       <div class="row" >
           <div class="input-field col s10 l5 m5 black-text">
             <label>Asigne Contraseña</label>
-            <br></br>
+            <br>
             <input type="password" name="clave" class="validate" required/ >
           </div>
 
           <div class="input-field col s10 l5 m5 black-text" >
             <label>Nombres</label>
-            <br></br>
+            <br>
             <input type="text" name="nombre" class="validate" required/ >
           </div>
       </div>
       <div class="row" >
           <div class="input-field col s10 l5 m5 black-text">
             <label>Apellidos</label>
-            <br></br>
+            <br>
             <input type="text" name="apellido" class="validate"  >
           </div>
 
           <div class="input-field col s10 l5 m5 black-text">
             <label>Número de telefono</label>
-            <br></br>
+            <br>
             <input type="text" name="telefono" class="validate" required/ >
           </div>
       </div>
@@ -79,33 +79,33 @@
 
           <div class="input-field col s10 l5 m5 black-text">
             <label>Ciudad</label>
-            <br></br>
+            <br>
             <input type="text" name="ciudad" class="validate" required/ >
           </div>
       </div>
       <div class="row" >
           <div class="input-field col s10 l5 m5 black-text">
             <label>Correo Electrónico</label>
-            <br></br>
+            <br>
             <input type="email" name="correo" class="validate" required/ >
           </div>
 
           <div class="input-field col s10 l5 m5 black-text">
             <label>Número celular</label>
-            <br></br>
+            <br>
             <input type="text" name="celular" class="validate" required/>
           </div>
       </div>
       <div class="row" >
           <div class="input-field col s10 l5 m5 black-text">
             <label>fecha de nacimiento </label>
-            <br></br>            
+            <br>
             <input type="date" name="fecha_nacimiento" min="1900-01-01" class="validate" required/ >
           </div>
 
           <div class="col s12  l5 m5 black-text ">
             <label class="white-text center" >Seleccione Género</label>
-            <br></br>
+            <br>
             <p>
                 <input name="sexo"  value="mujer"type="radio" id="sex1" required/ />
                 <label for="sex1" class="white-text">Femenino</label>
@@ -119,7 +119,10 @@
           </div> 
       </div> 
       <input type="hidden" name="estado" value="Activo">
-      <input type="hidden" name="id_rol" value="1">
+      <div>
+        <input type="hidden" name="id_rol">
+        <label>rol</label>
+      </div>
       <input type="hidden" name="autor" value="Autoregistrado">               
          <button  type="botton" name="acc" value="c" class="waves-effect black btn"> Enviar</button>
          <button type="button" class="waves-effect black btn"><a href="iniciosesion.php">cancelar</a></button>

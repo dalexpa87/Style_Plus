@@ -11,7 +11,7 @@
 </head>
   <body id="fondoinicio" class="img">
     <div    class="container loguin m10  l12 s10">
-      <form  class="login" action="../controller/usuarios.controller.php" method="post">
+      <form  class="login" action="../controller/usuarios.controller.php" method="post" name="myform" novalidate>
                     <div class="row">
                         <div class="input-field col  white-text">
                           <input id="email" type="email" class="validate" name="correo" required>
@@ -39,6 +39,8 @@
       
                      
     </div>
+     <script type="text/javascript" src="recursos/plugins/jquery/jquery-1.12.1.min.js"></script>
+      <script type="text/javascript" src="recursos/plugins/materialize/js/materialize.min.js"></script>
 </body>
 </html>
 
