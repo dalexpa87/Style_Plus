@@ -177,6 +177,10 @@ if($_SESSION["id_rol"]==1){
 		<div><li><i class="fa fa-industry" style="font-size: 55px; text-align: center; color: white; margin-left: 30px;padding-bottom: 2px"></i></li></div>
 		<div><p>Gestionar Empresas</p></div>
 	</div>
+	<div id="usuarios">
+		<div><li ><a href="Gestion_usuarios.php"><i class="fa fa-users " style="font-size: 55px; text-align: center; color: white; margin-left: 30px;padding-bottom: 2px"></i></a></li></div>
+		<div><p>Gestion Usuario</p></div>
+	</div>
 	
 </ul>
 
