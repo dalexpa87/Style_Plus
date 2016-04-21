@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-04-2016 a las 13:42:54
+-- Tiempo de generación: 21-04-2016 a las 19:08:07
 -- Versión del servidor: 10.0.17-MariaDB
 -- Versión de PHP: 5.6.14
 
@@ -17,19 +17,19 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `style_plus`
+-- Base de datos: `styleplus`
 --
-CREATE DATABASE IF NOT EXISTS `style_plus` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `style_plus`;
+CREATE DATABASE IF NOT EXISTS `styleplus` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `styleplus`;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `agenda`
+-- Estructura de tabla para la tabla `citas`
 --
 
-DROP TABLE IF EXISTS `agenda`;
-CREATE TABLE `agenda` (
+DROP TABLE IF EXISTS `citas`;
+CREATE TABLE `citas` (
   `id_cita` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
   `id_empleado` int(11) NOT NULL,
@@ -54,6 +54,7 @@ CREATE TABLE `comprobante` (
   `id_usuario` int(11) NOT NULL,
   `id_proveedor` int(11) DEFAULT NULL,
   `total` float NOT NULL,
+  `estado` int(11) NOT NULL,
   `fecha_creacion` date DEFAULT NULL,
   `autor` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -85,10 +86,9 @@ CREATE TABLE `detalle_comprobante` (
 
 DROP TABLE IF EXISTS `detalle_factura`;
 CREATE TABLE `detalle_factura` (
-  `id_factura` int(11) NOT NULL,
+  `id_factura` varchar(60) NOT NULL,
   `id_productos` int(11) NOT NULL,
   `cantidad` int(11) NOT NULL,
-  `iva` float DEFAULT NULL,
   `fecha_creacion` date DEFAULT NULL,
   `autor` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -103,7 +103,21 @@ DROP TABLE IF EXISTS `empleado`;
 CREATE TABLE `empleado` (
   `id_empleado` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
-  `id_empresa` int(11) NOT NULL
+  `id_empresa` int(11) NOT NULL,
+  `hor_ent_lunes` time DEFAULT NULL,
+  `hor_sal_lunes` time DEFAULT NULL,
+  `hor_ent_martes` time DEFAULT NULL,
+  `hor_sal_martes` time DEFAULT NULL,
+  `hor_ent_miercoles` time DEFAULT NULL,
+  `hor_sal_miercoles` time DEFAULT NULL,
+  `hor_ent_jueves` time DEFAULT NULL,
+  `hor_sal_jueves` time DEFAULT NULL,
+  `hor_ent_viernes` time DEFAULT NULL,
+  `hor_sal_viernes` time DEFAULT NULL,
+  `hor_ent_sabado` time DEFAULT NULL,
+  `hor_sal_sabado` time DEFAULT NULL,
+  `hor_ent_domingo` time DEFAULT NULL,
+  `hor_sal_domingo` time DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -121,7 +135,7 @@ CREATE TABLE `empresa` (
   `direccion` varchar(60) DEFAULT NULL,
   `correo` varchar(50) DEFAULT NULL,
   `descripcion` varchar(100) DEFAULT NULL,
-  `id_usuario` int(11) NOT NULL,
+  `estado` int(11) NOT NULL,
   `fecha_creacion` date DEFAULT NULL,
   `autor` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -134,12 +148,12 @@ CREATE TABLE `empresa` (
 
 DROP TABLE IF EXISTS `factura`;
 CREATE TABLE `factura` (
-  `id_factura` int(11) NOT NULL,
+  `id_factura` varchar(60) NOT NULL,
   `id_empresa` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
   `creacion` datetime NOT NULL,
   `mediodepago` varchar(60) DEFAULT NULL,
-  `estado` varchar(20) DEFAULT NULL,
+  `estado` int(11) DEFAULT NULL,
   `total` float NOT NULL,
   `fecha_creacion` date DEFAULT NULL,
   `autor` varchar(50) DEFAULT NULL
@@ -187,29 +201,13 @@ CREATE TABLE `ofertas` (
 DROP TABLE IF EXISTS `pagina`;
 CREATE TABLE `pagina` (
   `id_pagina` int(11) NOT NULL,
-  `nombre_menu` varchar(30) NOT NULL,
+  `nombre` varchar(30) NOT NULL,
   `descripcion` varchar(60) NOT NULL,
   `ruta` longtext NOT NULL,
-  `fecha_creacion` date DEFAULT NULL,
-  `autor` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `permisos`
---
-
-DROP TABLE IF EXISTS `permisos`;
-CREATE TABLE `permisos` (
-  `id_permiso` int(11) NOT NULL,
-  `nombre` varchar(50) NOT NULL,
-  `descripsion` varchar(100) NOT NULL,
-  `id_pagina` int(11) NOT NULL,
-  `crear` int(11) DEFAULT NULL,
-  `guardar` int(11) DEFAULT NULL,
-  `modificar` int(11) DEFAULT NULL,
-  `eliminar` int(11) DEFAULT NULL,
+  `seccion` varchar(100) DEFAULT NULL,
+  `icono` varchar(100) DEFAULT NULL,
+  `nombre_menu` varchar(100) DEFAULT NULL,
+  `visible` int(11) DEFAULT NULL,
   `fecha_creacion` date DEFAULT NULL,
   `autor` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -225,8 +223,12 @@ CREATE TABLE `productos` (
   `id_productos` int(11) NOT NULL,
   `referencia` varchar(30) NOT NULL,
   `nombre` varchar(40) NOT NULL,
-  `valor_compra` int(11) NOT NULL,
-  `valor_venta` int(11) NOT NULL,
+  `valor_compra` double NOT NULL,
+  `valor_venta` double NOT NULL,
+  `iva` double NOT NULL,
+  `descuento` double DEFAULT NULL,
+  `estado` int(11) NOT NULL,
+  `cant_existente` int(11) DEFAULT NULL,
   `id_tipoproducto` int(11) NOT NULL,
   `id_proveedor` int(11) NOT NULL,
   `id_empresa` int(11) NOT NULL,
@@ -251,19 +253,12 @@ CREATE TABLE `proveedor` (
   `nombre_contacto` varchar(60) DEFAULT NULL,
   `correo` varchar(40) DEFAULT NULL,
   `numero_cuenta` varchar(30) DEFAULT NULL,
+  `id_empresa` int(11) NOT NULL,
+  `estado` int(11) NOT NULL,
   `banco` varchar(60) DEFAULT NULL,
   `fecha_creacion` date DEFAULT NULL,
   `autor` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `proveedor`
---
-
-INSERT INTO `proveedor` (`id_proveedor`, `razon_social`, `nit`, `telefono`, `direccion`, `ciudad`, `nombre_contacto`, `correo`, `numero_cuenta`, `banco`, `fecha_creacion`, `autor`) VALUES
-(1, 'avon colombia', '1111111', '2345', 'calle 10', 'medellin', 'claudia', 'claudia@avon.com', '1112433', 'bancolombia', '2016-04-12', 'Administrador'),
-(2, '', '', '', '', '', '', '', '', '', '2016-04-12', 'Administrador'),
-(3, '', '', '', '', '', '', '', '', '', '2016-04-12', 'Administrador');
 
 -- --------------------------------------------------------
 
@@ -284,10 +279,10 @@ CREATE TABLE `rol` (
 --
 
 INSERT INTO `rol` (`id_rol`, `fecha_creacion`, `autor`, `nombre`) VALUES
-(1, '2016-04-10', 'YOHANNY', 'usuario Publico'),
-(2, '2016-04-10', 'Yohanny', 'Empleado'),
-(5, '2016-04-10', 'YOHANNY', 'Cliente Administrador'),
-(6, '2016-04-10', 'YOHANNY', 'Administrador');
+(1, '2016-04-21', 'YOHANNY', 'Usuario Publico'),
+(2, '2016-04-21', 'YOHANNY', 'Empleado'),
+(3, '2016-04-21', 'YOHANNY', 'Cliente Administrador'),
+(4, '2016-04-21', 'YOHANNY', 'Administrador');
 
 -- --------------------------------------------------------
 
@@ -298,9 +293,13 @@ INSERT INTO `rol` (`id_rol`, `fecha_creacion`, `autor`, `nombre`) VALUES
 DROP TABLE IF EXISTS `rol_permisos`;
 CREATE TABLE `rol_permisos` (
   `id_rol` int(11) NOT NULL,
-  `id_permiso` int(11) NOT NULL,
-  `estado` varchar(50) NOT NULL,
-  `modulo` varchar(50) NOT NULL,
+  `id_pagina` int(11) NOT NULL,
+  `crear` int(11) DEFAULT NULL,
+  `consultar` int(11) DEFAULT NULL,
+  `actualizar` int(11) DEFAULT NULL,
+  `eleminar` int(11) DEFAULT NULL,
+  `deshabilitar` int(11) DEFAULT NULL,
+  `visibilidad` int(11) DEFAULT NULL,
   `fecha_creacion` date DEFAULT NULL,
   `autor` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -335,15 +334,6 @@ CREATE TABLE `tipo_productos` (
   `autor` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Volcado de datos para la tabla `tipo_productos`
---
-
-INSERT INTO `tipo_productos` (`id_tipoproductos`, `nombre`, `descripcion`, `fecha_creacion`, `autor`) VALUES
-(1, 'servicios', 'Es  un producto intangible no  hay  cantidad', '2016-04-11', 'Yohanny'),
-(2, 'Cosmeticos', 'en este tipo cabe producto cuyo uso sea  maquillaje o cosmetico', '2016-04-11', 'YOHANNY'),
-(3, 'Cuidado Personal', 'productos para cuidado corporal de todo tipo', '2016-04-11', 'YOHANNY');
-
 -- --------------------------------------------------------
 
 --
@@ -354,7 +344,7 @@ DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE `usuario` (
   `id_usuario` int(11) NOT NULL,
   `tipo_documento` varchar(10) NOT NULL,
-  `numero_documento` varchar(30) NOT NULL,
+  `numero_documento` int(11) NOT NULL,
   `clave` varchar(30) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `apellido` varchar(100) NOT NULL,
@@ -365,7 +355,7 @@ CREATE TABLE `usuario` (
   `celular` varchar(20) DEFAULT NULL,
   `fecha_nacimiento` date DEFAULT NULL,
   `sexo` varchar(15) NOT NULL,
-  `estado` varchar(50) DEFAULT NULL,
+  `estado` int(11) NOT NULL,
   `id_rol` int(11) NOT NULL,
   `fecha_creacion` date DEFAULT NULL,
   `autor` varchar(50) DEFAULT NULL
@@ -376,18 +366,17 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `tipo_documento`, `numero_documento`, `clave`, `nombre`, `apellido`, `telefono`, `direccion`, `ciudad`, `correo`, `celular`, `fecha_nacimiento`, `sexo`, `estado`, `id_rol`, `fecha_creacion`, `autor`) VALUES
-(3, 'cc', '1128487867', '1234', 'camila', 'lopera', '4323232', 'calle 9  34-43', 'medellin', 'camila@msn.com', '3103234325', '1993-01-31', 'mujer', 'Inactivo', 1, '2016-04-10', 'usuarios publicos'),
-(4, 'CC', '1001142162', '1234', 'yohanny', 'lopez', '4833517', 'calle 8', 'bello', 'yoha@misena.edu.co', '3214363153', '1993-03-31', 'mujer', NULL, 6, '2016-04-19', 'Autoregistrado'),
-(5, 'CC', '1044101320', 'nocreoenelamor', 'Durley Damaris ', 'Carmona Restrepo', '4833517', 'diagonal 42 f numero 36 c 115', 'bello', 'durleyey@hotmail.com', '3127998065', '1992-09-27', 'mujer', 'Activo', 1, '2016-04-17', 'Autoregistrado');
+(1, 'CC', 1001142162, '1234', 'Yohanny', 'Lopez Valencia', '4833517', 'diagonal 42 f numero 36 c 115', 'Bello', 'yoha@misena.edu.co', '3104012717', '1993-03-31', 'Hombre', 1, 1, '2016-04-21', 'Autoregistrado'),
+(2, 'CC', 2147483647, '1234', 'Damaris', 'Carmona Restrepo', '4833517', 'diagonal 42 f numero 36 c 115', 'Bello', 'durleyey@hotmail.com', '3214363153', '1992-04-12', 'mujer', 1, 1, '2016-04-21', 'Autoregistrado');
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `agenda`
+-- Indices de la tabla `citas`
 --
-ALTER TABLE `agenda`
+ALTER TABLE `citas`
   ADD PRIMARY KEY (`id_cita`),
   ADD KEY `id_usuario` (`id_usuario`),
   ADD KEY `id_empleado` (`id_empleado`),
@@ -428,8 +417,7 @@ ALTER TABLE `empleado`
 -- Indices de la tabla `empresa`
 --
 ALTER TABLE `empresa`
-  ADD PRIMARY KEY (`id_empresa`),
-  ADD KEY `id_usuario` (`id_usuario`);
+  ADD PRIMARY KEY (`id_empresa`);
 
 --
 -- Indices de la tabla `factura`
@@ -461,13 +449,6 @@ ALTER TABLE `pagina`
   ADD PRIMARY KEY (`id_pagina`);
 
 --
--- Indices de la tabla `permisos`
---
-ALTER TABLE `permisos`
-  ADD PRIMARY KEY (`id_permiso`),
-  ADD KEY `id_pagina` (`id_pagina`);
-
---
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
@@ -480,7 +461,8 @@ ALTER TABLE `productos`
 -- Indices de la tabla `proveedor`
 --
 ALTER TABLE `proveedor`
-  ADD PRIMARY KEY (`id_proveedor`);
+  ADD PRIMARY KEY (`id_proveedor`),
+  ADD KEY `id_empresa` (`id_empresa`);
 
 --
 -- Indices de la tabla `rol`
@@ -492,8 +474,8 @@ ALTER TABLE `rol`
 -- Indices de la tabla `rol_permisos`
 --
 ALTER TABLE `rol_permisos`
-  ADD PRIMARY KEY (`id_rol`,`id_permiso`),
-  ADD KEY `id_permiso` (`id_permiso`);
+  ADD PRIMARY KEY (`id_rol`,`id_pagina`),
+  ADD KEY `id_pagina` (`id_pagina`);
 
 --
 -- Indices de la tabla `tipo_comprobante`
@@ -519,9 +501,9 @@ ALTER TABLE `usuario`
 --
 
 --
--- AUTO_INCREMENT de la tabla `agenda`
+-- AUTO_INCREMENT de la tabla `citas`
 --
-ALTER TABLE `agenda`
+ALTER TABLE `citas`
   MODIFY `id_cita` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `comprobante`
@@ -544,11 +526,6 @@ ALTER TABLE `empleado`
 ALTER TABLE `empresa`
   MODIFY `id_empresa` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `factura`
---
-ALTER TABLE `factura`
-  MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT de la tabla `historia`
 --
 ALTER TABLE `historia`
@@ -564,11 +541,6 @@ ALTER TABLE `ofertas`
 ALTER TABLE `pagina`
   MODIFY `id_pagina` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `permisos`
---
-ALTER TABLE `permisos`
-  MODIFY `id_permiso` int(11) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
@@ -577,12 +549,12 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `proveedor`
 --
 ALTER TABLE `proveedor`
-  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `rol`
 --
 ALTER TABLE `rol`
-  MODIFY `id_rol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_rol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `tipo_comprobante`
 --
@@ -592,23 +564,23 @@ ALTER TABLE `tipo_comprobante`
 -- AUTO_INCREMENT de la tabla `tipo_productos`
 --
 ALTER TABLE `tipo_productos`
-  MODIFY `id_tipoproductos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_tipoproductos` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `agenda`
+-- Filtros para la tabla `citas`
 --
-ALTER TABLE `agenda`
-  ADD CONSTRAINT `agenda_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`),
-  ADD CONSTRAINT `agenda_ibfk_2` FOREIGN KEY (`id_empleado`) REFERENCES `empleado` (`id_empleado`),
-  ADD CONSTRAINT `agenda_ibfk_3` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_productos`);
+ALTER TABLE `citas`
+  ADD CONSTRAINT `citas_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`),
+  ADD CONSTRAINT `citas_ibfk_2` FOREIGN KEY (`id_empleado`) REFERENCES `empleado` (`id_empleado`),
+  ADD CONSTRAINT `citas_ibfk_3` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_productos`);
 
 --
 -- Filtros para la tabla `comprobante`
@@ -637,13 +609,7 @@ ALTER TABLE `detalle_factura`
 --
 ALTER TABLE `empleado`
   ADD CONSTRAINT `empleado_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`),
-  ADD CONSTRAINT `empleado_ibfk_2` FOREIGN KEY (`id_empresa`) REFERENCES `empresa` (`id_usuario`);
-
---
--- Filtros para la tabla `empresa`
---
-ALTER TABLE `empresa`
-  ADD CONSTRAINT `empresa_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
+  ADD CONSTRAINT `empleado_ibfk_2` FOREIGN KEY (`id_empresa`) REFERENCES `empresa` (`id_empresa`);
 
 --
 -- Filtros para la tabla `factura`
@@ -656,7 +622,7 @@ ALTER TABLE `factura`
 -- Filtros para la tabla `historia`
 --
 ALTER TABLE `historia`
-  ADD CONSTRAINT `historia_ibfk_1` FOREIGN KEY (`id_cita`) REFERENCES `agenda` (`id_cita`);
+  ADD CONSTRAINT `historia_ibfk_1` FOREIGN KEY (`id_cita`) REFERENCES `citas` (`id_cita`);
 
 --
 -- Filtros para la tabla `ofertas`
@@ -664,12 +630,6 @@ ALTER TABLE `historia`
 ALTER TABLE `ofertas`
   ADD CONSTRAINT `ofertas_ibfk_1` FOREIGN KEY (`id_empresa`) REFERENCES `empresa` (`id_empresa`),
   ADD CONSTRAINT `ofertas_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_productos`);
-
---
--- Filtros para la tabla `permisos`
---
-ALTER TABLE `permisos`
-  ADD CONSTRAINT `permisos_ibfk_1` FOREIGN KEY (`id_pagina`) REFERENCES `pagina` (`id_pagina`);
 
 --
 -- Filtros para la tabla `productos`
@@ -680,11 +640,17 @@ ALTER TABLE `productos`
   ADD CONSTRAINT `productos_ibfk_3` FOREIGN KEY (`id_empresa`) REFERENCES `empresa` (`id_empresa`);
 
 --
+-- Filtros para la tabla `proveedor`
+--
+ALTER TABLE `proveedor`
+  ADD CONSTRAINT `proveedor_ibfk_1` FOREIGN KEY (`id_empresa`) REFERENCES `empresa` (`id_empresa`);
+
+--
 -- Filtros para la tabla `rol_permisos`
 --
 ALTER TABLE `rol_permisos`
   ADD CONSTRAINT `rol_permisos_ibfk_1` FOREIGN KEY (`id_rol`) REFERENCES `rol` (`id_rol`),
-  ADD CONSTRAINT `rol_permisos_ibfk_2` FOREIGN KEY (`id_permiso`) REFERENCES `permisos` (`id_permiso`);
+  ADD CONSTRAINT `rol_permisos_ibfk_2` FOREIGN KEY (`id_pagina`) REFERENCES `pagina` (`id_pagina`);
 
 --
 -- Filtros para la tabla `usuario`
