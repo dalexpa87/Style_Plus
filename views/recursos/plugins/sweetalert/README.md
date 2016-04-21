@@ -1,37 +1,43 @@
-SweetAlert2 [![Build Status](https://travis-ci.org/limonte/sweetalert2.svg?branch=master)](https://travis-ci.org/limonte/sweetalert2)
------------
+SweetAlert [![Build Status](https://travis-ci.org/t4t5/sweetalert.svg?branch=master)](https://travis-ci.org/t4t5/sweetalert)
+==========
 
 An awesome replacement for JavaScript's alert.
 
-What's the difference between SweetAlert and SweetAlert2?
----------------------------------------------------------
+![A success modal](https://raw.github.com/t4t5/sweetalert/master/sweetalert.gif)
 
-Reason of creating this fork is inactivity of original SweetAlert plugin:
-[http://stackoverflow.com/a/27842854/1331425](http://stackoverflow.com/a/27842854/1331425)
+[See it in action!](http://t4t5.github.io/sweetalert)
 
-[See SweetAlert2 in action!](https://limonte.github.io/sweetalert2/)
-
-![SweetAlert2 example](https://raw.github.com/limonte/sweetalert2/master/sweetalert2.gif)
+[Learn how to use it!](https://www.ludu.co/lesson/how-to-use-sweetalert)
 
 
 Usage
 -----
 
-To install:
+You can install SweetAlert through bower:
 
 ```bash
-bower install sweetalert2
+bower install sweetalert
 ```
 
-To use:
+Or through npm:
+
+```bash
+npm install sweetalert
+```
+
+Alternatively, download the package and reference the JavaScript and CSS files manually:
 
 ```html
-<script src="bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
-<link rel="stylesheet" type="text/css" href="bower_components/sweetalert2/dist/sweetalert2.min.css">
-
-<!-- for IE support -->
-<script src="bower_components/es6-promise-polyfill/promise.min.js"></script>
+<script src="dist/sweetalert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
 ```
+**Note:** If you're using an older version than v1.0.0, the files are `lib/sweet-alert.min.js` and `lib/sweet-alert.css`
+
+
+Tutorial
+--------
+
+The easiest way to get started is follow the [SweetAlert tutorial on Ludu](https://www.ludu.co/lesson/how-to-use-sweetalert)!
 
 
 Examples
@@ -40,127 +46,112 @@ Examples
 The most basic message:
 
 ```javascript
-swal('Hello world!');
+swal("Hello world!");
 ```
 
 A message signaling an error:
 
 ```javascript
-swal('Oops...', 'Something went wrong!', 'error');
+swal("Oops...", "Something went wrong!", "error");
 ```
 
-Handling the result of SweetAlert2 modal:
+A warning message, with a function attached to the "Confirm"-button:
 
 ```javascript
 swal({
-  title: 'Are you sure?',
-  text: 'You will not be able to recover this imaginary file!',
-  type: 'warning',
+  title: "Are you sure?",
+  text: "You will not be able to recover this imaginary file!",
+  type: "warning",
   showCancelButton: true,
-  confirmButtonText: 'Yes, delete it!',
-  cancelButtonText: 'No, keep it',
-}).then(function(isConfirm) {
-  if (isConfirm === true) {
-    swal(
-      'Deleted!',
-      'Your imaginary file has been deleted.',
-      'success'
-    );
-
-  } else if (isConfirm === false) {
-    swal(
-      'Cancelled',
-      'Your imaginary file is safe :)',
-      'error'
-    );
-
-  } else {
-    // Esc, close button or outside click
-    // isConfirm is undefined
-  }
+  confirmButtonColor: "#DD6B55",
+  confirmButtonText: "Yes, delete it!",
+  closeOnConfirm: false,
+  html: false
+}, function(){
+  swal("Deleted!",
+  "Your imaginary file has been deleted.",
+  "success");
 });
 ```
 
-`swal(...)` returns a Promise Object, `isConfirm` parameter in Promise method `then` will be:
+A prompt modal where the user's input is logged:
 
-- `true` for "Confirm"-button
-- `false` for "Cancel"-button
-- `undefined` for <kbd>Esc</kbd> press, close button or outside click
+```javascript
+swal({
+  title: "An input!",
+  text: 'Write something interesting:',
+  type: 'input',
+  showCancelButton: true,
+  closeOnConfirm: false,
+  animation: "slide-from-top"
+}, function(inputValue){
+  console.log("You wrote", inputValue);
+});
+```
 
-[View more examples](https://limonte.github.io/sweetalert2/)
+Ajax request example:
 
+```javascript
+swal({
+  title: 'Ajax request example',
+  text: 'Submit to run ajax request',
+  type: 'info',
+  showCancelButton: true,
+  closeOnConfirm: false,
+  disableButtonsOnConfirm: true,
+  confirmLoadingButtonColor: '#DD6B55'
+}, function(inputValue){
+  setTimeout(function() {
+    swal('Ajax request finished!');
+  }, 2000);
+});
+```
 
-Modal Types
------------
-
-| `success`                                                                       | `error`                                                                       | `warning`                                                                       | `info`                                                                       | `question`                                                                       |
-| ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| ![](https://raw.github.com/limonte/sweetalert2/master/images/swal2-success.png) | ![](https://raw.github.com/limonte/sweetalert2/master/images/swal2-error.png) | ![](https://raw.github.com/limonte/sweetalert2/master/images/swal2-warning.png) | ![](https://raw.github.com/limonte/sweetalert2/master/images/swal2-info.png) | ![](https://raw.github.com/limonte/sweetalert2/master/images/swal2-question.png) |
-
-
-Configuration
--------------
-
-| Argument             | Default value | Description |
-| -------------------- | ------------- | ----------- |
-| `title`              | `null`        | The title of the modal. It can either be added to the object under the key "title" or passed as the first parameter of the function. |
-| `text`               | `null`        | A description for the modal. It can either be added to the object under the key "text" or passed as the second parameter of the function. |
-| `html`               | `null`        | A HTML description for the modal. If "text" and "html" parameters are provided in the same time, "text" will be used. |
-| `type `              | `null`        | The type of the modal. SweetAlert2 comes with [5 built-in types](#modal-types) which will show a corresponding icon animation: `warning`, `error`, `success`, `info` and `question`. It can either be put in the array under the key `type` or passed as the third parameter of the function. |
-| `customClass`        | `null`        | A custom CSS class for the modal. |
-| `animation`          | `true`        | If set to `false`, modal CSS animation will be disabled. |
-| `allowOutsideClick`  | `true`        | If set to `false`, the user can't dismiss the modal by clicking outside it. |
-| `allowEscapeKey`     | `true`        | If set to `false`, the user can't dismiss the modal by pressing the Escape key. |
-| `showConfirmButton`  | `true`        | If set to `false`, a "Confirm"-button will not be shown. It can be useful when you're using `html` parameter for custom HTML description. |
-| `showCancelButton`   | `false`       | If set to `true`, a "Cancel"-button will be shown, which the user can click on to dismiss the modal. |
-| `confirmButtonText`  | `"OK"`        | Use this to change the text on the "Confirm"-button. |
-| `cancelButtonText`   | `"Cancel"`    | Use this to change the text on the "Cancel"-button. |
-| `confirmButtonColor` | `"#3085d6"`   | Use this to change the background color of the "Confirm"-button (must be a HEX value). |
-| `cancelButtonColor`  | `"#aaa"`      | Use this to change the background color of the "Cancel"-button (must be a HEX value). |
-| `confirmButtonClass` | `null`        | A custom CSS class for the "Confirm"-button. |
-| `cancelButtonClass`  | `null`        | A custom CSS class for the "Cancel"-button. |
-| `buttonsStyling`     | `true`        | Apply default swal2 styling to buttons. If you want to use your own classes (e.g. Bootstrap classes) set this parameter to `false`. |
-| `reverseButtons`     | `false`       | Set this parameter to `true` if you want to invert default buttons positions. |
-| `showCloseButton`    | `false`       | Set this parameter to `true` to show close button in top right corner of the modal. |
-| `closeOnConfirm`     | `true`        | Set to `false` if you want the modal to stay open even if the user presses the "Confirm"-button. This is especially useful if the function attached to the "Confirm"-button is another SweetAlert2. |
-| `imageUrl`           | `null`        | Add a customized icon for the modal. Should contain a string with the path or URL to the image. |
-| `imageWidth`         | `null`        | If imageUrl is set, you can specify imageWidth to describes image width in px. |
-| `imageHeight`        | `null`        | Custom image height in px. |
-| `imageClass`         | `null`        | A custom CSS class for the customized icon. |
-| `timer`              | `null`        | Auto close timer of the modal. Set in ms (milliseconds). |
-| `width`              | `500`         | Modal window width, including paddings (`box-sizing: border-box`). |
-| `padding`            | `20`          | Modal window padding. |
-| `background`         | `"#fff"`      | Modal window background (CSS `background` property). |
-
-You can redefine default params by using `swal.setDefaults(customParams)` where `customParams` is an object.
+[View more examples](http://t4t5.github.io/sweetalert)
 
 
-Methods
--------
+Themes
+------
 
-| Method             | Description |
-| ------------------ | ----------- |
-| `swal.setDefaults({Object})`          | If you end up using a lot of the same settings when calling SweetAlert2, you can use setDefaults at the start of your program to set them once and for all! |
-| `swal.close()` or `swal.closeModal()` | Close the currently open SweetAlert2 modal programmatically. |
-| `swal.enableButtons()`                | Enable confirm and cancel buttons. |
-| `swal.disableButtons()`               | Disable confirm and cancel buttons. |
-| `swal.enableLoading()`                | Disable buttons and show loader. This is useful with AJAX requests. |
-| `swal.disableLoading()`               | Enable buttons and hide loader. |
-| `swal.clickConfirm()`                 | Click "Confirm"-button programmatically. |
-| `swal.clickCancel()`                  | Click "Cancel"-button programmatically. |
+SweetAlert can easily be themed to fit your site's design. SweetAlert comes with three example themes that you can try out: **facebook**, **twitter** and **google**. They can be referenced right after the intial sweetalert-CSS:
+```html
+<link rel="stylesheet" href="dist/sweetalert.css">
+<link rel="stylesheet" href="themes/twitter/twitter.css">
+```
+
+
+Browser compatibility
+---------------------
+
+SweetAlert works in most major browsers (yes, even IE). Some details:
+
+- **IE8**: (Dropped since v1.0.0-beta)
+- **IE9**: Works, but icons are not animated.
+- **IE10+**: Works!
+- **Safari 4+**: Works!
+- **Firefox 3+**: Works!
+- **Chrome 14+**: Works!
+- **Opera 15+**: Works!
 
 
 Contributing
 ------------
 
-If you would like to contribute enhancements or fixes, please do the following:
+If you want to contribute:
 
-1. Fork the plugin repository.
+- Fork the repo
 
-1. Make sure you have [Node](http://nodejs.org/) and [NPM](https://www.npmjs.com/) installed.
+- Make sure you have [Node](http://nodejs.org/), [NPM](https://www.npmjs.com/) and [Gulp](http://gulpjs.com/) installed. When in the SweetAlert directory, run `npm install` to install the dependencies. Then run `gulp` while working to automatically minify the SCSS and JS-files.
 
-1. When in the SweetAlert directory, run the command ``npm install`` to install npm packages.
+- Keep in mind that SweetAlert uses Browserify in order to compile ES6-files. For easy debugging, make sure you reference the file `dist/sweetalert-dev.js` instead of `sweetalert.js`.
 
-1. Start gulp watcher ``gulp watch`` to automatically minify the SCSS and JS-files.
+- After you're done, make a pull request and wait for approval! :)
 
-1. Make a pull request and wait for approval.
+
+Related projects
+----------------
+
+* [SweetAlert for Android](https://github.com/pedant/sweet-alert-dialog)
+* [SweetAlert for Bootstrap](https://github.com/lipis/bootstrap-sweetalert)
+* [SweetAlert for AngularJS](https://github.com/oitozero/ngSweetAlert)
+* [SweetAlert for RubyOnRails](https://github.com/sharshenov/sweetalert-rails)

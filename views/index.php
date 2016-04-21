@@ -4,6 +4,7 @@
       <head>
       <meta charset="utf-8">      
       <link type="text/css" rel="stylesheet" href="recursos\plugins\materialize\css\materialize.css"  media="screen,projection"/>
+      <link rel="stylesheet" type="text/css" href="sweetalert/dist/sweet-alert.css">
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <link rel="stylesheet" type="text/css" href="recursos\css\estilos_iniciosesion.css">
       <title>Login Usuarios</title>
@@ -41,6 +42,7 @@
     </div>
      <script type="text/javascript" src="recursos/plugins/jquery/jquery-1.12.1.min.js"></script>
       <script type="text/javascript" src="recursos/plugins/materialize/js/materialize.min.js"></script>
+      <script type="text/javascript" src="recursos/plugins/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 </html>
 
