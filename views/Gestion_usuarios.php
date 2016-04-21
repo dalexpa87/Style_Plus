@@ -18,29 +18,13 @@
 ?>
 
 
-<head>
-	<title>Gestion de Usuarios</title><title>Gestion de Usuarios</title>
-      <meta charset="utf-8">      
-      <link type="text/css" rel="stylesheet" href="recursos\plugins\materialize\css\materialize.css"  media="screen,projection"/>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      <link rel="stylesheet" type="text/css" href="recursos\css\estilos_iniciosesion.css">
-      <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
-    <link rel="stylesheet" href="recursos/plugins/font-awesome/css/font-awesome.min.css">
-    
-     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
-
-     <script>
-    $(document).ready( function () {
-      $('#datatable').DataTable();
-    });
-    </script>       
-</head>
-  <body>
-    <div class="container l5 m10 s12 ">
+    <div class="container l5 m10 s12  "id="tabla">
 		    <h1>GESTIONAR USUARIOS</h1>
 
-		    <a href="registrate.php" class="white"><h4><i class="fa fa-user-plus" aria-hidden="true"> Usuario Nuevo</i></h4></a>
+		    <a href="registrate.php" class="white"><i class="fa fa-user-plus" aria-hidden="true" btn> Usuario Nuevo</i></a>
+		    <a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>button</a>
+			
+
 		<!--
 		    <select name="campox">
 		      <option value="">Seleccione un usuario</option>
@@ -118,9 +102,5 @@
                   }
 
                   echo "<div style='background-color:".$estilos."'>".base64_decode(@$_GET["m"])."</div>";?>
- </body>
 
-
-	
-</html>
 

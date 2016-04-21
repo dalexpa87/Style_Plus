@@ -91,25 +91,27 @@ if($_SESSION["id_rol"]==1){
 	}elseif($_SESSION["id_rol"]==4){
 
 ?>
-
-
-<ul id="menu_elements">
-	<div id="gest_con">
-		<div><li><i class="fa fa-usd" style="font-size: 55px; text-align: center; color: white; margin-left: 32px; padding-top: 2px"></i></li></div>
+<ul >
+	<div class="icono">
+		<div><li><i class="fa fa-usd" style="font-size: 55px; text-align: center; color: white; margin-left: 32px"></i></li></div>
 		<div><p>Gestion Contable</p></div>
 	</div>
-	<div id="inventario">
-		<div><li><i class="fa fa-check-square-o" style="font-size: 55px; text-align: center; color: white; margin-left: 30px;padding-bottom: 2px"></i></li></div>
+	<div class="icono">
+		<div><li><i class="fa fa-check-square-o" style="font-size: 55px; text-align: center; color: white; margin-left: 30px;"></i></li></div>
 		<div><p>Inventario</p></div>
 	</div>
-	<div id="informes">
-		<div><li><i class="fa fa-pencil-square-o" style="font-size: 55px; text-align: center; color: white; margin-left: 30px;padding-bottom: 2px"></i></li></div>
+	<div class="icono">
+		<div><li><i class="fa fa-pencil-square-o" style="font-size: 55px; text-align: center; color: white; margin-left: 30px;"></i></li></div>
 		<div><p>Informes</p></div>
 	</div>
 
-	<div id="empresa">
-		<div><li><i class="fa fa-industry" style="font-size: 55px; text-align: center; color: white; margin-left: 30px;padding-bottom: 2px"></i></li></div>
+	<div class="icono">
+		<div><li><i class="fa fa-industry" style="font-size: 55px; text-align: center; color: white; margin-left: 30px;"></i></li></div>
 		<div><p>Gestionar Empresas</p></div>
+	</div>
+	<div class="icono">
+		<div><li ><a href="Gestion_usuarios.php"><i class="fa fa-users " style="font-size: 55px; text-align: center; color: white; margin-left: 30px;"></i></a></li></div>
+		<div><p>Gestion Usuario</p></div>
 	</div>
 	
 </ul>
