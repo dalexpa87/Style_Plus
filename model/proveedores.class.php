@@ -1,6 +1,6 @@
 <?php
-# -> class: GEstion_Contactos
-#->method(s): create(),ReadAll,readbydocumento(),ReadbyName(),update, delete(),loguear(),
+# -> class: gestion Proveedores
+#->method(s): create(),ReadAll,readbydocumento(),ReadbyName(),update, delete(),
 # Author:@yohanny_116
 
 class Gestion_Proveedores {

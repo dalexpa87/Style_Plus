@@ -3,7 +3,7 @@
 	class style_plus_BD{
 
 		private static $db_host="localhost";
-		private static $db_name="style_plus";
+		private static $db_name="styleplus";
 		private static $db_user ="root";
 		private static $db_pass ="";
 		private static $conn= null;

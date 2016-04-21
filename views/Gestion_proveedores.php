@@ -1,19 +1,17 @@
 <?php
-  /*
+  
   session_start();
   require_once("../model/db_conn.php");
   require_once("../model/usuarios.class.php");
 
-  if(!isset($_SESSION["id"])){
+  if(!isset($_SESSION["id_usuario"])){
     $msn = base64_encode("Debe iniciar sesion primero!");
     $tipo_msn = base64_encode("advertencia");
 
 
     header("Location: index.php?m=".$msn."&tm=".$tipo_msn);
   }
-  */
-  require_once("../model/db_conn.php");
-  require_once("../model/Proveedores.class.php");
+  
 ?>
 
 

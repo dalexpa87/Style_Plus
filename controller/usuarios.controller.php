@@ -27,14 +27,23 @@
 			$id_rol			=$_POST["id_rol"];
 			$autor			=$_POST["autor"];
 			
-			try {
-				Gestion_usuarios::Create($tipo_documento,$numero_documento,$clave,$nombre,$apellido,$telefono,$direccion,$ciudad,$correo,$celular,$fecha_nacimiento,$sexo,$estado,$id_rol,$autor);
-				$mensaje= "su registro se creo correctamente :D";
+			
+		    $existente=Gestion_Usuarios::veref_exist($correo,$numero);
 				
-			} catch (Exception $e) {
-				$mensaje=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
-			}
-			header("location: ../views/index.php?msn=".$mensaje);
+			if($existente[2]==$numero_documento || $existente[9]==$correo){
+				$m=base64_encode("Su  numero  de documento  o correo ya se encuentran en uso");
+                header("location: ../views/registrate.php?m=".$m);
+
+			 }else{
+			 	
+				try {
+				Gestion_usuarios::Create($tipo_documento,$numero_documento,$clave,$nombre,$apellido,$telefono,$direccion,$ciudad,$correo,$celular,$fecha_nacimiento,$sexo,$estado,$id_rol,$autor);
+				$m= "su registro se creo correctamente :D";				
+			     } catch (Exception $e) {
+				 $mensaje=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
+			         }
+			    header("location: ../views/index.php?m=".$m);
+			 }
 
 
 				break;
