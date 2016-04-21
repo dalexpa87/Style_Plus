@@ -1,15 +1,15 @@
 <?php
-  //El codigo comentado se debe  actualizar cuando este  la dasboard lista
-  //session_start();
+  
+  session_start();
   require_once("../model/db_conn.php");
   require_once("../model/usuarios.class.php");
 
-  //if(!isset($_SESSION["id"])){
-   // $msn = base64_encode("Debe iniciar sesion primero!");
-    //$tipo_msn = base64_encode("advertencia");
+  if(!isset($_SESSION["id_usuario"])){
+    $msn = base64_encode("Debe iniciar sesion primero!");
+    $tipo_msn = base64_encode("advertencia");
 
-    //header("Location: index.php?m=".$msn."&tm=".$tipo_msn);
-  //}
+    header("Location: index.php?m=".$msn."&tm=".$tipo_msn);
+  }
   $usuario = Gestion_Usuarios::ReadbyId(base64_decode($_REQUEST["ui"]));
 ?>
 <html>
