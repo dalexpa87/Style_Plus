@@ -41,7 +41,7 @@
 			<div class="col l8 center">
 				<div class="row">
 					<div class="col l12">
-						
+						<?php include_once("components/comp.pages.php") ?>
 					</div>
 				</div>
 		</div>
