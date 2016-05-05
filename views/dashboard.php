@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="recursos/css/estilos.css">
 	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
     <link rel="stylesheet" href="recursos/plugins/font-awesome/css/font-awesome.min.css">
-    <link type="text/css" rel="stylesheet" href="recursos\plugins\materialize\css\materialize.css">
+    <link type="text/css" rel="stylesheet" href="recursos/plugins/materialize/css/materialize.css">
 	<title></title>
 	
     
