@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="recursos/css/estilos.css">
 	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
     <link rel="stylesheet" href="recursos/plugins/font-awesome/css/font-awesome.min.css">
-    <link type="text/css" rel="stylesheet" href="recursos\plugins\materialize\css\materialize.css"  >
+    <link type="text/css" rel="stylesheet" href="recursos\plugins\materialize\css\materialize.css">
 	<title></title>
 	
     
@@ -32,10 +32,10 @@
 <body>
 <div class="container-fluid">
 	<div class="row">
-		<div class="col l12 black">
+		<div class="col l12 black" id="menu_up">
 			<img src="recursos/img/logo_web.png">
 		</div>
-			<div class="col l1 black">
+			<div class="col l1 black" id="menu_icono">
 				<?php include_once("components/comp.menu.php"); ?>
 			</div>
 			<div class="col l8 center">

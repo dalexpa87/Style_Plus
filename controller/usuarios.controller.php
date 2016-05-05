@@ -1,9 +1,9 @@
 <?php
 		session_start();
 		//1. llamar  la conexion de la base de datos
-		require_once("../Model/db_conn.php");
+		require_once("../model/db_conn.php");
 		//2. llamar las  clases necesarias o que se requieran
-		require_once("../Model/usuarios.class.php");
+		require_once("../model/usuarios.class.php");
 		//3. instanciamos las variables globales y una llamada  $accion
 		// la variable accion nos va  a indicar  que parte cel crud vamos a crear.
 		$accion=$_REQUEST["acc"];

@@ -1,7 +1,7 @@
 
   <?php
   
-  session_start();
+ 
   require_once("../model/db_conn.php");
   require_once("../model/usuarios.class.php");
 
@@ -13,16 +13,14 @@
     header("Location: index.php?m=".$msn."&tm=".$tipo_msn);
   }
   
-  require_once("../model/db_conn.php");
-  require_once("../model/usuarios.class.php");
 ?>
-
-
-    <div class="container l5 m10 s12  "id="tabla">
+	<div class="container l5 m10 s12" id="tabla">
 		    <h1>GESTIONAR USUARIOS</h1>
-
-		    <a href="registrate.php" class="white"><i class="fa fa-user-plus" aria-hidden="true" btn> Usuario Nuevo</i></a>
-		    <a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>button</a>
+		    <button type="button">
+		    	 <a href="registrate.php" class="white"><i class="fa fa-user-plus" aria-hidden="true"> Usuario Nuevo</i></a>
+		    </button>
+		   
+		    
 			
 
 		<!--
