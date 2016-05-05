@@ -109,24 +109,48 @@
 			try {
 				$usuario=Gestion_usuarios::loguear($correo,$clave);
 				// El metodo count nos sirve para contar el numero de registros que retorno de la consulta
-                $usuario_exite = count($usuario[0]);
+                $usuario_existe = count($usuario[0]);
 
-				if($usuario_exite == 0){
+				if($usuario_existe == 0){
 				       $msn= base64_encode("Debe de Registrarse Primero");
 				       $tipo_msn= base64_encode("advertencia");
 
 				       header("Location: ../views/index.php?m=".$msn."&tm=".$tipo_msn);
-				    }else{	
+				    }
+				    elseif ($usuario[13]==0) {
+				       $msn= base64_encode("El usuario se encuentra inactivo,Por favor comunicate con el Admin del sistema");
+				       $tipo_msn= base64_encode("advertencia");
+
+				       header("Location: ../views/index.php?m=".$msn."&tm=".$tipo_msn);
+				    }
+				    else{	
+				    		if($usuario[14]==1 || $usuario[14]==4 ){
 				    		// Creamos variables de SESSION las  que necesitemos en sesion
+
 
 						      $_SESSION["id_usuario"]     = $usuario[0];
 						      $_SESSION["nombre"]         = $usuario[4];
 						      $_SESSION["apellido"]       = $usuario[5];
 						      $_SESSION["id_rol"]         = $usuario[14];
+						      header("Location: ../views/dashboard.php");
+						    }else{
+						    	$empresa=Gestion_usuarios::cons_empresa($usuario[0]);
+						    	$_SESSION["id_usuario"]     = $usuario[0];
+						        $_SESSION["nombre"]         = $usuario[4];
+						        $_SESSION["apellido"]       = $usuario[5];
+						        $_SESSION["id_rol"]         = $usuario[14];
+						        $_SESSION["id_empresa"]       = $empresa[0];
+						        $_SESSION["nombre_empresa"]         = $empresa[1];
+						        header("Location: ../views/dashboard.php");
+
+
+
+						    }
+						}
 						      
 						      
-						     header("Location: ../views/dashboard.php");
-						     }
+						     
+						     
 			}catch (Exception $e) {
 				$msn = base64_encode("A ocurrido un error ".$e->getMessage());
 				$tipo_msn = base64_encode("error");
