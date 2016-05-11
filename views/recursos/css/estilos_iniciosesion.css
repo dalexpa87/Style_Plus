@@ -85,7 +85,7 @@ quotes: “” “”;
 /* Este  es  el css  de pagina Inicio De SEsion */
 @media screen and (min-width: 680px) {
     
-    #fondoinicio{
+#fondoinicio{
 	background-image: url("../img/fondo-login-pc.jpg");
 	background-repeat: no-repeat;
 	background-size: 100%;
@@ -93,7 +93,7 @@ quotes: “” “”;
 }
 
 .login{
-	margin: 20%; 
+	margin: 18%; 
 	position: fixed;
 }
 
@@ -112,11 +112,6 @@ quotes: “” “”;
 	background-repeat: no-repeat;
 	background-size: 100%;
 	background-attachment: fixed;
-}
-.login{
-	margin: 30%;
-	margin-top: 50%;
-	position: fixed; 
 }
 
 .img{

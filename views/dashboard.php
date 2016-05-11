@@ -3,8 +3,6 @@
   session_start();
   
   if(!isset($_SESSION["id_usuario"])){
-  
-
    header("Location: index.php");
 	}
  ?>
@@ -27,13 +25,14 @@
     $(document).ready( function () {
       $('#datatable').DataTable();
     });
-    </script> 
+    </script>
 </head>
 <body>
 <div class="container-fluid">
 	<div class="row">
-		<div class="col l12 black" id="menu_up">
+		<div class="col l12 " id="menu_up">
 			<img src="recursos/img/logo_web.png">
+			<a href="cerrarsesion.php" style="color: white; font-family: Arial; font-size: 22px">Cerrar Sesion</a>
 		</div>
 			<div class="col l1 black" id="menu_icono">
 				<?php include_once("components/comp.menu.php"); ?>

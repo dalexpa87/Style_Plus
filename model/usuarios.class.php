@@ -3,7 +3,7 @@
 #->method(s): create(),ReadAll,readbydocumento(),ReadbyName(),update, delete(),loguear(),
 # Author:@yohanny_116
 
-class Gestion_usuarios {
+class Gestion_usuarios{
 	//metodo crear
 	// este  metodo  guardara  en la tabla  contactos   todos  los parametros desde el  formulario.
 	function Create($tipo_documento,$numero_documento,$clave,$nombre,$apellido,$telefono,$direccion,$ciudad,$correo,$celular,$fecha_nacimiento,$sexo,$estado,$id_rol,$autor)
@@ -102,9 +102,10 @@ function ReadbyId($id_usuario)
 		//Fetch:Es  el  resultado que arroja la   consultta   en forma   de vector   o matris  segun sea el caso
 		//para  consultas donde arroja mas de un dato    el  fetch  debe  ir  acompañado   con la  palabra ALL
 		$resultado=$query->fetch(PDO::FETCH_BOTH);
-		return $resultado;
+		
 
 		style_plus_BD::Disconnect();
+		return $resultado;
 	}
 	function veref_exist($correo,$numero_documento)
 	{

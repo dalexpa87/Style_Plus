@@ -1,5 +1,6 @@
 <?php
-		session_start();
+	session_start();
+		
 		//1. llamar  la conexion de la base de datos
 		require_once("../model/db_conn.php");
 		//2. llamar las  clases necesarias o que se requieran
@@ -38,7 +39,8 @@
 			 	
 				try {
 				Gestion_usuarios::Create($tipo_documento,$numero_documento,$clave,$nombre,$apellido,$telefono,$direccion,$ciudad,$correo,$celular,$fecha_nacimiento,$sexo,$estado,$id_rol,$autor);
-				$m= "su registro se creo correctamente :D";				
+				$m= "su registro se creo correctamente :D";	
+						
 			     } catch (Exception $e) {
 				 $mensaje=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
 			         }
@@ -75,7 +77,7 @@
 			} catch (Exception $e) {
 				$mensaje=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
 			}
-			header("location: ../views/Gestion_usuarios.php?m=".$m."&tm=".$tm);
+			header("location: ../views/dashboard.php?m=".$m."&tm=".$tm);
 
 
 				break;
@@ -112,8 +114,8 @@
                 $usuario_exite = count($usuario[0]);
 
 				if($usuario_exite == 0){
-				       $msn= base64_encode("Debe de Registrarse Primero");
-				       $tipo_msn= base64_encode("advertencia");
+				       $msn= ("Debe de Registrarse Primero");
+				       $tipo_msn= ("advertencia");
 
 				       header("Location: ../views/index.php?m=".$msn."&tm=".$tipo_msn);
 				    }else{	
@@ -134,7 +136,7 @@
 				header("Location: ../views/index.php?m=".$msn."&tm=".$tipo_msn);
 				  }
 
-				break;
+				
 			
 			
 			}

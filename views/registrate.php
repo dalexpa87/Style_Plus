@@ -20,7 +20,7 @@
                 <div class="input-field col s12 m6 black-text ">
                   <label class="black-text">Número de documento</label>
                   <br>
-                  <input type="text" name="numero_documento" class="validate" required/>
+                  <input type="number" name="numero_documento" class="validate" required  />
               </div>
         </div> 
         </div>
@@ -29,26 +29,26 @@
               <div class="input-field col s12 m6 black-text" >
                 <label class="black-text">Nombres</label>
                 <br>
-                <input type="text" name="nombre" class="validate" required/>
+                <input type="text" name="nombre" class="validate" required onkeypress="return validar(event)"/>
               </div>
               <div class="input-field col s12 m6 black-text">
                 <label class="black-text">Apellidos</label>
                 <br>
-                <input type="text" name="apellido" class="validate" required/>
+                <input type="text" name="apellido" class="validate" required onkeypress="return validar(event)"/>
               </div>
             </div>
           </div>
       <div class="row" >
-          <div class="input-field col s12 m6 black-text">
+          <div class="input-field col s12 m6 black-text" >
             <label class="black-text">Número celular</label>
             <br>
-            <input type="text" name="celular" class="validate" required/>
+            <input type="number" name="celular" class="validate" required size="11" />
           </div> 
 
           <div class="input-field col s12 m6 black-text">
             <label class="black-text">Número de telefono</label>
             <br>
-            <input type="text" name="telefono" class="validate" required/ >
+            <input type="number" name="telefono" class="validate" required size="10" />
           </div>
       </div>
       <div class="row" >
@@ -61,7 +61,7 @@
           <div class="input-field col s12 m6 black-text">
             <label class="black-text">Ciudad</label>
             <br>
-            <input type="text" name="ciudad" class="validate" required/ >
+            <input type="text" name="ciudad" class="validate" required onkeypress="return validar(event)"/ >
           </div>
       </div>
       <div class="row" >
@@ -100,8 +100,8 @@
       <input type="hidden" name="id_rol" value="1">      
       <input type="hidden" name="autor" value="Autoregistrado">
           <div class="col s12 center">
-            <button  type="button" name="acc" value="c" class="waves-effect black btn">Enviar</button>
-            <button type="button" class="waves-effect black btn"><a href="index.php">Cancelar</a></button>
+            <button  name="acc" value="c" class="waves-effect black btn">Enviar</button>
+            <button class="waves-effect black btn"><a href="index.php">Cancelar</a></button>
           </div>
   </form> 
   </div>

@@ -1,9 +1,5 @@
 
   <?php
-  
- 
-  require_once("../model/db_conn.php");
-  require_once("../model/usuarios.class.php");
 
   if(!isset($_SESSION["id_usuario"])){
     $msn = base64_encode("Debe iniciar sesion primero!");
@@ -11,7 +7,10 @@
 
 
     header("Location: index.php?m=".$msn."&tm=".$tipo_msn);
-  }
+
+ } 
+  require_once("../model/db_conn.php");
+  require_once("../model/usuarios.class.php");
   
 ?>
 	<div class="container l5 m10 s12" id="tabla">
