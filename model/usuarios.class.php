@@ -125,6 +125,24 @@ function ReadbyId($id_usuario)
 
 		style_plus_BD::Disconnect();
 	}
+	function cons_empresa($id_usuario)
+	{
+		//instacioamos y nos conectamos a la  base de  datos
+		$conexion=style_plus_BD::Connect();
+		$conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+		
+		//crear  el  query  que vamos a realizar.
+		$consulta= "SELECT empleado.id_empresa as id_empresa,empresa.razon_social as nombre_empresa from empleado INNER JOIN empresa on empleado.id_empresa=empresa.id_empresa WHERE id_usuario=?";
+		$query=$conexion->prepare($consulta);
+		$query->execute(array($id_usuario));
+		// devolmemos el resultado en un arreglo
+		//Fetch:Es  el  resultado que arroja la   consultta   en forma   de vector   o matris  segun sea el caso
+		//para  consultas donde arroja mas de un dato    el  fetch  debe  ir  acompañado   con la  palabra ALL
+		$resultado=$query->fetch(PDO::FETCH_BOTH);
+		return $resultado;
+
+		style_plus_BD::Disconnect();
+	}
 
 }
 ?>
