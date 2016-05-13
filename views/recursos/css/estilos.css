@@ -55,4 +55,12 @@ h1{
 	margin-bottom: 10px;
 	text-align: center;
 }
- 
+#ajustes{
+	color: white; 
+	font-family: Arial; 
+	font-size: 15px; 
+	margin-left: 198px;
+	float: right;
+	margin-top: 20px;
+}
+

@@ -15,27 +15,13 @@
 ?>
 	<div class="container l5 m10 s12" id="tabla">
 		    <h1>GESTIONAR USUARIOS</h1>
-		    <button type="button">
-		    	 <a href="registrate.php" class="white"><i class="fa fa-user-plus" aria-hidden="true"> Usuario Nuevo</i></a>
+		    <button>
+		    	
+		    <a class="waves-effect black btn modal-trigger" href="#modal-nuevo_usuario"> <i class="fa fa-user-plus" style="margin-left: 2px"></i>Usuario Nuevo</a>
+
 		    </button>
-		   
-		    
-			
 
-		<!--
-		    <select name="campox">
-		      <option value="">Seleccione un usuario</option>
-		      <?php
-		      // $usuarios = Gestion_Usuarios::ReadAll();
-		      //
-		      // foreach ($usuarios as $row) {
-		      //    echo "<option value='".$row[0]."'>".$row[4]."</option>";
-		      // }
-
-		      ?>
-		    </select> -->
-
-
+		  
 		    <table id="datatable" class="display">
 		      <thead>
 		        <tr>
@@ -90,6 +76,11 @@
 		      </tbody>
 		
 		    </table>
+		    <div id="modal-nuevo_usuario" class="modal modal-fixed-footer">
+            <div class="modal-content">
+            	<?php include("nuevo_usuario.php"); ?>
+            </div>
+            </div>
 	</div>
 	<?php
                   if( base64_decode(@$_GET["tm"]) == "advertencia"){

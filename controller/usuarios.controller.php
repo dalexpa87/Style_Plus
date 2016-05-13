@@ -42,7 +42,7 @@
 				$m= "su registro se creo correctamente :D";	
 						
 			     } catch (Exception $e) {
-				 $mensaje=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
+				 $m=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
 			         }
 			    header("location: ../views/index.php?m=".$m);
 			 }

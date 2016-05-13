@@ -30,7 +30,7 @@ class Gestion_empresa {
 		$conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 		
 		//crear  el  query  que vamos a realizar.
-		$consulta= "SELECT * FROM usuario ORDER BY nombre";
+		$consulta= "SELECT * FROM empresa";
 		$query=$conexion->prepare($consulta);
 		$query->execute();
 		// devolmemos el resultado en un arreglo

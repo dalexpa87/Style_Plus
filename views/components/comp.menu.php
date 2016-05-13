@@ -106,12 +106,16 @@ if($_SESSION["id_rol"]==1){
 	</div>
 
 	<div class="icono">
+		<a href="dashboard.php?p=<?php echo base64_encode('gestion_empresa')?>" >
 		<div><li><i class="fa fa-industry" style="font-size: 55px; text-align: center; color: white; margin-left: 30px;"></i></li></div>
 		<div><p>Gestionar Empresas</p></div>
+	</a>
 	</div>
 	<div class="icono">
-		<div><li ><a href="Gestion_usuarios.php"><i class="fa fa-users " style="font-size: 55px; text-align: center; color: white; margin-left: 30px;"></i></a></li></div>
+	<a href="dashboard.php?p=<?php echo base64_encode('gestion_usuarios')?>" >
+		<div><li ><i class="fa fa-users " style="font-size: 55px; text-align: center; color: white; margin-left: 30px;"></i></li></div>
 		<div><p>Gestion Usuario</p></div>
+	</a>
 	</div>
 	
 </ul>
