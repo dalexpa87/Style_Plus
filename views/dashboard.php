@@ -12,7 +12,7 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="recursos/plugins/font-awesome/css/font-awesome.css">
 	<link rel="stylesheet" href="recursos/css/estilos.css">
-	<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
+	<link rel="stylesheet" type="text/css" href="recursos/css/jquery.dataTables.css">
     <link rel="stylesheet" href="recursos/plugins/font-awesome/css/font-awesome.min.css">
     <link type="text/css" rel="stylesheet" href="recursos/plugins/materialize/css/materialize.css">
     <link rel="stylesheet" type="text/css" href="recursos/plugins/sweetalert/dist/sweetalert.css">
@@ -20,7 +20,7 @@
 	
     
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="recursos/plugins/datatable/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="recursos/plugins/datatable/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="recursos/plugins/materialize/js/materialize.min.js"></script>
     <script type="text/javascript" src="recursos/plugins/sweetalert/dist/sweetalert.min.js"></script>
 
