@@ -60,7 +60,7 @@
 		                <td>".$row["nombre"]."</td>
 		                <td>".$row["apellido"]."</td>
 		                <td>".$row["correo"]."</td>
-		                <td>".$perfil."</td>
+		                <td>".$row["id_rol"]."</td>
 		                <td>".$row["estado"]."</td>
 		                <td>
 

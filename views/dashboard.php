@@ -21,9 +21,8 @@
     
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" charset="utf8" src="recursos/plugins/datatable/jquery.dataTables.js"></script>
-    
-          <script type="text/javascript" src="recursos/plugins/materialize/js/materialize.min.js"></script>
-          <script type="text/javascript" src="recursos/plugins/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript" src="recursos/plugins/materialize/js/materialize.min.js"></script>
+    <script type="text/javascript" src="recursos/plugins/sweetalert/dist/sweetalert.min.js"></script>
 
      <script>
     $(document).ready( function () {
@@ -38,7 +37,7 @@
       <?php
 
       if(isset($_GET["m"],$_GET["tm"])){
-      	echo "swal({ title: 'STYLE +',   text: '".$_GET["m"]."',   type: '".$_GET["tm"]."'})";
+      	echo "swal({ title: 'STYLE +',   text: '".$_GET["m"]."',   type: '".$_GET["tm"]."'})";//Sweet Alert, falta cuadrar
       } 
       ?>
     });

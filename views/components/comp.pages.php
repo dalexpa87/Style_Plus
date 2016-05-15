@@ -12,7 +12,7 @@ switch ($page) {
 	break;
 	
 	default:
-		echo "bienvenido";
+		
 		break;
 		
 	case 'gestion_empresa':
@@ -20,7 +20,7 @@ switch ($page) {
 	break;
 	
 	default:
-		echo "bienvenido";
+		
 		break;
 }
 ?>
