@@ -19,8 +19,12 @@
 	<title></title>
 	
     
+
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" charset="utf8" src="recursos/plugins/datatable/jquery.dataTables.min.js"></script>
+
+   
+
     <script type="text/javascript" src="recursos/plugins/materialize/js/materialize.min.js"></script>
     <script type="text/javascript" src="recursos/plugins/sweetalert/dist/sweetalert.min.js"></script>
 
