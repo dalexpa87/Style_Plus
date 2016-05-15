@@ -33,16 +33,16 @@
 				
 			if($existente[2]==$numero_documento || $existente[9]==$correo){
 				$m=base64_encode("Su  numero  de documento  o correo ya se encuentran en uso");
-                header("location: ../views/registrate.php?m=".$m);
+                header("location: ../views/index.php?m=".$m);
 
 			 }else{
 			 	
 				try {
 				Gestion_usuarios::Create($tipo_documento,$numero_documento,$clave,$nombre,$apellido,$telefono,$direccion,$ciudad,$correo,$celular,$fecha_nacimiento,$sexo,$estado,$id_rol,$autor);
-				$m= "su registro se creo correctamente :D";	
+				$m= base64_encode("su registro se creo correctamente :D");	
 						
 			     } catch (Exception $e) {
-				 $m=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
+				 $m=base64_encode(":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine());
 			         }
 			    header("location: ../views/index.php?m=".$m);
 			 }

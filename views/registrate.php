@@ -8,8 +8,10 @@
         <div class="row" >
           <div class="col s12">
                 <div class="input-field col s12 m6">
-                  <select>
-                    <option value="" disabled selected>Seleccione Tipo de Documento</option>
+                <label class="black-text">Tipo de Documento</label>
+                  <br>
+                  <select name="tipo_documento" required >
+                    <option value="" disabled selected>Seleccione</option>
                     <option value="CC">Cedula de Ciudadanía</option>
                     <option value="TI">Tarjeta de Identidad</option>
                     <option value="RC">Registro Civil</option>
