@@ -47,9 +47,9 @@
 		          $perfil = "Usuario Publico";
 		        }elseif($row["id_rol"] == 2){
 		          $perfil = "Empleado";
-		        }elseif($row["id_rol"] == 5){
+		        }elseif($row["id_rol"] == 3){
 		          $perfil = "Cliente Administrador";
-		        }elseif($row["id_rol"] == 6){
+		        }elseif($row["id_rol"] == 4){
 		          $perfil = "Administrador";
 		        }
 
