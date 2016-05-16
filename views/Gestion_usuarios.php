@@ -14,12 +14,11 @@
   
 ?>
 	<div class="container l5 m10 s12" id="tabla">
-		    <h1>GESTIONAR USUARIOS</h1>
-		    <button>
-		    	
-		    <a class="waves-effect black btn modal-trigger" href="#modal-nuevo_usuario"> <i class="fa fa-user-plus" style="margin-left: 2px"></i>Usuario Nuevo</a>
+		    <h4>GESTIONAR USUARIOS</h4>
+		    
 
-		    </button>
+		    
+		    <a class="waves-effect black btn modal-trigger"href="#modal-nuevo_usuario"> <i class="fa fa-user-plus" style="margin-left: 2px"></i> Nuevo Usuario</a>
 
 		  
 		    <table id="datatable" class="display">

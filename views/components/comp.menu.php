@@ -86,27 +86,27 @@ if($_SESSION["id_rol"]==1){//Menu de Usuario Público
 
 <?php
 
-	}elseif($_SESSION["id_rol"]==4){//Menú Admin
+	}elseif($_SESSION["id_rol"]==4){//Menú Administrador
 
 ?>
-<ul >//Menú Administrador
+<ul id="menu_admin">
 
 	
-	<div class="icono">
-		<div><li><i class="fa fa-pencil-square-o" style="font-size: 55px; text-align: center; color: white; margin-left: 30px;"></i></li></div>
-		<div><p>Informes</p></div>
+	<div class="icono" style="margin-top: 80px">
+		<li><i class="fa fa-pencil-square-o" style="font-size: 40px; text-align: center; color: white; margin-left: 17px;"></i></li>
+		<p>Informes</p>
 	</div>
 
-	<div class="icono">
+	<div class="icono" style="margin-top: 50px">
 		<a href="dashboard.php?p=<?php echo base64_encode('gestion_empresa')?>" >
-		<div><li><i class="fa fa-industry" style="font-size: 55px; text-align: center; color: white; margin-left: 30px;"></i></li></div>
+		<li><i class="fa fa-industry" style="font-size: 40px; text-align: center; color: white; margin-left: 17px;"></i></li>
 		<div><p>Gestionar Empresas</p></div>
 	</a>
 	</div>
-	<div class="icono">
+	<div class="icono" style="margin-top: 50px">
 	<a href="dashboard.php?p=<?php echo base64_encode('gestion_usuarios')?>" >
-		<div><li ><i class="fa fa-users " style="font-size: 55px; text-align: center; color: white; margin-left: 30px;"></i></li></div>
-		<div><p>Gestion Usuario</p></div>
+		<li ><i class="fa fa-users " style="font-size: 40px; text-align: center; color: white; margin-left: 17px;"></i></li>
+		<p>Gestion Usuario</p>
 	</a>
 	</div>
 	

@@ -15,33 +15,33 @@
 			<div class="row">
 				<div class="input-field col s6 l5 m3 black-text">
 	            <label>Nombre Empresa</label>
-	            <br></br>
+	            
 	            <input required type="text" name="razon_social" class="validate"></div>
 
 	            <div class="input-field col s6 l5 m5 black-text">
             	<label>Nit</label>
-	            <br></br>
+	            
 	            <input required type="number" name="nit" class="validate"></div>
 
 	            <div class="input-field col s6 l5 m5 black-text">
             	<label>Telefono</label>
-            	<br></br>
+            	
             	<input required type="text" name="telefono" class="validate"></div>
 			</div>
 			<div class="row">
             	<div class="input-field col s6 l5 m5 black-text">
             	<label>Direccion</label>
-            	<br></br>
+            	
             	<input required type="text" name="direccion" class="validate"></div>
 
-            	<div class="input-field col s10 l5 m5 black-text">
+            	<div class="input-field col s12 l5 m5 black-text">
             	<label>Correo Electronico</label>
-            	<br></br>
+            	
             	<input required type="email" name="correo" class="validate"></div>
 
-            	<div class="input-field col s10 l5 m5 black-text">
+            	<div class="input-field col s12 l5 m5 black-text">
             	<label>Actividades de la Empresa</label>
-            	<br></br>
+            	
             	<input required type="text" name="descripcion" class="validate"></div>
 			</div>
 			</div>
@@ -50,11 +50,11 @@
 
 			
 		
-	</div>
-
+	
+			<div class="col s12 center">
 			<button name="acc" value="c" class="waves-effect black btn"> Enviar</button>
          	<button class="waves-effect black btn"><a href="iniciosesion.php">Cancelar</a></button>
-
+         	</div>
 		</form>
 	</div>
 </div>	
