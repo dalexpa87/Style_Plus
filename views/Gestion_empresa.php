@@ -16,7 +16,7 @@
 		    <h1>GESTIONAR EMPRESAS</h1>
 		    
 		    	
-		    <a class="waves-effect black btn modal-trigger" href="#modal-nuevo_usuario"> <i class="fa fa-user-plus" style="margin-left: 2px"></i> Nueva Empresa</a>
+		    <a class="waves-effect black btn modal-trigger" href="#modal-nuevo_empresa"> <i class="fa fa-user-plus" style="margin-left: 2px"></i> Nueva Empresa</a>
 
 		   
 

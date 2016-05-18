@@ -22,5 +22,13 @@ switch ($page) {
 	default:
 		
 		break;
+	case 'actualizar_usuario':
+		require_once("ActualizarUsuario.php");
+	break;
+	
+	default:
+		
+		break;
+
 }
 ?>
