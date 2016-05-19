@@ -127,7 +127,7 @@
          <input type="hidden" name="id_usuario" value="<?php echo $usuario[0] ?>">  
          <input type="hidden" name="autor" value="Autoregistrado">               
          <button  type="botton" name="acc" value="u" class="waves-effect black btn"> Enviar</button>
-         <button type="button" class="waves-effect black btn"><a href="Gestion_usuarios.php">cancelar</a></button>
+         <button type="button" class="waves-effect black btn"><a href="Gestion_usuarios.php">Cancelar</a></button>
     </form>
   </div>
   <script type="text/javascript" src="recursos/plugins/jquery/jquery-1.12.1.min.js"></script>

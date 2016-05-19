@@ -6,7 +6,7 @@
 class Gestion_empresa {
 	//metodo crear
 	// este  metodo  guardara  en la tabla  contactos   todos  los parametros desde el  formulario.
-	function Create($razon_social,$nit,$telefono,$direccion,$correo,$descripcion,$id_usuario,$autor)
+	function Create($razon_social,$nit,$telefono,$direccion,$correo,$descripcion,$autor)
 	{
 		//instacioamos y nos conectamos a la  base de  datos
 		$conexion=style_plus_BD::Connect();
@@ -16,9 +16,9 @@ class Gestion_empresa {
 		
 		
 		//crear  el  quiery  que vamos a realizar.
-		$consulta= "INSERT INTO empresa (razon_social,nit,telefono,direccion,correo,descripcion,id_usuario,autor) values(?,?,?,?,?,?,?,?)";
+		$consulta= "INSERT INTO empresa (razon_social,nit,telefono,direccion,correo,descripcion,autor) values(?,?,?,?,?,?,?)";
 		$query=$conexion->prepare($consulta);
-		$query->execute(array($razon_social,$nit,$telefono,$direccion,$correo,$descripcion,$id_usuario,$autor));
+		$query->execute(array($razon_social,$nit,$telefono,$direccion,$correo,$descripcion,$autor));
 
 		style_plus_BD::Disconnect();
 	}

@@ -16,7 +16,7 @@
 		    <h1>GESTIONAR EMPRESAS</h1>
 		    
 		    	
-		    <a class="waves-effect black btn modal-trigger" href="#modal-nuevo_empresa"> <i class="fa fa-user-plus" style="margin-left: 2px"></i> Nueva Empresa</a>
+		    <a class="waves-effect black btn modal-trigger" href="#modal-nueva_empresa"> <i class="fa fa-user-plus" style="margin-left: 2px"></i> Nueva Empresa</a>
 
 		   
 
@@ -28,11 +28,9 @@
 		          <th>Nit</th>
 		          <th>Razon Social</th>
 		          <th>Dirección</th>
-		          
 					<th>Correo</th>
 		          <th>Descripcion</th>
 		          
-		          <th>Autor</th>
 		          <th>Acciones</th>
 		        </tr>
 		      </thead>
@@ -50,7 +48,7 @@
 		                <td>".$row["direccion"]."</td>
 		                <td>".$row["correo"]."</td>
 		                <td>".$row["descripcion"]."</td>
-		                <td>".$row.["autor"]."</td>
+		                
 		               
 		                <td>
 
@@ -66,7 +64,7 @@
 		      </tbody>
 		
 		    </table>
-		    <div id="modal-nuevo_usuario" class="modal modal-fixed-footer">
+		    <div id="modal-nueva_empresa" class="modal modal-fixed-footer">
             <div class="modal-content">
             	<?php include("empresa.php"); ?>
             </div>

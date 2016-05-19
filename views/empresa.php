@@ -6,25 +6,25 @@
 		<div class="col s12">
 		<form class="col s12 center" action="../controller/empresa.controller.php" method="POST">
 			<div class="row">
-				<div class="input-field col s6 l5 m3 black-text">
+				<div class="input-field col s12 m6 black-text">
 	            <label>Nombre Empresa</label>
 	            
 	            <input required type="text" name="razon_social" class="validate"></div>
 
-	            <div class="input-field col s6 l5 m5 black-text">
+	            <div class="input-field col s12 m6 black-text">
             	<label>Nit</label>
 	            
 	            <input required type="number" name="nit" class="validate"></div>
 
-	            <div class="input-field col s6 l5 m5 black-text">
+	            <div class="input-field col s12 m6 black-text">
             	<label>Telefono</label>
             	
             	<input required type="number" name="telefono" class="validate"></div>
 			</div>
 			<div class="row">
+            	
             	<div class="input-field col s6 l5 m5 black-text">
             	<label>Direccion</label>
-            	
             	<input required type="text" name="direccion" class="validate"></div>
 
             	<div class="input-field col s12 l5 m5 black-text">
@@ -38,7 +38,7 @@
             	<input required type="text" name="descripcion" class="validate"></div>
 			</div>
 			</div>
-			<input type="hidden" name="id_usuario" value="1"></div>
+			
 			<input type="hidden" name="autor" value="David"></div>
 
 			
