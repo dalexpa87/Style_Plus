@@ -45,7 +45,7 @@
 		
 	
 			<div class="col s12 center">
-			<button name="acc" value="c" class="waves-effect black btn"> Enviar</button>
+			<button name="acc" value="c" class="waves-effect black btn" <a href="dashboard.php?p=<?php echo base64_encode('gestion_empresa')?>"> Enviar</button>
          	<button class="waves-effect black btn"><a href="dashboard.php?p=<?php echo base64_encode('gestion_empresa')?>">Cancelar</a></button>
          	</div>
 		</form>

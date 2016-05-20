@@ -2,7 +2,7 @@
 
       <div class=" col s12">
 
-      <form id="nuevo_usuario" class="col s12 " action="../controller/usuarios.controller.php" method="POST">
+      <form id="form" class="col s12 " action="../controller/usuarios.controller.php" method="POST">
         <h2 class="center">Nuevo Usuario</h2>
 
         <div class="row" >

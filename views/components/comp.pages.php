@@ -23,12 +23,19 @@ switch ($page) {
 		
 		break;
 	case 'actualizar_usuario':
+		
 		require_once("ActualizarUsuario.php");
 	break;
 	
 	default:
 		
 		break;
+	case 'nuevo_usuario':
+		
+		require_once("nuevo_usuario.php");
+	break;
+	
+	default:
 
 }
 ?>

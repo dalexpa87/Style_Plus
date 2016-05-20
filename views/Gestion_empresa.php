@@ -13,14 +13,11 @@
   
 ?>
 	<div class="container l5 m10 s12" id="tabla">
-		    <h1>GESTIONAR EMPRESAS</h1>
+		    <h4>GESTIONAR EMPRESAS</h4>
 		    
 		    	
 		    <a class="waves-effect black btn modal-trigger" href="#modal-nueva_empresa"> <i class="fa fa-user-plus" style="margin-left: 2px"></i> Nueva Empresa</a>
 
-		   
-
-		  
 		    <table id="datatable" class="display">
 		      <thead>
 		        <tr>
@@ -48,14 +45,9 @@
 		                <td>".$row["direccion"]."</td>
 		                <td>".$row["correo"]."</td>
 		                <td>".$row["descripcion"]."</td>
-		                
-		               
 		                <td>
-
 		                  <a href='ActualizarEmpresa.php?ui=".base64_encode($row["id_empresa"])."'><i class='fa fa-pencil'></i></a>
 		                  <a href='../controller/empresa.controller.php?ui=".base64_encode($row["id_empresa"])."&acc=d'><i class='fa fa-user-times' aria-hidden='true'></i></a>
-
-
 		                </td>
 		              </tr>";
 		      }

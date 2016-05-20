@@ -15,12 +15,10 @@
 ?>
 	<div class="container l5 m10 s12" id="tabla">
 		    <h4>GESTIONAR USUARIOS</h4>
-		    
-
-		    
-		    <a class="waves-effect black btn modal-trigger"href="#modal-nuevo_usuario"> <i class="fa fa-user-plus" style="margin-left: 2px"></i> Nuevo Usuario</a>
-
-		  
+ 
+ <a class="waves-effect black btn" href='dashboard.php?p=<?php echo base64_encode('nuevo_usuario')?>'><i class='fa fa-pencil'></i>Nuevo Usuario</a>
+		     
+		     
 		    <table id="datatable" class="display">
 		      <thead>
 		        <tr>
@@ -62,8 +60,8 @@
 		                <td>".$row["id_rol"]."</td>
 		                <td>".$row["estado"]."</td>
 		                <td>
-
-		                  <a href='ActualizarUsuario.php?ui=".base64_encode($row["id_usuario"])."'><i class='fa fa-pencil'></i></a>
+		                	
+		                  <a href='dashboard.php?p=".base64_encode('actualizar_usuario')."&ui=".base64_encode($row['id_usuario'])."'><i class='fa fa-pencil'></i></a>
 		                  <a href='../controller/usuarios.controller.php?ui=".base64_encode($row["id_usuario"])."&acc=d'><i class='fa fa-user-times' aria-hidden='true'></i></a>
 
 
