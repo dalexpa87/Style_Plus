@@ -53,7 +53,7 @@
 		<div class="col l12 black" id="menu_up">
 			<img src="recursos/img/logo_web.png">
 				<a  id="ajustes" href="cerrarsesion.php">Cerrar Sesion<i class="fa fa-power-off" aria-hidden="true" style="margin-left: 10px; font-size: 25px; position: relative;"></i></a>
-        <label id="ajustes" ><?php echo "Bienvenido ".($_SESSION["nombre"]);?></label>
+        <label id="ajustes" ><?php echo "Bienvenido ".($_SESSION["nombre"])." ".($_SESSION["apellido"]);?></label>
 		</div>
 			<div class="col l1 black" id="menu_icono">
 				<?php include_once("components/comp.menu.php"); ?>

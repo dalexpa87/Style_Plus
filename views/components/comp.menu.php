@@ -76,9 +76,11 @@ if($_SESSION["id_rol"]==1){//Menu de Usuario Público
 		<div><li><i class="fa fa-tag" style="font-size: 55px; color: white"></i></li></div>
 		<div><p>Ofertas</p></div>
 	</div>
-	<div id="empleados">
-		<div><li><i class="fa fa-users " style="font-size: 55px; color: white"></i></li><p>Gestion Empleados</p></div>
-		
+	<div class="icono" style="margin-top: 50px">
+	<a href="dashboard.php?p=<?php echo base64_encode('gestion_usuarios')?>" >
+		<li ><i class="fa fa-users " style="font-size: 40px; text-align: center; color: white; margin-left: 17px;"></i></li>
+		<p>Gestion Empleados</p>
+	</a>
 	</div>
 </ul>
 

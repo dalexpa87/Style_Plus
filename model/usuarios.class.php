@@ -41,6 +41,25 @@ class Gestion_usuarios{
 
 		style_plus_BD::Disconnect();
 	}
+	function Readbyempresa($id_empresa)
+	{
+		//instacioamos y nos conectamos a la  base de  datos
+		$conexion=style_plus_BD::Connect();
+		$conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+		
+		//crear  el  query  que vamos a realizar.
+		$consulta="SELECT usuario.id_usuario,usuario.tipo_documento, usuario.numero_documento,usuario.nombre,usuario.apellido,usuario.correo,usuario.id_rol,usuario.estado  from usuario INNER JOIN  empleado on usuario.id_usuario=empleado.id_usuario
+                    INNER JOIN empresa on empleado.id_empresa=empresa.id_empresa WHERE empresa.id_empresa=?";
+		$query=$conexion->prepare($consulta);
+		$query->execute(array($id_empresa));
+		// devolmemos el resultado en un arreglo
+		//Fetch:Es  el  resultado que arroja la   consultta   en forma   de vector   o matris  segun sea el caso
+		//para  consultas donde arroja mas de un dato    el  fetch  debe  ir  acompañado   con la  palabra ALL
+		$resultado=$query->fetchALL(PDO::FETCH_BOTH);
+		return $resultado;
+
+		style_plus_BD::Disconnect();
+	}
 function ReadbyId($id_usuario)
 	{
 		//instacioamos y nos conectamos a la  base de  datos
