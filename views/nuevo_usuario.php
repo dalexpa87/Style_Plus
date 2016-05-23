@@ -1,7 +1,17 @@
+<?php
+  
 
+ 
+ if(!isset($_SESSION["id_usuario"])){
+    $msn = base64_encode("Debe iniciar sesion primero!");
+    $tipo_msn = base64_encode("advertencia");
 
-      <div class=" col s12">
-
+    header("Location: index.php?m=".$msn."&tm=".$tipo_msn);
+    
+ }
+  include_once("../model/empresa.class.php");
+  
+?>
       <form id="form" class="col s12 " action="../controller/usuarios.controller.php" method="POST">
         <h2 class="center">Nuevo Usuario</h2>
 
@@ -95,31 +105,76 @@
                 <input name="sexo"  value="Hombre" type="radio" id="sex2" />
                 <label for="sex2" class="black-text">Masculino</label>
             </div> 
-      </div> 
+      </div>
+      <div class="row" >
+      <?php 
+       if($_SESSION["id_rol"]==4){
+       ?>
       <div class="input-field col s12 m6" name>
-                  <select>
+                  <select name="id_rol" required>
                     <option value="" disabled selected>Seleccione el Rol</option>
                     <option value="1">Usuario Publico</option>
                     <option value="2">Empleado</option>
-                    <option value="3">Empresa</option>
+                    <option id="Clie" value="3">Cliente Administrador</option>
                     <option value="4">Administrador</option>
                   </select>
       </div>
-      <input type="hidden" name="estado" value="1">
-      <input type="hidden" name="id_rol" value="1">      
-      <input type="hidden" name="autor" value="Autoregistrado">
+      <?php
+      }elseif ($_SESSION["id_rol"]==3) {              
+      ?>
+      <div class="input-field col s12 m6" name>
+                  <select name="id_rol" required>
+                    <option value="" disabled selected>Seleccione el Rol</option>
+                    <option value="1">Usuario Publico</option>
+                    <option value="2">Empleado</option>                    
+                  </select>
+      </div>
+      <?php 
+       }
+      ?>
+      </div>
+
+
+      <input type="hidden" name="estado" value="1">           
+      <input type="hidden" name="autor" value="<?php echo ($_SESSION["nombre"])." ".($_SESSION["apellido"]); ?>">
+      <div id="complemento">
+
+        
+      </div> 
           <div class="col s12 center">
             <button  name="acc" value="c" class="waves-effect black btn">Enviar</button>
-            <button class="waves-effect black btn"><a href="dashboard.php?p=<?php echo base64_encode('gestion_usuarios')?>">Cancelar</a></button>
+            <button class="waves-effect black btn"><a href="dashboard.php>">Cancelar</a></button>
 
           </div>
   </form> 
   </div>
-  <?php
-                  if( base64_decode(@$_GET["tm"]) == "advertencia"){
-                    $estilos = "orange";
-                  }else{
-                    $estilos = "red";
-                  }
+      <script>
+    $(document).ready(function(){
+        $("#clie").click(function(){
+            $("#complemento").html("
+              <div class="row" ><div class="input-field col s12 m6 black-text">
+              <?php
+              $empresa= Gestion_empresa::ReadAll(); ?>
+              <label class="white-text" >Seleccione una empresa</label>
+              <select name="id_empresa">
+              <?php
+              foreach ($empresa  as $emp) {
+                echo "
+                <option value='$emp[0]'>$emp[1]</option>
+               ";} ?>
+                <label class="black-text">Correo Electrónico</label>
+                <br>
+                <input type="email" name="correo" class="validate" required/ >
+              </div>
+              <div class="input-field col s12 m6 black-text">
+                <label class="black-text">Ingrese una Contraseña</label>
+                <br>
+                <input type="password" name="clave" class="validate" required/>
+              </div>
+          </div>");
+        });
+    });
+    </script>
+</body>
 
-                  echo "<div style='background-color:".$estilos."'>".base64_decode(@$_GET["m"])."</div>";?>
+ 

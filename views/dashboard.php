@@ -16,11 +16,11 @@
     <link rel="stylesheet" href="recursos/plugins/font-awesome/css/font-awesome.min.css">
     <link type="text/css" rel="stylesheet" href="recursos/plugins/materialize/css/materialize.css">
     <link rel="stylesheet" type="text/css" href="recursos/plugins/sweetalert/dist/sweetalert.css">
-	<title></title>
+	<title>Style+</title>
 	
     
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="recursos/plugins/jquery-1.12.1.min.js"></script>
     <script type="text/javascript" charset="utf8" src="recursos/plugins/datatable/jquery.dataTables.min.js"></script>
 
    
