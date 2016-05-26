@@ -155,7 +155,7 @@
      
           <div class="col s12 center">
             <button  name="acc" value="c" class="waves-effect black btn">Enviar</button>
-            <button class="waves-effect black btn"><a href="dashboard.php>">Cancelar</a></button>
+            <button class="waves-effect black btn"><a href="dashboard.php?p=">Cancelar</a></button>
 
      
           </div>

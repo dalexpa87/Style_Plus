@@ -40,9 +40,9 @@
 			 	
 				try {
 				Gestion_usuarios::Create($tipo_documento,$numero_documento,$clave,$nombre,$apellido,$telefono,$direccion,$ciudad,$correo,$celular,$fecha_nacimiento,$sexo,$estado,$id_rol,$autor);
-				$m= base64_encode("su registro se creo correctamente :D");	
+				$msn= base64_encode("Su registro se creo correctamente :D");	
 				$tm= "success";
-				header("location: ../views/index.php?m=".$m."&tm=".$tm);
+				header("location: ../views/index.php?m=".$msn."&tm=".$tm);
 						
 			     } catch (Exception $e) {
 				 $m=base64_encode(":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine());
@@ -126,7 +126,7 @@
 				    }
 				    elseif ($usuario[13]==0) {
 				       $msn= base64_encode("El usuario se encuentra inactivo,Por favor comunicate con el Admin del sistema");
-				       $tipo_msn= base64_encode("advertencia");
+				       $tm= base64_encode("warning");
 
 				       header("Location: ../views/index.php?m=".$msn."&tm=".$tipo_msn);
 				    }
