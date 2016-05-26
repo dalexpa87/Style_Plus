@@ -46,13 +46,13 @@
       ?>
 
   
-      $("#mySelect").change(function(){
-          if($("#mySelect").val() == "3"){
-            $("#complemento").html("<div class='row'><div class='input-field col s12 m6 black-text'><?php $empresa=Gestion_empresa::ReadAll(); ?><label class='white-text' >Seleccione una empresa</label><select name='id_empresa'><?php
-                foreach ($empresa as $emp){
-                              echo '
-                              <option value="'.$emp[0].'"><'.$emp[1].' </option> ';} ?>")};
-                    });
+      //$("#mySelect").change(function(){
+         //if($("#mySelect").val() == "3"){
+            //$("#complemento").html("<div class='row'><div class='input-field col s12 m6 black-text'><?php $empresa//=Gestion_empresa::ReadAll(); ?><label class='white-text' >Seleccione una empresa</label><select name='id_empresa'><?php
+                //foreach ($empresa as $emp){
+                             // echo '
+                             // <option value="'.$emp[0].'"><'.$emp[1].' </option> ';} ?>")};
+                    //});
                
                   });
     </script>
