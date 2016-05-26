@@ -107,13 +107,5 @@
           </div>
   </form> 
   </div>
-     <script type="text/javascript">
-                  <?php
-
-                    if(isset($_GET["m"],$_GET[""])){
-                  echo "swal({ title: 'STYLE +',   text: '".base64_decode($_GET["m"])."',   type: '".base64_decode($_GET["tm"])."'})";
-
-                  } 
-                  ?>  
-                  </script>
+     
                     
