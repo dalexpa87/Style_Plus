@@ -32,8 +32,9 @@
 		    $existente=Gestion_Usuarios::veref_exist($correo,$numero);
 				
 			if($existente[2]==$numero_documento || $existente[9]==$correo){
+				$tm=base64_encode("warning");
 				$m=base64_encode("Su  numero  de documento  o correo ya se encuentran en uso");
-                header("location: ../views/index.php?m=".$m);
+                header("location: ../views/index.php?m=".$m."&tm=".$tm);
 
 			 }else{
 			 	
@@ -99,7 +100,7 @@
 			} catch (Exception $e) {
 				$mensaje=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
 			}
-			header("location: ../views/Gestion_usuarios.php?m=".$m."&tm=".$tm);
+			header("location: ../views/dashboard.php?m=".$m."&tm=".$tm);
 
 
 				break;
@@ -158,10 +159,10 @@
 						     
 						     
 			}catch (Exception $e) {
-				$msn = base64_encode("A ocurrido un error ".$e->getMessage());
-				$tipo_msn = base64_encode("error");
+				$m= base64_encode("A ocurrido un error ".$e->getMessage());
+				$tm = base64_encode("error");
 
-				header("Location: ../views/index.php?m=".$msn."&tm=".$tipo_msn);
+				header("Location: ../views/index.php?m=".$m."&tm=".$tm);
 				  }
 
 				

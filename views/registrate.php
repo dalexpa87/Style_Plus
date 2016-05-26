@@ -44,13 +44,13 @@
           <div class="input-field col s12 m6 black-text" >
             <label class="black-text">Número celular</label>
             <br>
-            <input type="number" name="celular" class="validate" required size="11" />
+            <input type="tel" name="celular" class="validate" required size="11" />
           </div> 
 
           <div class="input-field col s12 m6 black-text">
             <label class="black-text">Número de telefono</label>
             <br>
-            <input type="number" name="telefono" class="validate" required size="10" />
+            <input type="tel" name="telefono" class="validate" required size="10" />
           </div>
       </div>
       <div class="row" >

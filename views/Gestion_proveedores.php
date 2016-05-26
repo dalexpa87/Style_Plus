@@ -1,37 +1,60 @@
-<?php
+<?php /*
   
   session_start();
+  require_once("../model/db_conn.php");*/
+  require_once("../model/proveedores.class.php");
   require_once("../model/db_conn.php");
-  require_once("../model/usuarios.class.php");
-
+/*
   if(!isset($_SESSION["id_usuario"])){
-    $msn = base64_encode("Debe iniciar sesion primero!");
-    $tipo_msn = base64_encode("advertencia");
+    $m= base64_encode("Debe iniciar sesion primero!");
+    $tm = base64_encode("error");
 
 
-    header("Location: index.php?m=".$msn."&tm=".$tipo_msn);
+    header("Location: index.php?m=".$m."&tm=".$tm);
   }
-  
+  */
 ?>
 
-
+<!DOCTYPE html>
+<html>
 <head>
-	<title>Gestion Proveedores</title>
-      <meta charset="utf-8">      
-      <link type="text/css" rel="stylesheet" href="recursos\plugins\materialize\css\materialize.css"  media="screen,projection"/>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      <link rel="stylesheet" type="text/css" href="recursos\css\estilos_iniciosesion.css">
-      <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="recursos/plugins/font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" href="recursos/css/estilos.css">
+	<link rel="stylesheet" type="text/css" href="recursos/css/jquery.dataTables.css">
     <link rel="stylesheet" href="recursos/plugins/font-awesome/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="recursos/plugins/materialize/css/materialize.css">
+    <link rel="stylesheet" type="text/css" href="recursos/plugins/sweetalert/dist/sweetalert.css">
+	<title>Style+</title>
+	
     
-     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
+    
+    <script type="text/javascript" src="recursos/plugins/jquery/jquery-1.12.1.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="recursos/plugins/datatable/jquery.dataTables.min.js"></script>
+
+   
+
+    <script type="text/javascript" src="recursos/plugins/materialize/js/materialize.min.js"></script>
+    <script type="text/javascript" src="recursos/plugins/sweetalert/dist/sweetalert.min.js"></script>
 
      <script>
     $(document).ready( function () {
-      $('#datatable').DataTable();
-    });
-    </script>       
+          $('#datatable').DataTable({    
+               "language": {               
+               "url": "https://cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json"       
+                }   
+    })
+          $('.modal-trigger').leanModal();
+      $('select').material_select();
+
+      <?php
+
+      if(isset($_GET["m"],$_GET["tm"])){
+      	echo "swal({ title: 'STYLE +',   text: '".$_GET["m"]."',   type: '".$_GET["tm"]."'})";//Sweet Alert, falta cuadrar
+      } 
+      ?>
+      </script>
+     
 </head>
   <body>
     <div class="container l5 m10 s12 ">
@@ -58,7 +81,7 @@
 		      <tbody>
 
 		      <?php
-		      $proveedores= Gestion_Proveedores::ReadAll();
+		      $proveedores=Gestion_Proveedores::ReadAll();
 
 		      foreach ($proveedores as $row) {
 
@@ -87,14 +110,7 @@
 		
 		    </table>
 	</div>
-	<?php
-                  if( base64_decode(@$_GET["tm"]) == "advertencia"){
-                    $estilos = "orange";
-                  }else{
-                    $estilos = "red";
-                  }
-
-                  echo "<div style='background-color:".$estilos."'>".base64_decode(@$_GET["m"])."</div>";?>
+	
  </body>
 
 
