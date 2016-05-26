@@ -107,11 +107,11 @@
           </div>
   </form> 
   </div>
-  <?php
-                  if( base64_decode(@$_GET["tm"]) == "advertencia"){
-                    $estilos = "orange";
-                  }else{
-                    $estilos = "red";
-                  }
+    <?php
+              //if( base64_decode(@$_GET["tm"]) == "advertencia"){
+               // $estilos = "orange";
+              //}else{
+                //$estilos = "red";
+              //}
 
-                  echo "<div style='background-color:".$estilos."'>".base64_decode(@$_GET["m"])."</div>";?>
+              //echo "<div style='background-color:".$estilos."'>".base64_decode(@$_GET["m"])."</div>";?>

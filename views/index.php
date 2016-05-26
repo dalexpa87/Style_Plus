@@ -1,10 +1,6 @@
 
 <?php
-/*session_start();
 
-  if(isset($_SESSION["id_usuario"])){
-    header ("Location: ../views/dashboard.php")
-*/
 ?>
 
 <!DOCTYPE html>
@@ -39,14 +35,8 @@
                    <a class="waves-effect grey darken-4 btn modal-trigger" href="#modal-registrate">Registrate</a>
                    
       </form>
-                <?php
-                  if(base64_decode(@$_GET["tm"]) == "advertencia"){
-                    $estilos = "orange";
-                  }else{
-                    $estilos = "red";
-                  }
+                 
 
-                  echo "<div style='background-color:".$estilos."'>".base64_decode(@$_GET["m"])."</div>";?>    
       
                      
           </div>
@@ -86,6 +76,15 @@
               return patron.test(te); // 6
               }
               </script>
+              <script type="text/javascript">
+                  <?php
+
+                    if(isset($_GET["m"],$_GET["tm"])){
+                  echo "swal({ title: 'STYLE +',   text: '".base64_decode($_GET["m"])."',   type: '".base64_decode($_GET["tm"])."'})";
+
+                  } 
+                  ?>  
+                  </script>
      
       
 </body>
