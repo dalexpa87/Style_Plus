@@ -117,7 +117,7 @@
          <input type="hidden" name="id_usuario" value="<?php echo $usuario[0] ?>">  
          <input type="hidden" name="autor" value="Autoregistrado">               
          <button  type="botton" name="acc" value="u" class="waves-effect black btn"> Enviar</button>
-         <button type="button" class="waves-effect black btn"><a href="Gestion_usuarios.php">Cancelar</a></button>
+         <button type="button" class="waves-effect black btn"><a href="dashboard.php?p=<?php echo base64_encode('gestion_usuarios')?>">Cancelar</a></button>
          </div>
     </form>
   </div>

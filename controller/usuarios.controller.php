@@ -40,7 +40,7 @@
 			 	
 				try {
 				Gestion_usuarios::Create($tipo_documento,$numero_documento,$clave,$nombre,$apellido,$telefono,$direccion,$ciudad,$correo,$celular,$fecha_nacimiento,$sexo,$estado,$id_rol,$autor);
-				$m= base64_encode("su registro se creo correctamente :D");	
+				$m=base64_encode("su registro se creo correctamente :D");	
 				$tm=base64_encode( "success");
 				header("location: ../views/index.php?m=".$m."&tm=".$tm);
 						
