@@ -19,8 +19,8 @@
 	<title>Style+</title>
 	
     
-
-    <script type="text/javascript" src="recursos/plugins/jquery-1.12.1.min.js"></script>
+    
+    <script type="text/javascript" src="recursos/plugins/jquery/jquery-1.12.1.min.js"></script>
     <script type="text/javascript" charset="utf8" src="recursos/plugins/datatable/jquery.dataTables.min.js"></script>
 
    
@@ -44,9 +44,20 @@
       	echo "swal({ title: 'STYLE +',   text: '".$_GET["m"]."',   type: '".$_GET["tm"]."'})";//Sweet Alert, falta cuadrar
       } 
       ?>
-    });
+
+  
+      $("#mySelect").change(function(){
+          if($("#mySelect").val() == "3"){
+            $("#complemento").html("<div class='row'><div class='input-field col s12 m6 black-text'><?php $empresa=Gestion_empresa::ReadAll(); ?><label class='white-text' >Seleccione una empresa</label><select name='id_empresa'><?php
+                foreach ($empresa as $emp){
+                              echo '
+                              <option value="'.$emp[0].'"><'.$emp[1].' </option> ';} ?>")};
+                    });
+               
+                  });
     </script>
-</head>
+    
+</head> 
 <body>
 <div class="container-fluid">
 	<div class="row">

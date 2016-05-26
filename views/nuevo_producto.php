@@ -1,22 +1,19 @@
-<?php
-  
+<!DOCTYPE html>
+<html>
+<head>
+      
+      <meta charset="utf-8">      
+      <link type="text/css" rel="stylesheet" href="recursos/plugins/materialize/css/materialize.css"  media="screen,projection"/>
+      <link rel="stylesheet" type="text/css" href="recursos/plugins/sweetalert/dist/sweetalert.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <link rel="stylesheet" type="text/css" href="recursos/css/estilos_iniciosesion.css">
+      <title></title>
+</head>
+<body>
+ <div class=" col s12">
 
- 
- if(!isset($_SESSION["id_usuario"])){
-    $msn = base64_encode("Debe iniciar sesion primero!");
-    $tipo_msn = base64_encode("advertencia");
-
-    header("Location: index.php?m=".$msn."&tm=".$tipo_msn);
-    
- }
-  include_once("../model/empresa.class.php");
-  
-?>
-
-
-
-  <form id="form" class="col s12 " action="../controller/usuarios.controller.php" method="POST">
-        <h2 class="center">Nuevo Usuario</h2>
+      <form id="registrate" class="col s12 " action="../controller/usuarios.controller.php" method="POST">
+        <h2 class="center">Regístrate</h2>
 
         <div class="row" >
           <div class="col s12">
@@ -110,60 +107,16 @@
                 <input name="sexo"  value="Hombre" type="radio" id="sex2" />
                 <label for="sex2" class="black-text">Masculino</label>
             </div> 
-      </div>
-      <div class="row" >
-      <div class="col s12">
-      <?php 
-       if($_SESSION["id_rol"]==4){
-       ?>
-      <div class="input-field col s12 m6" name>
-      <label class="black-text center" >Rol usuario</label>
-      <br>
-          <select id="mySelect"   name="id_rol" required>
-              <option value="" disabled selected>Seleccione el Rol</option>
-              <option value="1">Usuario Publico</option>
-              <option value="2">Empleado</option>
-              <option value="3">Cliente Administrador</option>
-              <option value="4">Administrador</option>
-          </select>
-      </div>
-      <?php
-      }elseif ($_SESSION["id_rol"]==3) {              
-      ?>
-      <div class="input-field col s12 m6" name>
-      <label class="black-text center" >Rol usuario</label>
-      <br>
-                  <select name="id_rol" required>
-                    <option value="" disabled selected>Seleccione el Rol</option>
-                    <option value="1">Usuario Publico</option>
-                    <option value="2">Empleado</option>                    
-                  </select>
-      </div>
-      <?php 
-       }
-      ?>
-       <div id="complemento">
-
-        
       </div> 
-      </div>
-      </div>
-
-
-      <input type="hidden" name="estado" value="1">           
-      <input type="hidden" name="autor" value="<?php echo ($_SESSION["nombre"])." ".($_SESSION["apellido"]); ?>">
-     
+      <input type="hidden" name="estado" value="1">
+      <input type="hidden" name="id_rol" value="1">      
+      <input type="hidden" name="autor" value="Autoregistrado">
           <div class="col s12 center">
             <button  name="acc" value="c" class="waves-effect black btn">Enviar</button>
-            <button class="waves-effect black btn"><a href="dashboard.php>">Cancelar</a></button>
-
-     
+            <button class="waves-effect black btn"><a href="index.php">Cancelar</a></button>
           </div>
   </form> 
   </div>
-  
-
-
-
-
- 
+	
+</body>
+</html>
