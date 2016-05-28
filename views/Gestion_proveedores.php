@@ -98,7 +98,7 @@
 		                <td>
 
 		                  <a href='ActualizarProveedor.php?ui=".base64_encode($row["id_proveedor"])."'><i class='fa fa-pencil'></i></a>
-		                  <a href='../controller/usuarios.controller.php?ui=".base64_encode($row["id_proveedor"])."&acc=d'><i class='fa fa-user-times' aria-hidden='true'></i></a>
+		                  
 
 
 		                </td>

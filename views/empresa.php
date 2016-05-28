@@ -33,9 +33,19 @@
             	<input required type="email" name="correo" class="validate"></div>
 
             	<div class="input-field col s12 l5 m5 black-text">
-            	<label>Actividades de la Empresa</label>
-            	
-            	<input required type="text" name="descripcion" class="validate"></div>
+            	<label class="black-text">Tipo de Empresa</label>
+                  <br>
+                  <select name="descripcion" required >
+                    <option value="" disabled selected>Seleccione</option>
+                    <option value="Barberia">Barbería</option>
+                    <option value="Peluqueria">Peluquería</option>
+                    <option value="Spa de uñas">Spa de uñas</option>
+                    <option value="Spa de Relajacion">Spa de relajación</option>
+                    <option value="Centro Estetico">Centro Estético</option>
+                    <option value="Tienda de Belleza">Tienda de Belleza</option>
+                  </select>
+                  
+                </div></div>
 			</div>
 			</div>
 			

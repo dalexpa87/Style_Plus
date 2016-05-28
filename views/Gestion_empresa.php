@@ -26,7 +26,7 @@
 		          <th>Razon Social</th>
 		          <th>Dirección</th>
 					<th>Correo</th>
-		          <th>Descripcion</th>
+		          <th>Tipo Empresa</th>
 		          
 		          <th>Acciones</th>
 		        </tr>
