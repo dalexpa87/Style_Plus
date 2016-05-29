@@ -48,8 +48,8 @@
                 </div></div>
 			</div>
 			</div>
-			
-			<input type="hidden" name="autor" value="David"></div>
+			<input type="hidden" name="autor" value="<?php  //echo ($_SESSION["nombre"])." ".($_SESSION["apellido"]); ?>"> 
+           <input type="hidden" name="estado" value="1"> 
 
 			
 		
