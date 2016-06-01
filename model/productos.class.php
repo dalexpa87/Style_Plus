@@ -1,5 +1,5 @@
 <?php
-class gestion_Productos{
+class Gestion_Productos{
 
    function veref_exist($referencia,$id_empresa)
     {
@@ -35,17 +35,18 @@ class gestion_Productos{
 
 
 
-	function ReadAll()
+	function Readbyempresa($id_empresa)
     {
         //instacioamos y nos conectamos a la  base de  datos
         $conexion=style_plus_BD::Connect();
         $conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         
         //crear  el  query  que vamos a realizar.
-        $consulta= "SELECT * FROM  productos ORDER BY referencia";
+        $consulta= "SELECT * FROM productos WHERE id_empresa=? ";
         $query=$conexion->prepare($consulta);
-        $query->execute();
-        $resultado=$query->fetchALL(PDO::FETCH_BOTH);
+        $query->execute(array($id_empresa));
+        
+        $resultado=$query->fetch(PDO::FETCH_BOTH);
         return $resultado;
 
         style_plus_BD::Disconnect();
