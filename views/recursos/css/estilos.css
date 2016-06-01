@@ -2,10 +2,6 @@
 	margin: 0;
 	padding: 0;
 }
-
-li p:hover{
-    background-color: yellow;
-}
 p{
 	
 	margin-left: 10px;
@@ -38,6 +34,7 @@ h4{
 	position: absolute;
 	height: 90.5%;
 	margin-top: 4.4%;
+	
 
 }
 #menu_up{
@@ -52,9 +49,7 @@ h4{
 	margin-left: 5px;
 	margin-bottom: 10px;
 	text-align: center;
-	}
-.icono:hover{
-	background-color: #ffcdd2;
+	cursor: pointer;
 }
 #ajustes{
 	color: white; 
@@ -74,6 +69,10 @@ h4{
 	margin-top: 10%;
 	overflow: auto;
 }
+p:hover{
+	color: #19ffff;
+}
+
 
 
 

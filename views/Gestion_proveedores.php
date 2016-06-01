@@ -15,49 +15,8 @@
   */
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="recursos/plugins/font-awesome/css/font-awesome.css">
-	<link rel="stylesheet" href="recursos/css/estilos.css">
-	<link rel="stylesheet" type="text/css" href="recursos/css/jquery.dataTables.css">
-    <link rel="stylesheet" href="recursos/plugins/font-awesome/css/font-awesome.min.css">
-    <link type="text/css" rel="stylesheet" href="recursos/plugins/materialize/css/materialize.css">
-    <link rel="stylesheet" type="text/css" href="recursos/plugins/sweetalert/dist/sweetalert.css">
-	<title>Style+</title>
-	
-    
-    
-    <script type="text/javascript" src="recursos/plugins/jquery/jquery-1.12.1.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="recursos/plugins/datatable/jquery.dataTables.min.js"></script>
 
-   
-
-    <script type="text/javascript" src="recursos/plugins/materialize/js/materialize.min.js"></script>
-    <script type="text/javascript" src="recursos/plugins/sweetalert/dist/sweetalert.min.js"></script>
-
-     <script>
-    $(document).ready( function () {
-          $('#datatable').DataTable({    
-               "language": {               
-               "url": "https://cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json"       
-                }   
-    })
-          $('.modal-trigger').leanModal();
-      $('select').material_select();
-
-      <?php
-
-      if(isset($_GET["m"],$_GET["tm"])){
-      	echo "swal({ title: 'STYLE +',   text: '".$_GET["m"]."',   type: '".$_GET["tm"]."'})";//Sweet Alert, falta cuadrar
-      } 
-      ?>
-      </script>
-     
-</head>
-  <body>
-    <div class="container l5 m10 s12 ">
+    <div class="container l5 m10 s12 " id="tabla">
 		    <h1>GESTIONAR PROVEEDORES</h1>
 
 		    <a href="nuevoproveedor.php" class="white"><h4><i class="fa fa-building-o" aria-hidden="true"> Nuevo Proveedor</i></h4></a>
@@ -73,7 +32,7 @@
 		          <th>Telefono</th>
 		          <th>Direccion</th>
 		          <th>Ciudad</th>
-		          <th>Peersona de Contacto</th>
+		          <th>Persona de Contacto</th>
 		          <th>Correo</th>
 		          <th>Acciones</th>		          
 		        </tr>

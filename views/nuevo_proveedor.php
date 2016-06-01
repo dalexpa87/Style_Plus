@@ -11,18 +11,7 @@
   }*/
   
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<link href="http://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
-      <link type="text/css" rel="stylesheet" href="recursos\plugins\materialize\css\materialize.css"  media="screen,projection"/>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-     <link rel="stylesheet" type="text/css" href="recursos\css\estilos_iniciosesion.css">      
 
-	<title>Nuevo Proveedor</title>
-</head>
-<body class="grey lighten-1">      
   <div class="container col s12 l7 m9">
 
   <form class="col s12 center" action="../controller/proveedor.controller.php" method="POST">

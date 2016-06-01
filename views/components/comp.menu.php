@@ -4,16 +4,16 @@ if($_SESSION["id_rol"]==1){//Menu de Usuario Público
 ?>
 
 <ul>
-	<div id="historia">
+	<div class = "icono"  id="historia">
 		<div><li><i class="fa fa-check-square-o" style="font-size: 55px; text-align: center; color: white; margin-left: 30px;padding-bottom: 2px"></i></li></div>
 		<div><p>Historia</p></div>
 	</div>
 
-	<div id="citas">
+	<div class = "icono" id="citas">
 		<div><li><i class="fa fa-calendar-plus-o" style="font-size: 55px; text-align: center; color: white; margin-left: 30px;padding-bottom: 2px"></i></li></div>
 		<div><p>Inventario</p></div>
 	</div>
-	<div id="ofertas">
+	<div class = "icono" id="ofertas">
 		<div><li><i class="fa fa-tag" style="font-size: 55px; text-align: center; color: white; margin-left: 30px;padding-bottom: 2px"></i></li></div>
 		<div><p>Ofertas</p></div>
 	</div>
@@ -31,6 +31,10 @@ if($_SESSION["id_rol"]==1){//Menu de Usuario Público
 	<div class = "icono" id="inventario">
 		<div><li><i class="fa fa-check-square-o" style="font-size: 55px; text-align: center; color: white; margin-left: 30px;padding-bottom: 2px"></i></li></div>
 		<div><p>Inventario</p></div>
+		<ul id="desp_inv">
+			<li>Proveedores</li>
+			<li>Productos</li>
+		</ul>
 	</div>
 	<div class = "icono" id="informes">
 		<div><li><i class="fa fa-bar-chart" style="font-size: 55px; text-align: center; color: white; margin-left: 30px;padding-bottom: 2px"></i></li></div>
@@ -49,14 +53,24 @@ if($_SESSION["id_rol"]==1){//Menu de Usuario Público
 
 ?>
 
-<ul id="menu_elements">
+<ul  style="cursor: pointer;">
 	<div class= "icono" id="gest_con">
 		<div><li><i class="fa fa-usd" style="font-size: 40px; text-align: center; color: white; margin-left: 17px"></i></li></div>
 		<div><p>Gestion Contable</p></div>
 	</div>
-	<divclass= "icono"  id="inventario">
-		<div><li><i class="fa fa-check-square-o" style="font-size: 40px; text-align: center; color: white; margin-left: 17px"></i></li></div>
-		<div><p>Inventario</p></div>
+	<div class= "icono" id="inventario">
+
+
+		<div><li><i class="fa fa-check-square-o dropdown-button "  data-activates='dropdown1' style="font-size: 40px; text-align: center; color: white; margin-left: 17px; ">
+		<p>Inventario</p></i></li></div>
+		<div style="margin-left: 300px">
+		<ul id='dropdown1' class='dropdown-content text-white black' >
+		    <li><a href="dashboard.php?p=<?php echo base64_encode('gestion_proveedor')?>">Proveedor</a></li>
+		    <li><a href="dashboard.php?p=<?php echo base64_encode('nuevo_producto')?>">Producto</a></li>   
+  		</ul>
+  		</div>
+
+		
 	</div>
 	<div class= "icono" id="informes">
 		<div><li><i class="fa fa-bar-chart" style="font-size: 40px; text-align: center; color: white; margin-left: 17px"></i></li></div>
@@ -64,16 +78,16 @@ if($_SESSION["id_rol"]==1){//Menu de Usuario Público
 	</div>
 	<div class= "icono" id="citas">
 		<div><li><i class="fa fa-calendar-plus-o" style="font-size: 40px; text-align: center; color: white; margin-left: 17px"></i></li></div>
-		<div><p>Inventario</p></div>
+		<div><p>Citas</p></div>
 	</div>
 	<div class= "icono" id="ofertas">
 		<div><li><i class="fa fa-tag" style="font-size: 40px; text-align: center; color: white; margin-left: 17px"></i></li></div>
 		<div><p>Ofertas</p></div>
 	</div>
-	<div class="icono" style="margin-top: 50px">
+	<div class="icono" style="font-size: 40px; text-align: center; color: white; margin-left: 17px">
 	<a href="dashboard.php?p=<?php echo base64_encode('gestion_usuarios')?>" >
 		<li ><i class="fa fa-users " style="font-size: 40px; text-align: center; color: white; margin-left: 17px;"></i></li>
-		<p>Gestion Empleados</p>
+		<p>Gestion de Usuarios</p>
 	</a>
 	</div>
 </ul>
