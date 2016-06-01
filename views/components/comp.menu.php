@@ -66,7 +66,7 @@ if($_SESSION["id_rol"]==1){//Menu de Usuario Público
 		<div style="margin-left: 300px">
 		<ul id='dropdown1' class='dropdown-content text-white black' >
 		    <li><a href="dashboard.php?p=<?php echo base64_encode('gestion_proveedor')?>">Proveedor</a></li>
-		    <li><a href="dashboard.php?p=<?php echo base64_encode('nuevo_producto')?>">Producto</a></li>   
+		    <li><a href="dashboard.php?p=<?php echo base64_encode('gestion_producto')?>">Producto</a></li>   
   		</ul>
   		</div>
 

@@ -37,7 +37,7 @@ switch ($page) {
 	
 	case 'gestion_producto':
 		
-		require_once("nuevo_producto.php");
+		require_once("Gestion_productos.php");
 	break;
 	
 	case 'gestion_proveedor':

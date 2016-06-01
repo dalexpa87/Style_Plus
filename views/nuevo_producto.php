@@ -1,7 +1,7 @@
  <?php 
  // David por favor cuando   arregles el Diseño,para q lo traiga la dasboard por favor descomenta la linea  de autor para q funcione 
-   require_once("../model/db_conn.php");
-  require_once("../model/proveedores.class.php");
+  require_once("../model/db_conn.php");
+  require_once("../model/productos.class.php");
   /*
 
   if(!isset($_SESSION["id_usuario"])){
@@ -10,8 +10,7 @@
 
     header("Location: index.php?m=".$msn."&tm=".$tipo_msn);
   }*/
-  $proveedor= Gestion_proveedores::ReadAll();
-
+  
 ?>
 
  <div class="container s12 m10 l9">
