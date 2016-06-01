@@ -119,7 +119,7 @@
           </div>
 
           <div class="input-field col s12 m6 black-text">
-            <label class="black-text">Tipo de Empresa</label>
+            <label class="black-text">Tipo de Productos</label>
               <br>
               <select name="id_tipoproducto" required >
                 <option value="" disabled selected>Seleccione</option>

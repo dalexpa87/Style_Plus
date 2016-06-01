@@ -66,16 +66,16 @@ function Readbyid($id_empresa)
 		$conexion=style_plus_BD::Connect();
 		$conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 		//CAPTURAMOS LA  FECHA DEL SISTEMA
+		//CAPTURAMOS LA  FECHA DEL SISTEMA
 		$fecha_creacion=date("Y-m-d");
 		//crear  el  quiery  que vamos a realizar.
-		$consulta= "UPDATE empresa SET razon_social=?,nit=?,telefono=?,direccion=?,correo=?,descripcion=?,estado=?,fecha_creacion=?,$autor=?  WHERE id_empresa=?  ";
+		$consulta= "UPDATE empresa SET razon_social=?,nit=?, telefono=?, direccion=?, correo=?,descripcion=?,estado=?,fecha_creacion=?, autor=?  WHERE id_empresa=?  ";
 		$query=$conexion->prepare($consulta);
 		$query->execute(array($razon_social,$nit,$telefono,$direccion,$correo,$descripcion,$estado,$fecha_creacion,$autor,$id_empresa));
-		$resultado=$query->fetch(PDO::FETCH_BOTH);
-		return $resultado;
 
 		style_plus_BD::Disconnect();
 	}
+
 	function veref_exist($nit)
 	{
 		//instacioamos y nos conectamos a la  base de  datos
@@ -86,9 +86,7 @@ function Readbyid($id_empresa)
 		$consulta= "SELECT * FROM empresa WHERE nit=? ";
 		$query=$conexion->prepare($consulta);
 		$query->execute(array($nit));
-		// devolmemos el resultado en un arreglo
-		//Fetch:Es  el  resultado que arroja la   consultta   en forma   de vector   o matris  segun sea el caso
-		//para  consultas donde arroja mas de un dato    el  fetch  debe  ir  acompañado   con la  palabra ALL
+		
 		$resultado=$query->fetch(PDO::FETCH_BOTH);
 		return $resultado;
 

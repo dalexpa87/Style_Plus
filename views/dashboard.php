@@ -13,9 +13,9 @@
 	<link rel="stylesheet" href="recursos/plugins/font-awesome/css/font-awesome.css">
 	<link rel="stylesheet" href="recursos/css/estilos.css">
 	<link rel="stylesheet" type="text/css" href="recursos/css/jquery.dataTables.css">
-    <link rel="stylesheet" href="recursos/plugins/font-awesome/css/font-awesome.min.css">
-    <link type="text/css" rel="stylesheet" href="recursos/plugins/materialize/css/materialize.css">
-    <link rel="stylesheet" type="text/css" href="recursos/plugins/sweetalert/dist/sweetalert.css">
+  <link rel="stylesheet" href="recursos/plugins/font-awesome/css/font-awesome.min.css">
+  <link type="text/css" rel="stylesheet" href="recursos/plugins/materialize/css/materialize.css">
+  <link rel="stylesheet" type="text/css" href="recursos/plugins/sweetalert/dist/sweetalert.css">
 	<title>Style+</title>
 	
     

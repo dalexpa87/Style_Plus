@@ -45,7 +45,7 @@
 			 }
 
 			break;
-				case 'u':
+			case 'u':
 				# Actualizar
 				#iniciamos las variables   que se envian desde el  formulario  y las  que necesito  para  almacenar la tabla.
 			$razon_social   =$_POST["razon_social"]; 
@@ -62,18 +62,23 @@
 			$autor          =strtoupper($autor);
 			$id_empresa     =$_POST["id_empresa"];
 
+			
 			try {
-				Gestion_empresa::Update($razon_social,$nit,$telefono,$direccion,$correo,$descripcion,$estado,$autor,$id_empresa);
-				$m= base64_encode("se ha  actualizado correctamente :D");
-				$tm=base64_encode("succes");
+				Gestion_empresa::update($razon_social,$nit,$telefono,$direccion,$correo,$descripcion,$estado,$autor,$id_empresa);
+				$tm=base64_encode("ssucces");
+				$m= base64_encode("su registro se Actulizo correctamente :D");
+
+				
 				
 			} catch (Exception $e) {
 				$mensaje=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
 			}
-			header("location: ../views/dashboard.php?m=".$m."&tm=".$tm);
-					
+		    header("location: ../views/dashboard.php?m=".$m."&tm=".$tm);
+
 
 				break;
+
+			
 			case 'd':
 				# delete
 				#iniciamos las variables   que se envian desde el  formulario  y las  que necesito  para  almacenar la tabla.
@@ -81,7 +86,7 @@
 			$numero_documento      	=$_POST["numero_documento"];
 			
 			try {
-				Gestion_usuarios::update($tipo_documento,$numero_documento,$clave,$nombre,$apellido,$telefono,$direccion,$correo,$celular,$fecha_nacimiento,$sexo,$estado,$id_rol,$autor,$oldnumerodedocumento);
+				Gestion_usuarios::delete ($tipo_documento,$numero_documento,$clave,$nombre,$apellido,$telefono,$direccion,$correo,$celular,$fecha_nacimiento,$sexo,$estado,$id_rol,$autor,$oldnumerodedocumento);
 				$mensaje= "se elimino correctamente :D";
 				
 			} catch (Exception $e) {

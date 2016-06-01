@@ -1,5 +1,6 @@
 <?php
-  /*session_start();
+/*
+  session_start();
   
 
   if(!isset($_SESSION["id_usuario"])){
@@ -7,8 +8,8 @@
     $tipo_msn = base64_encode("advertencia");
 
     header("Location: index.php?m=".$msn."&tm=".$tipo_msn);
-  }
-  */
+  }*/
+  
 ?>
 <!DOCTYPE html>
 <html>

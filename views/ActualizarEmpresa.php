@@ -73,10 +73,8 @@
           <div class="input-field col s10 l5 m5 black-text" required/>
             <label>Correo</label>
             <br>
-            <input type="email" value="<?php echo $empresa[5] ?>" name="ciudad" class="validate" required / >
+            <input type="email" value="<?php echo $empresa[5] ?>" name="correo" class="validate" required / >
           </div>
-      </div>
-      <div class="row" >
           <div class="input-field col s10 l5 m5 black-text">
             <label class="black-text">Tipo de Empresa</label>
                   <br>
@@ -89,10 +87,13 @@
                     <option value="Centro Estetico"  <?php if($empresa[6] == "CENTRO ESTETICO"){ echo "selected"; } ?>>Centro Estético</option>
                     <option value="Tienda de Belleza" <?php if($empresa[6] == "TIENDA DE BELLEZA"){ echo "selected"; } ?>>Tienda de Belleza</option>
                   </select>
-          </div>         
+          </div> 
+      </div>
+      <div class="row" >
+                  
           
       
-          <input type="hidden" name="autor" value="<?php "admin" //echo ($_SESSION["nombre"])." ".($_SESSION["apellido"]); ?>"> 
+          <input type="hidden" name="autor" value="<?php //echo ($_SESSION["nombre"])." ".($_SESSION["apellido"]); ?>"> 
            <input type="hidden" name="estado" value="1"> 
            <input type="hidden" name="id_empresa" value="<?php echo $empresa[0] ?>">                
          <button  type="botton" name="acc" value="u" class="waves-effect black btn"> Guardar</button>
