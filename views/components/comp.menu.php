@@ -58,11 +58,26 @@ if($_SESSION["id_rol"]==1){//Menu de Usuario Público
 		<div><li><i class="fa fa-usd" style="font-size: 40px; text-align: center; color: white; margin-left: 17px"></i></li></div>
 		<div><p>Gestion Contable</p></div>
 	</div>-->
+
+	<div class="icon">
+		 <i class="fa fa-check-square-o dropdown-button "  data-activates='dropdown1'></i>
+		 <p>Inventario</p>
+	</div>
+
+	<div class="icon">
+		 <i class="fa fa-check-square-o dropdown-button "  data-activates='dropdown1'></i>
+		 <p>Inventario</p>
+	</div>
+
 	<div class= "icono" id="inventario">
 
 
-		<div><li><i class="fa fa-check-square-o dropdown-button "  data-activates='dropdown1' style="font-size: 40px; text-align: center; color: white; margin-left: 17px; ">
-		<p>Inventario</p></i></li></div>
+		<div>
+			<li>
+				<i class="fa fa-check-square-o dropdown-button "  data-activates='dropdown1' style="font-size: 40px; text-align: center; margin-left: 17px; ">
+					<p>Inventario</p></i>
+			</li>
+		</div>
 		<div style="margin-left: 300px">
 		<ul id='dropdown1' class='dropdown-content text-white black' >
 		    <li><a href="dashboard.php?p=<?php echo base64_encode('gestion_proveedor')?>">Proveedor</a></li>
@@ -77,8 +92,11 @@ if($_SESSION["id_rol"]==1){//Menu de Usuario Público
 		<div><p>Informes</p></div>
 	</div>-->
 	<div class= "icono" id="citas">
-		<div><li><i class="fa fa-calendar-plus-o" style="font-size: 40px; text-align: center; color: white; margin-left: 17px"></i></li></div>
-		<div><p>Citas</p></div>
+		<div>
+			<li>
+				<i class="fa fa-calendar-plus-o" style="font-size: 40px; text-align: center; color: white; margin-left: 17px"><p>Citas</p></i>
+			</li>
+		</div> 
 	</div>
 	<div class= "icono" id="ofertas">
 		<div><li><i class="fa fa-tag" style="font-size: 40px; text-align: center; color: white; margin-left: 17px"></i></li></div>

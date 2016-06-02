@@ -69,12 +69,37 @@ h4{
 	margin-top: 10%;
 	overflow: auto;
 }
-i,a,p:hover{
-	color: #19ffff;
+.icono li i, .icono li i p {
+	color: #fff !important;
+}
+
+.icono:hover .icono li i{
+	color: red !important;
+}
+
+
+#dropdown1 {
+    left: 112px !important;
 }
 
 
 
+.icon{
+	color: #fff;
+	text-align: center;
+	width: 90px;
+	margin-top: 30px;
+}
 
+.icon:hover{
+	color: red;
+}
+.icon i{
+	font-size: 40px;
+}
 
+.icon p{
+	margin-left: 0;
+	color: inherit;
+}
 
