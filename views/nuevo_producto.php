@@ -72,10 +72,9 @@
               <br>
               <select name="id_tipoproducto" required >
                 <option value="" disabled selected>Seleccione</option>
-                <option value="1" >Servicios</option>
-                <option value="2" >Insumos</option>
-                <option value="3" >Cosmeticos</option>
-                <option value="4" >Quimicos</option>
+                <option value="1" >Insumos</option>
+                <option value="2" >Cosmeticos</option>
+                <option value="3" >Quimicos</option>
               </select>          
           </div>
         </div>
@@ -87,7 +86,6 @@
               <br>
               <select name="id_proveedor" required >
                 <option value="" disabled selected>Seleccione</option>
-                <option value="" >No tiene Proveedor es un servicio</option>
                 <?php  
                 foreach ($proveedor as $row) {
         echo '<option value="'.$row["id_proveedor"].'">'.$row["razon_social"].'</option>';} ?>          
@@ -96,8 +94,8 @@
         </div>
 
         <input type="hidden" name="estado" value="1">
-        <input type="hidden" name="id_empresa" value="<?php echo"1"//echo ($_SESSION["id_empresa"])?>">
-        <input type="hidden" name="autor" value="<?php echo"admin" // echo ($_SESSION["nombre"])." ".($_SESSION["apellido"]); ?>">
+        <input type="hidden" name="id_empresa" value="<?php echo $_SESSION["id_empresa"]?>">
+        <input type="hidden" name="autor" value="<?php echo $_SESSION["nombre"]." ".$_SESSION["apellido"]; ?>">
           <div class="col s12 center">
             <button  name="acc" value="c" class="waves-effect black btn">Enviar</button>
             <button class="waves-effect black btn"><a href="index.php">Cancelar</a></button>

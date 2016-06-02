@@ -1,21 +1,10 @@
-<?php /*
-  
-  session_start();
-  require_once("../model/db_conn.php");*/
+<?php 
   require_once("../model/db_conn.php");
   require_once("../model/productos.class.php");
   
   require_once("../model/proveedores.class.php");
 
-/*
-  if(!isset($_SESSION["id_usuario"])){
-    $m= base64_encode("Debe iniciar sesion primero!");
-    $tm = base64_encode("error");
 
-
-    header("Location: index.php?m=".$m."&tm=".$tm);
-  }
-  */
 ?>
 
 
@@ -46,30 +35,27 @@
 
 		      <?php
 		      $id_empresa= $_SESSION["id_empresa"];
-		      $producto=Gestion_Productos::Readbyempresa($id_empresa);
-		      
+		      $prod=Gestion_Productos::Readbyempresa($id_empresa);
+		     
 
-		      foreach ($producto as $row) {
+		      foreach ($prod as $row) {
 
 		      	if($row["id_tipoproducto"]==1){
-		          $tipopro = "Servicios";		          
+		          $tipopro = "Insumos";		          
 		        }elseif($row["id_tipoproducto"]==2){
-		        	$tipopro="Insumos";
+		        	$tipopro="Cosmeticos";
 		        }elseif($row["id_tipoproducto"]==3){
-		            $tipopro="Cosmeticos";
-		        }elseif($row["id_tipoproducto"]==4){
 		            $tipopro="Quimicos";
+		        
 		        }
-		        if($row["id_proveedor"]== 0 or $row["id_proveedor"]==" " ){ 
-		        $proveedor="No Aplica";
-		        }elseif($row["id_proveedor"] != 0 or $row["id_proveedor"]!=" " ){
+		       
 		        	$id_proveedor=$row['id_proveedor'];
 		        	$consu=Gestion_Proveedores::ReadbyId($id_proveedor);
-		        	$proveedor=$consu['razon_social'];}
+		        	$proveedor=$consu["razon_social"];
 
 
 		        
-		        echo "<tr>
+		       echo "<tr>
 		                <td>".$row["id_producto"]."</td>
 		                <td>".$row["referencia"]."</td>
 		                <td>".$row["nombre"]."</td>

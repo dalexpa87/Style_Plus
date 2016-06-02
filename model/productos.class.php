@@ -46,7 +46,7 @@ class Gestion_Productos{
         $query=$conexion->prepare($consulta);
         $query->execute(array($id_empresa));
         
-        $resultado=$query->fetch(PDO::FETCH_BOTH);
+        $resultado=$query->fetchALL(PDO::FETCH_BOTH);
         return $resultado;
 
         style_plus_BD::Disconnect();
