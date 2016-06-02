@@ -44,6 +44,11 @@ switch ($page) {
 		
 		require_once("Gestion_proveedores.php");
 	break;
+
+	case 'nuevo_producto':
+		
+		require_once("nuevo_producto.php");
+	break;
 	
 	default:
 

@@ -54,10 +54,10 @@ if($_SESSION["id_rol"]==1){//Menu de Usuario Público
 ?>
 
 <ul  style="cursor: pointer;">
-	<div class= "icono" id="gest_con">
+	<!--<div class= "icono" id="gest_con">
 		<div><li><i class="fa fa-usd" style="font-size: 40px; text-align: center; color: white; margin-left: 17px"></i></li></div>
 		<div><p>Gestion Contable</p></div>
-	</div>
+	</div>-->
 	<div class= "icono" id="inventario">
 
 
@@ -72,10 +72,10 @@ if($_SESSION["id_rol"]==1){//Menu de Usuario Público
 
 		
 	</div>
-	<div class= "icono" id="informes">
+	<!--<div class= "icono" id="informes">
 		<div><li><i class="fa fa-bar-chart" style="font-size: 40px; text-align: center; color: white; margin-left: 17px"></i></li></div>
 		<div><p>Informes</p></div>
-	</div>
+	</div>-->
 	<div class= "icono" id="citas">
 		<div><li><i class="fa fa-calendar-plus-o" style="font-size: 40px; text-align: center; color: white; margin-left: 17px"></i></li></div>
 		<div><p>Citas</p></div>
@@ -87,7 +87,36 @@ if($_SESSION["id_rol"]==1){//Menu de Usuario Público
 	<div class="icono" style="font-size: 40px; text-align: center; color: white; margin-left: 17px">
 	<a href="dashboard.php?p=<?php echo base64_encode('gestion_usuarios')?>" >
 		<li ><i class="fa fa-users " style="font-size: 40px; text-align: center; color: white; margin-left: 17px;"></i></li>
-		<p>Gestion de Usuarios</p>
+		<p>Gestion Empleados
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</p>
 	</a>
 	</div>
 </ul>

@@ -69,7 +69,7 @@ h4{
 	margin-top: 10%;
 	overflow: auto;
 }
-p:hover{
+i,a,p:hover{
 	color: #19ffff;
 }
 

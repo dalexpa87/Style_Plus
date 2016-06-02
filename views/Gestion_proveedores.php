@@ -17,7 +17,7 @@
 
 
     <div class="container l5 m10 s12 " id="tabla">
-		    <h1>GESTIONAR PROVEEDORES</h1>
+		    <h4>GESTIONAR PROVEEDORES</h4>
 
 		    <a href="nuevoproveedor.php" class="white"><h4><i class="fa fa-building-o" aria-hidden="true"> Nuevo Proveedor</i></h4></a>
 		

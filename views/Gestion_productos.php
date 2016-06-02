@@ -19,10 +19,10 @@
 ?>
 
 
-    <div class="container l5 m10 s12 ">
-		    <h1>GESTIONAR PRODUCTOS</h1>
+    <div class="container l5 m10 s12 " id="tabla">
+		    <h4>GESTIONAR PRODUCTOS</h4>
 
-		    <a href="nuevo_producto.php" class="white"><h4><i class="fa fa-building-o" aria-hidden="true"> Nuevo Producto</i></h4></a>
+		    <a href='dashboard.php?p=<?php echo base64_encode('nuevo_producto')?>' class="white"><h4><i class="fa fa-shopping-basket" aria-hidden="true"> Nuevo Producto</i></h4></a>
 		
 
 
