@@ -60,8 +60,11 @@ if($_SESSION["id_rol"]==1){//Menu de Usuario Público
 	</div>-->
 
 	<div class="icon">
-		 <i class="fa fa-check-square-o dropdown-button "  data-activates='dropdown1'></i>
-		 <p>Inventario</p>
+	
+		 <i class="fa fa-check-square-o dropdown-button "></i>
+		
+		 <p><a href="dashboard.php?p=<?php echo base64_encode('gestion_usuarios')?>">Gestion Usuarios</a></p>
+		 
 	</div>
 
 	<div class="icon">

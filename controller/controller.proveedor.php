@@ -6,8 +6,10 @@
 		//3. instanciamos las variables globales y una llamada  $accion
 		// la variable accion nos va  a indicar  que parte cel crud vamos a crear.
 		$accion=$_REQUEST["acc"];
+
 		switch ($accion) {
 			case 'c':
+
 				# crear
 				#iniciamos las variables   que se envian desde el  formulario  y las  que necesito  para  almacenar la tabla.
 
@@ -28,27 +30,31 @@
 		    $banco           =strtoupper($banco);
 			$autor			 =$_POST["autor"];
 			$autor           =strtoupper($autor);
-			echo $autor;
-			$existente=Gestion_proveedores::veref_exist($nit);
+			
+			try {
+
+			$existente=Gestion_proveedores::Readbynit($nit);
+			
 
 				
-			if($existente[2]==$nit){
+			if($existente["nit"]==$nit){
 				$tm= base64_encode("warning");
 				$m=  base64_encode("El nit del proveedor ya se encuentra en uso");
                 header("location: ../views/dashboard.php?m=".$m."&tm=".$tm);
 
 			 }else{
 			 	
-				try {
+				
 				Gestion_proveedores::Create($razon_social,$nit,$telefono,$direccion,$ciudad,$nombre_contacto,$correo,$numero_cuenta,$estado,$banco,$autor);
 				$tm=base64_encode("ssucces");
-				$m= base64_encode("su registro se creo correctamente :D");	
+				$m= base64_encode("su registro se creo correctamente :D");
+				}	
 						
 			     } catch (Exception $e) {
 				 $mensaje=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
 			         }
-			    header("location: ../views/nuevo_proveedor.php?m=".$m."&tm=".$tm);
-			 }
+			    header("location: ../views/dashboard.php?m=".$m."&tm=".$tm);
+			 
 
 
 
@@ -113,5 +119,3 @@
 			
 		}
 ?>
-
-

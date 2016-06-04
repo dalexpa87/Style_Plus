@@ -1,20 +1,7 @@
-<?php
-/*
-  session_start();
-  
-
-  if(!isset($_SESSION["id_usuario"])){
-    $msn = base64_encode("Debe iniciar sesion primero!");
-    $tipo_msn = base64_encode("advertencia");
-
-    header("Location: index.php?m=".$msn."&tm=".$tipo_msn);
-  }*/
-  
-?>
 
   <div class="container col s12 l7 m9" id="form">
 
-  <form class="col s12 center" action="../controller/proveedor.controller.php" method="POST">
+  <form class="col s12 center" action="../controller/controller.proveedor.php" method="POST">
         <h1 class="center">Nuevo Proveedor</h1>
 
         
@@ -40,7 +27,7 @@
           <div class="input-field col s10 l5 m5 black-text">
             <label>Dirección</label>
             <br>
-            <input type="text" name="direccion" class="validate"required/  >
+            <input type="text" name="direccion" class="validate" required/>
           </div>          
       </div>
       <div class="row" >       
@@ -66,20 +53,21 @@
       </div>
       <div class="row" >
       <div class="input-field col s10 l5 m5 black-text ">
-            <label class="white-text">Banco</label>
+            <label >Banco</label>
             <br>           
             <input type="text" name="banco"  class="validate" required onkeypress="return validar(event)"/>            
-          </div> 
+          
+      </div> 
           <div class="input-field col s10 l5 m5 black-text">
             <label>Número de cuenta del Proveedor</label>
-            <br></br>            
+            <br>           
             <input type="number" name="numero_cuenta"  class="validate" required/ >
           </div> 
           
           </div>
           
       
-          <input type="hidden" name="autor" value="Administrador"> 
+          <input type="hidden" name="autor" value="<?php echo $_SESSION["nombre"]." ".$_SESSION["apellido"]; ?>" > 
            <input type="hidden" name="estado" value="1">                
          <button  type="botton" name="acc" value="c" class="waves-effect black btn"> Enviar</button>
          <button type="button" class="waves-effect black btn"><a href="Gestion_proveedores.php">cancelar</a></button>
@@ -108,6 +96,3 @@
          
   </script>
 
-</body>
-
-</html>

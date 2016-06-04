@@ -69,13 +69,7 @@ h4{
 	margin-top: 10%;
 	overflow: auto;
 }
-.icono li i, .icono li i p {
-	color: #fff !important;
-}
 
-.icono:hover .icono li i{
-	color: red !important;
-}
 
 
 #dropdown1 {
@@ -91,15 +85,20 @@ h4{
 	margin-top: 30px;
 }
 
-.icon:hover{
+.icon, ul>.icon> p>a:hover{
+	color: red;
+	text-decoration-color: red;
+}
+ul>.icon> p>a:hover{
 	color: red;
 }
 .icon i{
 	font-size: 40px;
 }
 
-.icon p{
+.icon p>a{
 	margin-left: 0;
 	color: inherit;
 }
+
 

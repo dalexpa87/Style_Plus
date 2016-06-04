@@ -16,30 +16,29 @@ class Gestion_Proveedores {
 		
 		
 		//crear  el  quiery  que vamos a realizar.
-		$consulta= "INSERT INTO proveedor (razon_social,nit,telefono,direccion,ciudad,nombre_contacto,correo,numero_cuenta,banco,fecha_creacion,autor) values(?,?,?,?,?,?,?,?,?,?,?)";
+		$consulta= "INSERT INTO proveedor (razon_social,nit,telefono,direccion,ciudad,nombre_contacto,correo,numero_cuenta,estado,banco,fecha_creacion,autor) values(?,?,?,?,?,?,?,?,?,?,?,?)";
 		$query=$conexion->prepare($consulta);
 		$query->execute(array($razon_social,$nit,$telefono,$direccion,$ciudad,$nombre_contacto,$correo,$numero_cuenta,$estado,$banco,$fecha_creacion,$autor));
 
 		style_plus_BD::Disconnect();
 	}
-	function veref_exist($nit)
-	{
-		//instacioamos y nos conectamos a la  base de  datos
-		$conexion=style_plus_BD::Connect();
-		$conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-		
-		//crear  el  query  que vamos a realizar.
-		$consulta= "SELECT * FROM proveedor WHERE nit=? ";
-		$query=$conexion->prepare($consulta);
-		$query->execute(array($nit));
-		// devolmemos el resultado en un arreglo
-		//Fetch:Es  el  resultado que arroja la   consultta   en forma   de vector   o matris  segun sea el caso
-		//para  consultas donde arroja mas de un dato    el  fetch  debe  ir  acompañado   con la  palabra ALL
-		$resultado=$query->fetch(PDO::FETCH_BOTH);
-		return $resultado;
+	/*function veref_exist($nit)
+    {
+        //instacioamos y nos conectamos a la  base de  datos
+        $conexion=style_plus_BD::Connect();
+        $conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        
+        //crear  el  query  que vamos a realizar.
+        $consulta= "SELECT * FROM proveedor WHERE nit=? ";
+        $query=$conexion->prepare($consulta);
+        $query->execute(array($nit));
+        
+        $resultado=$query->fetch(PDO::FETCH_BOTH);
+        return $resultado;
 
-		style_plus_BD::Disconnect();
-	}
+        style_plus_BD::Disconnect();
+    }*/
+	
 	//Metodo  consultar  todos
 	function ReadAll()
 	{
@@ -62,13 +61,13 @@ class Gestion_Proveedores {
     function Readbynit($nit)
 	{
 		//instacioamos y nos conectamos a la  base de  datos
-		$conexion=style_plus_BD::conect();
+		$conexion=style_plus_BD::Connect();
 		$conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 		
 		//crear  el  query  que vamos a realizar.
 		$consulta= "SELECT * FROM proveedor WHERE nit=?";
 		$query=$conexion->prepare($consulta);
-		$query=execute(array($nit));
+		$query->execute(array($nit));
 		// devolmemos el resultado en un arreglo
 		//Fetch:Es  el  resultado que arroja la   consultta   en forma   de vector   o matris  segun sea el caso
 		//para  consultas donde arroja mas de un dato    el  fetch  debe  ir  acompañado   con la  palabra ALL

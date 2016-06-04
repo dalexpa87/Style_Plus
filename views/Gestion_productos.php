@@ -18,8 +18,7 @@
 		    <table id="datatable" class="display">
 		      <thead>
 		        <tr>
-		          <th>id</th>
-		          <th>Referencia</th>
+		           <th>Referencia</th>
 		          <th>Nombre</th>
 		          <th>Valor Compra</th>
 		          <th>Valor Venta</th>
@@ -51,12 +50,11 @@
 		       
 		        	$id_proveedor=$row['id_proveedor'];
 		        	$consu=Gestion_Proveedores::ReadbyId($id_proveedor);
-		        	$proveedor=$consu["razon_social"];
+		        	$proveedor=$consu['razon_social'];
 
 
 		        
 		       echo "<tr>
-		                <td>".$row["id_producto"]."</td>
 		                <td>".$row["referencia"]."</td>
 		                <td>".$row["nombre"]."</td>
 		                <td>".$row["valor_compra"]."</td>
@@ -67,7 +65,7 @@
 		                <td>".$proveedor."</td>
 		                <td>
 
-		                  <a href='ActualizarProducto.php?ui=".base64_encode($row["id_producto"])."'><i class='fa fa-pencil'></i></a>
+		                  <a href='ActualizarProducto.php?ui=".base64_encode($row["id_productos"])."'><i class='fa fa-pencil'></i></a>
 		                  
 
 
