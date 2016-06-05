@@ -15,12 +15,12 @@
         <div class="row" >
           <div class="col s12">
                 <div class="input-field col s12 m6 black-text" >
-                <label class="black-text">Referencia</label>
+                <label class="black-text">Referencia Producto</label>
                 <br>
                 <input type="text" name="referencia" class="validate" required />
               </div>
                 <div class="input-field col s12 m6 black-text ">
-                  <label class="black-text">Nombre Producto o Servicio</label>
+                  <label class="black-text">Nombre Producto</label>
                   <br>
                   <input type="text" name="nombre" class="validate" required onkeypress="return validar(event)"  />
               </div>

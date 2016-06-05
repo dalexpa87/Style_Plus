@@ -1,24 +1,24 @@
 <?php
-class Gestion_Productos{
+class Gestion_Servicios{
 
-   function veref_exist($referencia,$id_empresa)
+   function veref_exist($codigo,$id_empresa)
     {
         //instacioamos y nos conectamos a la  base de  datos
         $conexion=style_plus_BD::Connect();
         $conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         
         //crear  el  query  que vamos a realizar.
-        $consulta= "SELECT * FROM productos WHERE referencia=? AND id_empresa=? ";
+        $consulta= "SELECT * FROM servicios WHERE codigo=? AND id_empresa=? ";
         $query=$conexion->prepare($consulta);
-        $query->execute(array($referencia,$id_empresa));
+        $query->execute(array($codigo,$id_empresa));
         
-        $resultado=$query->fetch(PDO::FETCH_BOTH);
+        $resultado=$query->fetchALL(PDO::FETCH_BOTH);
         return $resultado;
 
         style_plus_BD::Disconnect();
     }
 
-	function create($referencia,$nombre,$valor_compra,$valor_venta,$iva,$descuento,$estado,$cant_existente,$id_tipoproducto,$id_proveedor,$id_empresa,$autor){
+	function create($codigo,$nombre,$descripcion,$duracion,$valor_venta,$iva,$descuento,$id_empresa,$autor){
 	 $conexion=style_plus_BD::Connect();
      $conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         //CAPTURAMOS LA  FECHA DEL SISTEMA
@@ -26,9 +26,9 @@ class Gestion_Productos{
         
         
         //crear  el  quiery  que vamos a realizar.
-        $consulta= "INSERT INTO productos (referencia,nombre,valor_compra,valor_venta,iva,descuento,estado,cant_existente,id_tipoproducto,id_proveedor,id_empresa,fecha_creacion,autor) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        $consulta= "INSERT INTO servicios (codigo,nombre,descripcion,duracion,valor_venta,iva,descuento,id_empresa,fecha_creacion,autor) values(?,?,?,?,?,?,?,?,?,?)";
         $query=$conexion->prepare($consulta);
-        $query->execute(array($referencia,$nombre,$valor_compra,$valor_venta,$iva,$descuento,$estado,$cant_existente,$id_tipoproducto,$id_proveedor,$id_empresa,$fecha_creacion,$autor));
+        $query->execute(array($codigo,$nombre,$descripcion,$duracion,$valor_venta,$iva,$descuento,$id_empresa,$fecha_creacion,$autor));
 
         style_plus_BD::Disconnect();
     }
@@ -42,7 +42,7 @@ class Gestion_Productos{
         $conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         
         //crear  el  query  que vamos a realizar.
-        $consulta= "SELECT * FROM productos WHERE id_empresa=? ";
+        $consulta= "SELECT * FROM servicios WHERE id_empresa=? ";
         $query=$conexion->prepare($consulta);
         $query->execute(array($id_empresa));
         
@@ -51,16 +51,16 @@ class Gestion_Productos{
 
         style_plus_BD::Disconnect();
     }
-    function Readbyid($id_productos)
+    function Readbyid($id_servicio)
     {
         //instacioamos y nos conectamos a la  base de  datos
         $conexion=style_plus_BD::Connect();
         $conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         
         //crear  el  query  que vamos a realizar.
-        $consulta= "SELECT * FROM productos WHERE id_productos=? ";
+        $consulta= "SELECT * FROM servicios WHERE id_servicio=? ";
         $query=$conexion->prepare($consulta);
-        $query->execute(array($id_productos));
+        $query->execute(array($id_servicio));
         
         $resultado=$query->fetch(PDO::FETCH_BOTH);
         return $resultado;
@@ -70,25 +70,25 @@ class Gestion_Productos{
 
 
 
- 	function ReadReference($referencia){
+ 	function Readbycodigo($codigo){
  		$conexion=style_plus_BD::Connect();
         $conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
- 		$consulta= "DELETE FROM contactos WHERE id=?";
+ 		$consulta= "DELETE FROM  WHERE id=?";
 
  		$query =$conexion-> prepare($consulta);
         $query->$execute(array($id));
     }
 
 
-    function Update($referencia,$nombre,$valor_compra,$valor_venta,$iva,$descuento,$estado,$cant_existente,$id_tipoproducto,$id_proveedor,$id_empresa,$autor,$id_productos){
+    function Update($codigo,$nombre,$descripcion,$duracion,$valor_venta,$iva,$descuento,$id_empresa,$autor,$id_servicio){
     	$conexion=style_plus_BD::Connect();
         $conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         $fecha_creacion=date("Y-m-d");
 
-        $consulta= "UPDATE productos SET referencia=?,nombre=?,valor_compra=?,valor_venta=?, iva=?, descuento=?,estado=?,cant_existente=?,id_tipoproducto=?,id_proveedor=?,id_empresa=?, fecha_creacion=?,autor=? WHERE id_productos=?";
+        $consulta= "UPDATE servicios SET codigo=?,nombre=?,descripcion=?, duracion=?,valor_venta=?, iva=?, descuento=?,id_empresa=?, fecha_creacion=?,autor=? WHERE id_servicio=?";
         $query=$conexion->prepare($consulta);
-        $query->execute(array($referencia,$nombre,$valor_compra,$valor_venta,$iva,$descuento,$estado,$cant_existente,$id_tipoproducto,$id_proveedor,$id_empresa,$fecha_creacion,$autor,$id_productos));
+        $query->execute(array($codigo,$nombre,$descripcion,$duracion,$valor_venta,$iva,$descuento,$id_empresa,$fecha_creacion,$autor,$id_servicio));
 
         style_plus_BD::Disconnect();
     }

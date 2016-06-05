@@ -60,6 +60,7 @@
 		                <td>".$row["valor_compra"]."</td>
 		                <td>".$row["valor_venta"]."</td>
 		                <td>".$row["iva"]."</td>
+		                <td>".$row["descuento"]."</td>
 		                <td>".$row["cant_existente"]."</td>
 		                <td>".$tipopro."</td>
 		                <td>".$proveedor."</td>
