@@ -57,5 +57,13 @@ switch ($page) {
 	
 	default:
 
+	case 'registro_usuario':
+		echo "<div id = 'form'>";
+		require_once("registrate.php");
+		echo "</div>";
+	break;
+	
+	default:
+
 }
 ?>

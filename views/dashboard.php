@@ -37,6 +37,7 @@
     })
           $('.modal-trigger').leanModal();
       $('select').material_select();
+      $('.tooltipped').tooltip({delay: 50});
 
       <?php
 

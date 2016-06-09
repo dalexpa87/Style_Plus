@@ -139,6 +139,17 @@
                     <option value="2">Empleado</option>                    
                   </select>
       </div>
+      
+      <?php
+      }elseif ($_SESSION["id_rol"]==1) {              
+      ?>
+      <div class="input-field col s12 m6" name>
+      <label class="black-text center" >Rol usuario</label>
+      <br>
+                  <select name="id_rol" required>
+                    <option value="1" selected>Usuario Publico</option>  
+                  </select>
+      </div>
       <?php 
        }
       ?>

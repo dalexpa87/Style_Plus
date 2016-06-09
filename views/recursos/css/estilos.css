@@ -5,7 +5,6 @@
 p{
 	
 	margin-left: 10px;
-	
 	font-family: "Roboto",Arial;
 	font-size: 14px;
 	color: white;
@@ -43,14 +42,7 @@ h4{
 	width: 100%;
 	
 }
-.icono{
-	padding: 4px;
-	margin-top: 10px;
-	margin-left: 5px;
-	margin-bottom: 10px;
-	text-align: center;
-	cursor: pointer;
-}
+
 #ajustes{
 	color: white; 
 	font-family: Arial; 
@@ -70,13 +62,9 @@ h4{
 	overflow: auto;
 }
 
-
-
 #dropdown1 {
     left: 112px !important;
 }
-
-
 
 .icon{
 	color: #fff;
@@ -85,20 +73,21 @@ h4{
 	margin-top: 30px;
 }
 
-.icon, ul>.icon> p>a:hover{
-	color: red;
-	text-decoration-color: red;
+.icon:hover{
+	color: #19ffff;
+	
 }
-ul>.icon> p>a:hover{
-	color: red;
+ul>.icon> a:hover{
+	color: red !important;
 }
 .icon i{
 	font-size: 40px;
-}
-
-.icon p>a{
-	margin-left: 0;
 	color: inherit;
 }
+ul .icon a {
+	color: inherit;
+}
+
+
 
 

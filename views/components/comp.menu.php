@@ -24,27 +24,50 @@ if($_SESSION["id_rol"]==1){//Menu de Usuario Público
 }elseif($_SESSION["id_rol"]==2){//Menú Empleado
 ?>
 <ul >
-	<div class = "icono" id="gest_con">
-		<div><li><i class="fa fa-usd" style="font-size: 55px; text-align: center; color: white; margin-left: 32px; padding-top: 2px"></i></li><p>Gestion Contable</p></div>
-		
-	</div>
-	<div class = "icono" id="inventario">
-		<div><li><i class="fa fa-check-square-o" style="font-size: 55px; text-align: center; color: white; margin-left: 30px;padding-bottom: 2px"></i></li></div>
-		<div><p>Inventario</p></div>
-		<ul id="desp_inv">
-			<li>Proveedores</li>
-			<li>Productos</li>
-		</ul>
-	</div>
-	<div class = "icono" id="informes">
-		<div><li><i class="fa fa-bar-chart" style="font-size: 55px; text-align: center; color: white; margin-left: 30px;padding-bottom: 2px"></i></li></div>
-		<div><p>Informes</p></div>
+	
+	<div class= "icon">
+		<div>
+			<li>
+				<i class="fa fa-calendar-plus-o tooltipped data-delay="50" data-tooltip="Citas" data-position="right"">
+					
+				</i>
+			</li>
+		</div> 
 	</div>
 
-	<div class = "icono" id="citas">
-		<div><li><i class="fa fa-calendar-plus-o" style="font-size: 55px; text-align: center; color: white; margin-left: 30px;padding-bottom: 2px"></i></li></div>
-		<div><p>Inventario</p></div>
-	</div>	
+
+	<div class= "icon">
+		<div>
+			<li>
+				<i class="fa fa-check-square-o dropdown-button tooltipped data-delay="50" data-tooltip="Inventario" data-position="right""  data-activates='dropdown1' ></i>
+			</li>
+		</div>
+		<div >
+		<ul id='dropdown1' class='dropdown-content text-white black' >
+		    <li><a href="dashboard.php?p=<?php echo base64_encode('gestion_proveedor')?>">Proveedor</a></li>
+		    <li><a href="dashboard.php?p=<?php echo base64_encode('gestion_producto')?>">Producto</a></li>   
+  		</ul>
+  		</div>
+
+		
+	</div>
+
+	<div class= "icon">
+		<div>
+			<li>
+				<i class="fa fa-tag tooltipped data-delay="50" data-tooltip="Ofertas" data-position="right"" ></i>
+			</li>
+		</div>
+		
+	</div>
+
+	<div class="icon" >
+		<div>
+		<a href="dashboard.php?p=<?php echo base64_encode('registro_usuario')?>">
+			<i class="fa fa-user-plus" tooltipped data-delay="50" data-tooltip="Registrar Usuario" data-position="right""></i>
+		</a>
+		</div>
+	</div>
 </ul>
 
 
@@ -58,30 +81,13 @@ if($_SESSION["id_rol"]==1){//Menu de Usuario Público
 		<div><li><i class="fa fa-usd" style="font-size: 40px; text-align: center; color: white; margin-left: 17px"></i></li></div>
 		<div><p>Gestion Contable</p></div>
 	</div>-->
-
-	<div class="icon">
-	
-		 <i class="fa fa-check-square-o dropdown-button "></i>
-		
-		 <p><a href="dashboard.php?p=<?php echo base64_encode('gestion_usuarios')?>">Gestion Usuarios</a></p>
-		 
-	</div>
-
-	<div class="icon">
-		 <i class="fa fa-check-square-o dropdown-button "  data-activates='dropdown1'></i>
-		 <p>Inventario</p>
-	</div>
-
-	<div class= "icono" id="inventario">
-
-
+	<div class= "icon">
 		<div>
 			<li>
-				<i class="fa fa-check-square-o dropdown-button "  data-activates='dropdown1' style="font-size: 40px; text-align: center; margin-left: 17px; ">
-					<p>Inventario</p></i>
+				<i class="fa fa-check-square-o dropdown-button tooltipped data-delay="50" data-tooltip="Inventario" data-position="right""  data-activates='dropdown1' ></i>
 			</li>
 		</div>
-		<div style="margin-left: 300px">
+		<div >
 		<ul id='dropdown1' class='dropdown-content text-white black' >
 		    <li><a href="dashboard.php?p=<?php echo base64_encode('gestion_proveedor')?>">Proveedor</a></li>
 		    <li><a href="dashboard.php?p=<?php echo base64_encode('gestion_producto')?>">Producto</a></li>   
@@ -90,55 +96,31 @@ if($_SESSION["id_rol"]==1){//Menu de Usuario Público
 
 		
 	</div>
-	<!--<div class= "icono" id="informes">
-		<div><li><i class="fa fa-bar-chart" style="font-size: 40px; text-align: center; color: white; margin-left: 17px"></i></li></div>
-		<div><p>Informes</p></div>
-	</div>-->
-	<div class= "icono" id="citas">
+	<div class= "icon">
 		<div>
 			<li>
-				<i class="fa fa-calendar-plus-o" style="font-size: 40px; text-align: center; color: white; margin-left: 17px"><p>Citas</p></i>
+				<i class="fa fa-calendar-plus-o tooltipped data-delay="50" data-tooltip="Citas" data-position="right"">
+					
+				</i>
 			</li>
 		</div> 
 	</div>
-	<div class= "icono" id="ofertas">
-		<div><li><i class="fa fa-tag" style="font-size: 40px; text-align: center; color: white; margin-left: 17px"></i></li></div>
-		<div><p>Ofertas</p></div>
+
+	<div class= "icon">
+		<div>
+			<li>
+				<i class="fa fa-tag tooltipped data-delay="50" data-tooltip="Ofertas" data-position="right"" ></i>
+			</li>
+		</div>
+		
 	</div>
-	<div class="icono" style="font-size: 40px; text-align: center; color: white; margin-left: 17px">
-	<a href="dashboard.php?p=<?php echo base64_encode('gestion_usuarios')?>" >
-		<li ><i class="fa fa-users " style="font-size: 40px; text-align: center; color: white; margin-left: 17px;"></i></li>
-		<p>Gestion Empleados
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		</p>
-	</a>
+	<div class="icon" >
+		<div>
+		<a href="dashboard.php?p=<?php echo base64_encode('gestion_usuarios')?>">
+			<i class="fa fa-users tooltipped data-delay="50" data-tooltip="Gestion Empleados" data-position="right""></i>
+		</a>
+		</div>
 	</div>
 </ul>
 
