@@ -59,7 +59,7 @@
     </script>
     
 </head> 
-<body>
+<body background="recursos/img/fondo3.jpg " style="width=100% ; height=100%" >
 <div class="container-fluid">
 	<div class="row">
 		<div class="col l12 black" id="menu_up">
