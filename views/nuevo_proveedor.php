@@ -12,7 +12,7 @@
   
 ?>
 
-  <div class="container col s12 l7 m9">
+  <div class="container col s12 l7 m9" id="form">
 
   <form class="col s12 center" action="../controller/proveedor.controller.php" method="POST">
         <h1 class="center">Nuevo Proveedor</h1>
