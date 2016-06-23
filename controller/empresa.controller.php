@@ -65,15 +65,15 @@
 			
 			try {
 				Gestion_empresa::update($razon_social,$nit,$telefono,$direccion,$correo,$descripcion,$estado,$autor,$id_empresa);
-				$tm=base64_encode("ssucces");
-				$m= base64_encode("su registro se Actulizo correctamente :D");
+				$tm=base64_encode("success");
+				$m= base64_encode("Su registro se Actulizo correctamente :D");
 
 				
 				
 			} catch (Exception $e) {
 				$mensaje=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
 			}
-		    header("location: ../views/dashboard.php?m=".$m."&tm=".$tm);
+		    header("location: ../views/dashboard.php?p=". base64_encode("gestion_empresa")."&m=".$m."&tm=".$tm);
 
 
 				break;

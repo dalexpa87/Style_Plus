@@ -16,7 +16,7 @@
 		    <h4>GESTIONAR EMPRESAS</h4>
 		    
 		    	
-		    <a class="waves-effect black btn modal-trigger" href="#modal-nueva_empresa"> <i class="fa fa-user-plus" style="margin-left: 2px"></i> Nueva Empresa</a>
+		    <a class="waves-effect black btn" href='dashboard.php?p=<?php echo base64_encode('nueva_empresa')?>'> <i class="fa fa-industry" style="margin-left: 2px"></i> Nueva Empresa</a>
 
 		    <table id="datatable" class="display">
 		      <thead>
@@ -46,8 +46,10 @@
 		                <td>".$row["correo"]."</td>
 		                <td>".$row["descripcion"]."</td>
 		                <td>
-		                  <a href='ActualizarEmpresa.php?ui=".base64_encode($row["id_empresa"])."'><i class='fa fa-pencil'></i></a>
-		                  <a href='../controller/empresa.controller.php?ui=".base64_encode($row["id_empresa"])."&acc=d'><i class='fa fa-user-times' aria-hidden='true'></i></a>
+
+		                  
+		                   <a href='dashboard.php?p=".base64_encode('actualizar_empresa')."&ui=".base64_encode($row['id_empresa'])."'><i class='fa fa-pencil'style='color:black !important'></i></a>
+		                  <a href='../controller/empresa.controller.php?ui=".base64_encode($row["id_empresa"])."&acc=d'><i class='fa fa-ban' style='color:red !important' aria-hidden='true'></i></a>
 		                </td>
 		              </tr>";
 		      }
@@ -56,9 +58,5 @@
 		      </tbody>
 		
 		    </table>
-		    <div id="modal-nueva_empresa" class="modal modal-fixed-footer">
-            <div class="modal-content">
-            	<?php include("empresa.php"); ?>
-            </div>
-            </div>
+		   
 	</div>

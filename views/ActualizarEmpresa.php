@@ -1,7 +1,6 @@
 <?php
   
- // David por favor cuando   arregles el Diseño,para q lo traiga la dasboard por favor descomenta la linea  de autor para q funcione 
-   require_once("../model/db_conn.php");
+  require_once("../model/db_conn.php");
   require_once("../model/empresa.class.php");
   /*
 
@@ -13,34 +12,11 @@
   }*/
   $empresa = Gestion_empresa::ReadbyId(base64_decode($_REQUEST["ui"]));
 
-?>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-  <link rel="stylesheet" href="recursos/plugins/font-awesome/css/font-awesome.css">
-  <link rel="stylesheet" href="recursos/css/estilos.css">
-  <link rel="stylesheet" type="text/css" href="recursos/css/jquery.dataTables.css">
-    <link rel="stylesheet" href="recursos/plugins/font-awesome/css/font-awesome.min.css">
-    <link type="text/css" rel="stylesheet" href="recursos/plugins/materialize/css/materialize.css">
-    <link rel="stylesheet" type="text/css" href="recursos/plugins/sweetalert/dist/sweetalert.css">
-  <title>Style+</title>
-  
-    
-    
-    <script type="text/javascript" src="recursos/plugins/jquery/jquery-1.12.1.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="recursos/plugins/datatable/jquery.dataTables.min.js"></script>
-
-   
-
-    <script type="text/javascript" src="recursos/plugins/materialize/js/materialize.min.js"></script>
-    <script type="text/javascript" src="recursos/plugins/sweetalert/dist/sweetalert.min.js"></script>
-</head>
-<body class="grey lighten-1">      
-  <div class="container col s12 l7 m9">
+?>     
+  <div class="container col s12 l7 m9" id="form">
 
   <form class="col s12 center" action="../controller/empresa.controller.php" method="POST">
-        <h1 class="center">Actualizar Empresa</h1>
+        <h3 class="center">Actualizar Empresa</h3>
 
         
       <div class="row" >
@@ -96,8 +72,8 @@
           <input type="hidden" name="autor" value="<?php //echo ($_SESSION["nombre"])." ".($_SESSION["apellido"]); ?>"> 
            <input type="hidden" name="estado" value="1"> 
            <input type="hidden" name="id_empresa" value="<?php echo $empresa[0] ?>">                
-         <button  type="botton" name="acc" value="u" class="waves-effect black btn"> Guardar</button>
-         <button type="button" class="waves-effect black btn"><a href="Gestion_proveedores.php">cancelar</a></button>
+         <button  name="acc" value="u" class="waves-effect black btn"> Actualizar</button>
+         <a class="waves-effect black btn" href="dashboard.php?p=<?php echo base64_encode("gestion_empresa"); ?>">Cancelar</a>
          
 
     
@@ -105,24 +81,4 @@
       </div>
   
         
-   <script type="text/javascript" src="jquery-1.12.1.min.js"></script>
- 	<script type="text/javascript" src="materialize\js\materialize.min.js"></script>
-   <script type="text/javascript">
-    $('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15 // Creates a dropdown of 15 years to control year
-  });
-   </script>
-
-
-  <script type="text/javascript">
-
-  $(document).ready(function() {
-    $('select').material_select();
-  });
-         
-  </script>
-
-</body>
-
-</html>
+  

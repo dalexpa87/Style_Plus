@@ -27,9 +27,6 @@ switch ($page) {
 		require_once("ActualizarUsuario.php");
 	break;
 	
-	default:
-		
-		break;
 	case 'nuevo_usuario':
 		
 		require_once("nuevo_usuario.php");
@@ -63,7 +60,15 @@ switch ($page) {
 		echo "</div>";
 	break;
 	
-	default:
+	case 'nueva_empresa':
+		
+		require_once("nueva_empresa.php");
+	break;
+
+	case 'actualizar_empresa':
+		
+		require_once("ActualizarEmpresa.php");
+	break;
 
 }
 ?>

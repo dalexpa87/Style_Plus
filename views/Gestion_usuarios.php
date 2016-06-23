@@ -81,8 +81,8 @@
 		                <td>$estado</td>
 		                <td>
 		                	
-		                  <a href='dashboard.php?p=".base64_encode('actualizar_usuario')."&ui=".base64_encode($row['id_usuario'])."'><i class='fa fa-pencil'></i></a>
-		                  <a href='../controller/usuarios.controller.php?ui=".base64_encode($row["id_usuario"])."&acc=d'><i class='fa fa-user-times' aria-hidden='true'></i></a>
+		                  <a href='dashboard.php?p=".base64_encode('actualizar_usuario')."&ui=".base64_encode($row['id_usuario'])."'><i class='fa fa-pencil'style='color:black !important'></i></a>
+		                  <a href='../controller/usuarios.controller.php?ui=".base64_encode($row["id_usuario"])."&acc=d'><i class='fa fa-ban' style='color:red !important' aria-hidden='true'></i></a>
 
 
 		                </td>
@@ -93,11 +93,7 @@
 		      </tbody>
 		
 		    </table>
-		    <div id="modal-nuevo_usuario" class="modal modal-fixed-footer">
-            <div class="modal-content">
-            	<?php include("nuevo_usuario.php"); ?>
-            </div>
-            </div>
+		   
 	</div>
 	<?php
 

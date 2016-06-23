@@ -1,9 +1,9 @@
 
-<div class="container">
+<div class="container" id="form">
 	<h1 class="center">Crear empresa</h1>
 	
 	<div class="row">
-		<div class="col s12">
+		<div class="col s12 m6 " >
 		<form class="col s12 center" action="../controller/empresa.controller.php" method="POST">
 			<div class="row">
 				<div class="input-field col s12 m6 black-text">
