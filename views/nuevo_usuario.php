@@ -13,7 +13,15 @@
   
 ?>
 
+<?php
 
+          if(isset($_GET["m"])){
+            if($_GET["m"] != ""){
+              echo "<script>alert('".$_GET["m"]."')</script>";
+            }
+          }
+
+      ?>
 
   <form id="form" class="col s12 " action="../controller/usuarios.controller.php" method="POST">
         <h2 class="center">Nuevo Usuario</h2>

@@ -40,11 +40,29 @@
       $('.tooltipped').tooltip({delay: 50});
 
       <?php
+if(isset($_GET["m"]) and isset($_GET["tm"])){
+         if($_GET["m"] != ""){
+           echo "
+                  
+                      sweetAlert({
+                           title: 'Mensaje de style +',   
+                           text: '".$_GET["m"]."',   
+                           type: '".$_GET["tm"]."',   
+                           showCancelButton: false,
+                           confirmButtonColor: '#4db6ac',   
+                           confirmButtonText: 'Aceptar',   
+                          cancelButtonText: 'No, cancel plx!',   
+                           closeOnConfirm: false,   
+                           closeOnCancel: false
+                       });
+                   ";
+           }
+         }
+     
+?>
 
-      if(isset($_GET["m"],$_GET["tm"])){
-      	echo "swal({ title: 'STYLE +',   text: '".$_GET["m"]."',   type: '".$_GET["tm"]."'})";//Sweet Alert, falta cuadrar
-      } 
-      ?>
+      
+    
 
   
       //$("#mySelect").change(function(){

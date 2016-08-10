@@ -24,7 +24,7 @@
    	    $existente=Gestion_Servicios::veref_exist($codigo,$id_empresa);
 				
 			if($existente[2]==$codigo){
-				$tm= base64_encode("warning");
+				$tipomensaje = base64_encode("success"); 
 				$m=  base64_encode("La referencia de la  ya se encuentra en uso");
                 header("location: ../views/gestion_servicios.php?m=".$m."&tm=".$tm);
 
@@ -32,13 +32,13 @@
 			 	
 				try {
 				Gestion_Servicios::Create($codigo,$nombre,$descripcion,$duracion,$valor_venta,$iva,$descuento,$id_empresa,$autor);
-				$tm=base64_encode("ssucces");
+				$tipomensaje = base64_encode("success"); 
 				$m= base64_encode("su registro se creo correctamente :D");	
 						
 			     } catch (Exception $e) {
 				 $m=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
 			         }
-			    header("location: ../views/gestion_servicios.php?m=".$m."&tm=".$tm);
+			    header("location: ../views/gestion_servicios.php?m=".$m."&tm=".$tipomensaje);
 			 }
 
    	    break;

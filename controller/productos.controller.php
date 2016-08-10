@@ -26,21 +26,21 @@
    	    $existente=Gestion_Productos::veref_exist($referencia,$id_empresa);
 				
 			if($existente[1]==$referencia){
-				$tm= base64_encode("warning");
+				$tipomensaje = base64_encode("success"); 
 				$m=  base64_encode("La referencia de la  ya se encuentra en uso");
-                header("location: ../views/dashboard.php?m=".$m."&tm=".$tm);
+                header("location: ../views/dashboard.php?m=".$m."&tm=".$tipomensaje);
 
 			 }else{
 			 	
 				try {
 				Gestion_Productos::Create($referencia,$nombre,$valor_compra,$valor_venta,$iva,$descuento,$estado,$cant_existente,$id_tipoproducto,$id_proveedor,$id_empresa,$autor);
-				$tm=base64_encode("ssucces");
+				$tipomensaje = base64_encode("success"); 
 				$m= base64_encode("su registro se creo correctamente :D");	
 						
 			     } catch (Exception $e) {
 				 $m=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
 			         }
-			    header("location: ../views/dashboard.php?m=".$m."&tm=".$tm);
+			    header("location: ../views/dashboard.php?m=".$m."&tm=".$tipomensaje);
 			 }
 
    	    break;
@@ -66,27 +66,28 @@
 
 		try {
 				Gestion_productos::update($referencia,$nombre,$valor_compra,$valor_venta,$iva,$descuento,$estado,$cant_existente,$id_tipoproducto,$id_proveedor,$id_empresa,$autor,$id_productos);
-				$tm=base64_encode("ssucces");
+				$tipomensaje = base64_encode("success"); 
 				$m= base64_encode("su registro se actualizo correctamente :D");
 				
 				
 			} catch (Exception $e) {
 				$mensaje=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
 			}
-			header("location: ../views/dashboard.php?m=".$m."&tm=".$tm);
+			header("location: ../views/dashboard.php?m=".$m."&tm=".$tipomensaje);
 
 
 				break;
 			case 'd':
 			
 			try {
+				$tipomensaje = base64_encode("success"); 
 				Gestion_usuarios::update($referencia,$nombre,$valor_compra,$valor_venta,$id_tipoproductos,$id_proveedor,$autor);
 				$mensaje= "se elimino correctamente :D";
 				
 			} catch (Exception $e) {
 				$mensaje=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
 			}
-			header("location: ../Gestion_productos.php?msn=".$mensaje);
+			header("location: ../Gestion_productos.php?msn=".$mensaje."&tm=".$tipomensaje);
 
 
 				break;

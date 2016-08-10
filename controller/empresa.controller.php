@@ -27,21 +27,21 @@
 			$existente=Gestion_empresa::veref_exist($nit);
 				
 			if($existente[2]==$nit){
-				$tm= base64_encode("warning");
+				$tipomensaje = base64_encode("success"); 
 				$m=  base64_encode("El nit de la  ya se encuentra en uso");
-                header("location: ../views/dashboard.php?m=".$m."&tm=".$tm);
+                header("location: ../views/dashboard.php?m=".$m."&tm=".$tipomensaje);
 
 			 }else{
 			 	
 				try {
 				Gestion_empresa::Create($razon_social,$nit,$telefono,$direccion,$correo,$descripcion,$estado,$autor);
-				$tm=base64_encode("ssucces");
+				$tipomensaje = base64_encode("success"); 
 				$m= base64_encode("su registro se creo correctamente :D");	
 						
 			     } catch (Exception $e) {
 				 $m=base64_encode(":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine());
 			         }
-			    header("location: ../views/dashboard.php?m=".$m."&tm=".$tm);
+			    header("location: ../views/dashboard.php?m=".$m."&tm=".$tipomensaje);
 			 }
 
 			break;
@@ -65,7 +65,7 @@
 			
 			try {
 				Gestion_empresa::update($razon_social,$nit,$telefono,$direccion,$correo,$descripcion,$estado,$autor,$id_empresa);
-				$tm=base64_encode("success");
+				$tipomensaje = base64_encode("success"); 
 				$m= base64_encode("Su registro se Actulizo correctamente :D");
 
 				
@@ -73,7 +73,7 @@
 			} catch (Exception $e) {
 				$mensaje=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
 			}
-		    header("location: ../views/dashboard.php?p=". base64_encode("gestion_empresa")."&m=".$m."&tm=".$tm);
+		    header("location: ../views/dashboard.php?p=". base64_encode("gestion_empresa")."&m=".$m."&tm=".$tipomensaje);
 
 
 				break;
@@ -86,13 +86,14 @@
 			$numero_documento      	=$_POST["numero_documento"];
 			
 			try {
+				$tipomensaje = base64_encode("success"); 
 				Gestion_usuarios::delete ($tipo_documento,$numero_documento,$clave,$nombre,$apellido,$telefono,$direccion,$correo,$celular,$fecha_nacimiento,$sexo,$estado,$id_rol,$autor,$oldnumerodedocumento);
 				$mensaje= "se elimino correctamente :D";
 				
 			} catch (Exception $e) {
 				$mensaje=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
 			}
-			header("location: ../formusupub.php?msn=".$mensaje);
+			header("location: ../formusupub.php?msn=".$mensaje."&tm=".$tipomensaje);
 
 
 				break;

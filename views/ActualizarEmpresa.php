@@ -2,6 +2,7 @@
   
   require_once("../model/db_conn.php");
   require_once("../model/empresa.class.php");
+  
   /*
 
   if(!isset($_SESSION["id_usuario"])){
@@ -13,6 +14,7 @@
   $empresa = Gestion_empresa::ReadbyId(base64_decode($_REQUEST["ui"]));
 
 ?>     
+
   <div class="container col s12 l7 m9" id="form">
 
   <form class="col s12 center" action="../controller/empresa.controller.php" method="POST">
@@ -79,6 +81,12 @@
     
       </form>
       </div>
-  
-        
-  
+  <?php
+
+          if(isset($_GET["m"])){
+            if($_GET["m"] != ""){
+              echo "<script>alert('".$_GET["m"]."')</script>";
+            }
+          }
+
+      ?>

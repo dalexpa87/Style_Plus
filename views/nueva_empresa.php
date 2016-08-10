@@ -45,9 +45,8 @@
                     <option value="Tienda de Belleza">Tienda de Belleza</option>
                   </select>
                   
-                </div></div>
-			</div>
-			</div>
+                </div>
+          </div>
 			<input type="hidden" name="autor" value="<?php  //echo ($_SESSION["nombre"])." ".($_SESSION["apellido"]); ?>"> 
            <input type="hidden" name="estado" value="1"> 
 
@@ -59,7 +58,16 @@
          	<button class="waves-effect black btn"><a href="dashboard.php?p=<?php echo base64_encode('gestion_empresa')?>">Cancelar</a></button>
          	</div>
 		</form>
-	</div>
-</div>	
-	<script type="text/javascript" src="jquery-1.12.1.min.js"></script>
- 	<script type="text/javascript" src="materialize\js\materialize.min.js"></script>
+    </div>
+    </div>
+    </div>
+
+<?php
+
+          if(isset($_GET["m"])){
+            if($_GET["m"] != ""){
+              echo "<script>alert('".$_GET["m"]."')</script>";
+            }
+          }
+
+      ?>
