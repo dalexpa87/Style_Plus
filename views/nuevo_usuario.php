@@ -1,22 +1,32 @@
 <?php
-  
 
- 
+
+
  if(!isset($_SESSION["id_usuario"])){
     $msn = base64_encode("Debe iniciar sesion primero!");
     $tipo_msn = base64_encode("advertencia");
 
     header("Location: index.php?m=".$msn."&tm=".$tipo_msn);
-    
+
  }
   include_once("../model/empresa.class.php");
-  
+    include_once("../model/usuarios.class.php");
+
+  $perfilinic=$_SESSION["id_rol"];
+  if ($perfilinic==4){
+
+
+          $titulo= "Nuevo Usuario";
+
+  }else{
+
+          $titulo= "Nuevo Empleado";
+
+  }
 ?>
 
-
-
   <form id="form" class="col s12 " action="../controller/usuarios.controller.php" method="POST">
-        <h2 class="center">Nuevo Usuario</h2>
+        <h3 class="center"><?php echo $titulo ?></h3>
 
         <div class="row" >
           <div class="col s12">
@@ -30,14 +40,14 @@
                     <option value="RC">Registro Civil</option>
                     <option value="Pasaporte">Pasaporte</option>
                   </select>
-                  
+
                 </div>
                 <div class="input-field col s12 m6 black-text ">
                   <label class="black-text">Número de documento</label>
                   <br>
                   <input type="number" name="numero_documento" class="validate" required  />
               </div>
-        </div> 
+        </div>
         </div>
           <div class="row" >
           <div class="col s12">
@@ -58,7 +68,7 @@
             <label class="black-text">Número celular</label>
             <br>
             <input type="number" name="celular" class="validate" required size="11" />
-          </div> 
+          </div>
 
           <div class="input-field col s12 m6 black-text">
             <label class="black-text">Número de telefono</label>
@@ -109,72 +119,59 @@
             <div class="class col s6">
                 <input name="sexo"  value="Hombre" type="radio" id="sex2" />
                 <label for="sex2" class="black-text">Masculino</label>
-            </div> 
+            </div>
       </div>
       <div class="row" >
-      <div class="col s12">
-      <?php 
-       if($_SESSION["id_rol"]==4){
-       ?>
-      <div class="input-field col s12 m6" name>
-      <label class="black-text center" >Rol usuario</label>
-      <br>
-          <select id="mySelect"   name="id_rol" required>
-              <option value="" disabled selected>Seleccione el Rol</option>
-              <option value="1">Usuario Publico</option>
-              <option value="2">Empleado</option>
-              <option value="3">Cliente Administrador</option>
-              <option value="4">Administrador</option>
-          </select>
-      </div>
-      <?php
-      }elseif ($_SESSION["id_rol"]==3) {              
-      ?>
-      <div class="input-field col s12 m6" name>
-      <label class="black-text center" >Rol usuario</label>
-      <br>
-                  <select name="id_rol" required>
+        <div class="col s12">
+        <?php
+         if($_SESSION["id_rol"]==4){
+         ?>
+            <div class="input-field col s12 m6" name>
+            <label class="black-text center" >Rol usuario</label>
+            <br>
+                <select id="mySelect"   name="id_rol" required>
                     <option value="" disabled selected>Seleccione el Rol</option>
                     <option value="1">Usuario Publico</option>
-                    <option value="2">Empleado</option>                    
-                  </select>
-      </div>
-      
-      <?php
-      }elseif ($_SESSION["id_rol"]==1) {              
-      ?>
-      <div class="input-field col s12 m6" name>
-      <label class="black-text center" >Rol usuario</label>
-      <br>
-                  <select name="id_rol" required>
-                    <option value="1" selected>Usuario Publico</option>  
-                  </select>
-      </div>
-      <?php 
-       }
-      ?>
-       <div id="complemento">
+                    <option value="2">Empleado</option>
+                    <option value="3">Cliente Administrador</option>
+                    <option value="4">Administrador</option>
+                </select>
+            </div>
+        <?php
+        }elseif ($_SESSION["id_rol"]==3) {
+        ?>
+          <div class="input-field col s12 m6" name>
+          <label class="black-text center" >Rol usuario</label>
+          <br>
+                      <select name="id_rol" required>
+                        <option value="" disabled selected>Seleccione el Rol</option>
+                        <option value="1">Usuario Publico</option>
+                        <option value="2">Empleado</option>
+                      </select>
+          </div>
 
-        
-      </div> 
-      </div>
+        <?php
+        }elseif ($_SESSION["id_rol"]==1) {
+        ?>
+        <div class="input-field col s12 m6" name>
+          <label class="black-text center" >Rol usuario</label><br>
+                <select name="id_rol" required>
+                <option value="1" selected>Usuario Publico</option>
+                </select>
+        </div>
+        <?php
+         }
+        ?>
+
+        </div>
       </div>
 
 
-      <input type="hidden" name="estado" value="1">           
+      <input type="hidden" name="estado" value="1">
       <input type="hidden" name="autor" value="<?php echo ($_SESSION["nombre"])." ".($_SESSION["apellido"]); ?>">
-     
+
           <div class="col s12 center">
             <button  name="acc" value="c" class="waves-effect black btn">Enviar</button>
             <button class="waves-effect black btn"><a href="dashboard.php?p=">Cancelar</a></button>
-
-     
           </div>
-  </form> 
-  </div>
-  
-
-
-
-
- 
+  </form>

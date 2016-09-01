@@ -5,7 +5,7 @@
 
 class Gestion_empresa {
 	//metodo crear
-	// este  metodo  guardara  en la tabla  contactos   todos  los parametros desde el  formulario.
+	// este  metodo  guardara  en la tabla empresa todos  los parametros desde el  formulario.
 	function Create($razon_social,$nit,$telefono,$direccion,$correo,$descripcion,$estado,$autor)
 	{
 		//instacioamos y nos conectamos a la  base de  datos
@@ -13,8 +13,8 @@ class Gestion_empresa {
 		$conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 		//CAPTURAMOS LA  FECHA DEL SISTEMA
 		$fecha_creacion=date("Y-m-d");
-		
-		
+
+
 		//crear  el  quiery  que vamos a realizar.
 		$consulta= "INSERT INTO empresa (razon_social,nit,telefono,direccion,correo,descripcion,estado,fecha_creacion,autor) values(?,?,?,?,?,?,?,?,?)";
 		$query=$conexion->prepare($consulta);
@@ -28,7 +28,7 @@ class Gestion_empresa {
 		//instacioamos y nos conectamos a la  base de  datos
 		$conexion=style_plus_BD::Connect();
 		$conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-		
+
 		//crear  el  query  que vamos a realizar.
 		$consulta= "SELECT * FROM empresa";
 		$query=$conexion->prepare($consulta);
@@ -46,7 +46,7 @@ function Readbyid($id_empresa)
 		//instacioamos y nos conectamos a la  base de  datos
 		$conexion=style_plus_BD::Connect();
 		$conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-		
+
 		//crear  el  query  que vamos a realizar.
 		$consulta= "SELECT * FROM empresa WHERE id_empresa=?";
 		$query=$conexion->prepare($consulta);
@@ -81,12 +81,12 @@ function Readbyid($id_empresa)
 		//instacioamos y nos conectamos a la  base de  datos
 		$conexion=style_plus_BD::Connect();
 		$conexion->SetAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-		
+
 		//crear  el  query  que vamos a realizar.
 		$consulta= "SELECT * FROM empresa WHERE nit=? ";
 		$query=$conexion->prepare($consulta);
 		$query->execute(array($nit));
-		
+
 		$resultado=$query->fetch(PDO::FETCH_BOTH);
 		return $resultado;
 
@@ -105,6 +105,6 @@ function Readbyid($id_empresa)
 
 		style_plus_BD::Disconnect();
 	}
-	
+
 }
 ?>

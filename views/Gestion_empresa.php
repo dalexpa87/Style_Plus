@@ -7,27 +7,27 @@
 
     header("Location: index.php?m=".$msn."&tm=".$tipo_msn);
 
- } 
+ }
   require_once("../model/db_conn.php");
   require_once("../model/empresa.class.php");
-  
+
 ?>
 	<div class="container l5 m10 s12" id="tabla">
 		    <h4>GESTIONAR EMPRESAS</h4>
-		    
-		    	
-		    <a class="waves-effect black btn modal-trigger" href="#modal-nueva_empresa"> <i class="fa fa-user-plus" style="margin-left: 2px"></i> Nueva Empresa</a>
+
+
+		    <a class="waves-effect black btn" href='dashboard.php?p=<?php echo base64_encode('nueva_empresa')?>'> <i class="fa fa-user-plus"></i> Nueva Empresa</a>
 
 		    <table id="datatable" class="display">
 		      <thead>
 		        <tr>
-		          <th>id</th>
+		          <th>Codigo</th>
 		          <th>Nit</th>
 		          <th>Razon Social</th>
 		          <th>Dirección</th>
 					<th>Correo</th>
 		          <th>Tipo Empresa</th>
-		          
+
 		          <th>Acciones</th>
 		        </tr>
 		      </thead>
@@ -54,11 +54,11 @@
 
 		      ?>
 		      </tbody>
-		
+
 		    </table>
 		    <div id="modal-nueva_empresa" class="modal modal-fixed-footer">
             <div class="modal-content">
-            	<?php include("empresa.php"); ?>
+            	<?php include("nueva_empresa.php"); ?>
             </div>
             </div>
 	</div>

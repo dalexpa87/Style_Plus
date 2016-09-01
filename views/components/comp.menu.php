@@ -1,38 +1,60 @@
-<?php 
+<?php
 
 if($_SESSION["id_rol"]==1){//Menu de Usuario Público
+
 ?>
+
+
 
 <ul>
-	<div class = "icono"  id="historia">
-		<div><li><i class="fa fa-check-square-o" style="font-size: 55px; text-align: center; color: white; margin-left: 30px;padding-bottom: 2px"></i></li></div>
-		<div><p>Historia</p></div>
-	</div>
 
-	<div class = "icono" id="citas">
-		<div><li><i class="fa fa-calendar-plus-o" style="font-size: 55px; text-align: center; color: white; margin-left: 30px;padding-bottom: 2px"></i></li></div>
-		<div><p>Inventario</p></div>
-	</div>
-	<div class = "icono" id="ofertas">
-		<div><li><i class="fa fa-tag" style="font-size: 55px; text-align: center; color: white; margin-left: 30px;padding-bottom: 2px"></i></li></div>
-		<div><p>Ofertas</p></div>
-	</div>
-	
-</ul>
-
-<?php
-}elseif($_SESSION["id_rol"]==2){//Menú Empleado
-?>
-<ul >
-	
 	<div class= "icon">
 		<div>
 			<li>
 				<i class="fa fa-calendar-plus-o tooltipped data-delay="50" data-tooltip="Citas" data-position="right"">
-					
+
 				</i>
 			</li>
-		</div> 
+		</div>
+	</div>
+
+	<div class= "icon">
+		<div>
+			<li>
+				<i class="fa fa-shopping-cart tooltipped data-delay="50" data-tooltip="Ofertas" data-position="right"">
+
+				</i>
+			</li>
+		</div>
+	</div>
+
+
+
+	<div class= "icon">
+		<div>
+			<li>
+				<i class="fa fa-eye tooltipped data-delay="50" data-tooltip="Mi Historia" data-position="right"">
+
+				</i>
+			</li>
+		</div>
+	</div>
+
+</ul>
+
+
+
+<?php
+}elseif($_SESSION["id_rol"]==2){//Menú Empleado
+?>
+<ul style="cursor: pointer;">
+
+	<div class="icon">
+		<div>
+		<a href="dashboard.php?p=<?php echo base64_encode('gestion_citas')?>">
+			<i class="fa fa-calendar-plus-o tooltipped data-delay="50" data-tooltip="Citas" data-position="right""></i>
+		</a>
+		</div>
 	</div>
 
 
@@ -45,11 +67,11 @@ if($_SESSION["id_rol"]==1){//Menu de Usuario Público
 		<div >
 		<ul id='dropdown1' class='dropdown-content text-white black' >
 		    <li><a href="dashboard.php?p=<?php echo base64_encode('gestion_proveedor')?>">Proveedor</a></li>
-		    <li><a href="dashboard.php?p=<?php echo base64_encode('gestion_producto')?>">Producto</a></li>   
+		    <li><a href="dashboard.php?p=<?php echo base64_encode('gestion_producto')?>">Producto</a></li>
   		</ul>
   		</div>
 
-		
+
 	</div>
 
 	<div class= "icon">
@@ -58,13 +80,13 @@ if($_SESSION["id_rol"]==1){//Menu de Usuario Público
 				<i class="fa fa-tag tooltipped data-delay="50" data-tooltip="Ofertas" data-position="right"" ></i>
 			</li>
 		</div>
-		
+
 	</div>
 
 	<div class="icon" >
 		<div>
 		<a href="dashboard.php?p=<?php echo base64_encode('registro_usuario')?>">
-			<i class="fa fa-user-plus" tooltipped data-delay="50" data-tooltip="Registrar Usuario" data-position="right""></i>
+			<i class="fa fa-user-plus tooltipped data-delay="50" data-tooltip="Registrar Usuario" data-position="right""></i>
 		</a>
 		</div>
 	</div>
@@ -72,7 +94,7 @@ if($_SESSION["id_rol"]==1){//Menu de Usuario Público
 
 
 <?php
-}elseif($_SESSION["id_rol"]==3){//Menú Cliente Admin
+}elseif($_SESSION["id_rol"]==3){//Menú Empresa
 
 ?>
 
@@ -87,23 +109,33 @@ if($_SESSION["id_rol"]==1){//Menu de Usuario Público
 				<i class="fa fa-check-square-o dropdown-button tooltipped data-delay="50" data-tooltip="Inventario" data-position="right""  data-activates='dropdown1' ></i>
 			</li>
 		</div>
-		<div >
-		<ul id='dropdown1' class='dropdown-content text-white black' >
+		<div>
+				<ul id='dropdown1' class='dropdown-content text-white black' >
 		    <li><a href="dashboard.php?p=<?php echo base64_encode('gestion_proveedor')?>">Proveedor</a></li>
-		    <li><a href="dashboard.php?p=<?php echo base64_encode('gestion_producto')?>">Producto</a></li>   
+		    <li><a href="dashboard.php?p=<?php echo base64_encode('gestion_producto')?>">Producto</a></li>
   		</ul>
   		</div>
-
-		
 	</div>
+
+	<div class="icon">
+		<div>
+			<li>
+				<a href="dashboard.php?p=<?php echo base64_encode('gestion_citas')?>">
+				<i class="fa fa-calendar-plus-o tooltipped data-delay="50" data-tooltip="Citas" data-position="right""></i>
+				</a></li>
+		</div>
+	</div>
+
+
+
 	<div class= "icon">
 		<div>
 			<li>
-				<i class="fa fa-calendar-plus-o tooltipped data-delay="50" data-tooltip="Citas" data-position="right"">
-					
+					<a href="dashboard.php?p=<?php echo base64_encode('gestion_servicios')?>">
+				<i class="fa fa-paperclip tooltipped data-delay="50" data-tooltip="Gestionar Servicios" data-position="right"">
 				</i>
 			</li>
-		</div> 
+		</div>
 	</div>
 
 	<div class= "icon">
@@ -112,7 +144,7 @@ if($_SESSION["id_rol"]==1){//Menu de Usuario Público
 				<i class="fa fa-tag tooltipped data-delay="50" data-tooltip="Ofertas" data-position="right"" ></i>
 			</li>
 		</div>
-		
+
 	</div>
 
 	<div class="icon" >
@@ -131,35 +163,36 @@ if($_SESSION["id_rol"]==1){//Menu de Usuario Público
 	}elseif($_SESSION["id_rol"]==4){//Menú Administrador
 
 ?>
-<ul id="menu_admin">
+<ul style="cursor: pointer;">
 
-	
-	<div class="icono" style="margin-top: 80px">
-		<li><i class="fa fa-bar-chart" style="font-size: 40px; text-align: center; color: white; margin-left: 17px;"></i></li>
-		<p>Informes</p>
+
+	<div class="icon">
+		<i class="fa fa-bar-chart tooltipped data-delay="50" data-tooltip="Informes" data-position="right""></i>
+
 	</div>
 
-	<div class="icono" style="margin-top: 50px">
-		<a href="dashboard.php?p=<?php echo base64_encode('gestion_empresa')?>" >
-		<li><i class="fa fa-industry" style="font-size: 40px; text-align: center; color: white; margin-left: 17px;"></i></li>
-		<div><p>Gestionar Empresas</p></div>
-	</a>
+	<div class= "icon">
+		<div>
+			<li>
+				<a href="dashboard.php?p=<?php echo base64_encode('gestion_empresa')?>" >
+				<i class="fa fa-industry tooltipped data-delay="50" data-tooltip="Gestionar Empresas" data-position="right"">
+				</i>
+			</li>
+		</div>
 	</div>
-	<div class="icono" style="margin-top: 50px">
-	<a href="dashboard.php?p=<?php echo base64_encode('gestion_usuarios')?>" >
-		<li ><i class="fa fa-users " style="font-size: 40px; text-align: center; color: white; margin-left: 17px;"></i></li>
-		<p>Gestion Usuario</p>
-	</a>
+
+	<div class= "icon">
+		<div>
+			<li>
+					<a href="dashboard.php?p=<?php echo base64_encode('gestion_usuarios')?>" >
+				<i class="fa fa-users tooltipped data-delay="50" data-tooltip="Gestionar Usuarios" data-position="right"">
+
+				</i>
+			</li>
+		</div>
 	</div>
-	
+
 </ul>
-
-
-
-
-
-
-
 
 
 <?php

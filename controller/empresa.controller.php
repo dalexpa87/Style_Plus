@@ -10,8 +10,8 @@
 			case 'c':
 				# crear
 				#iniciamos las variables   que se envian desde el  formulario  y las  que necesito  para  almacenar la tabla.
-			$razon_social   =$_POST["razon_social"]; 
-			$razon_social   =strtoupper($razon_social);        
+			$razon_social   =$_POST["razon_social"];
+			$razon_social   =strtoupper($razon_social);
 			$nit      		=$_POST["nit"];
 			$telefono    	=$_POST["telefono"];
 			$direccion   	=$_POST["direccion"];
@@ -23,21 +23,21 @@
 			$autor			=$_POST["autor"];
 			$autor          =strtoupper($autor);
 
-			
+
 			$existente=Gestion_empresa::veref_exist($nit);
-				
+
 			if($existente[2]==$nit){
 				$tm= base64_encode("warning");
 				$m=  base64_encode("El nit de la  ya se encuentra en uso");
                 header("location: ../views/dashboard.php?m=".$m."&tm=".$tm);
 
 			 }else{
-			 	
+
 				try {
 				Gestion_empresa::Create($razon_social,$nit,$telefono,$direccion,$correo,$descripcion,$estado,$autor);
-				$tm=base64_encode("ssucces");
-				$m= base64_encode("su registro se creo correctamente :D");	
-						
+				$tm=base64_encode("success");
+				$m= base64_encode("su registro se creo correctamente :D");
+
 			     } catch (Exception $e) {
 				 $m=base64_encode(":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine());
 			         }
@@ -48,8 +48,8 @@
 			case 'u':
 				# Actualizar
 				#iniciamos las variables   que se envian desde el  formulario  y las  que necesito  para  almacenar la tabla.
-			$razon_social   =$_POST["razon_social"]; 
-			$razon_social   =strtoupper($razon_social);        
+			$razon_social   =$_POST["razon_social"];
+			$razon_social   =strtoupper($razon_social);
 			$nit      		=$_POST["nit"];
 			$telefono    	=$_POST["telefono"];
 			$direccion   	=$_POST["direccion"];
@@ -62,14 +62,14 @@
 			$autor          =strtoupper($autor);
 			$id_empresa     =$_POST["id_empresa"];
 
-			
+
 			try {
 				Gestion_empresa::update($razon_social,$nit,$telefono,$direccion,$correo,$descripcion,$estado,$autor,$id_empresa);
-				$tm=base64_encode("ssucces");
+				$tm=base64_encode("succes");
 				$m= base64_encode("su registro se Actulizo correctamente :D");
 
-				
-				
+
+
 			} catch (Exception $e) {
 				$mensaje=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
 			}
@@ -78,17 +78,17 @@
 
 				break;
 
-			
+
 			case 'd':
 				# delete
 				#iniciamos las variables   que se envian desde el  formulario  y las  que necesito  para  almacenar la tabla.
-			       
+
 			$numero_documento      	=$_POST["numero_documento"];
-			
+
 			try {
 				Gestion_usuarios::delete ($tipo_documento,$numero_documento,$clave,$nombre,$apellido,$telefono,$direccion,$correo,$celular,$fecha_nacimiento,$sexo,$estado,$id_rol,$autor,$oldnumerodedocumento);
 				$mensaje= "se elimino correctamente :D";
-				
+
 			} catch (Exception $e) {
 				$mensaje=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
 			}
@@ -96,11 +96,9 @@
 
 
 				break;
-			
-			
-			
-			
+
+
+
+
 		}
 ?>
-
-

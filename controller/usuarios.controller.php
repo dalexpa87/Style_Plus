@@ -1,6 +1,6 @@
 <?php
 	session_start();
-		
+
 		//1. llamar  la conexion de la base de datos
 		require_once("../model/db_conn.php");
 		//2. llamar las  clases necesarias o que se requieran
@@ -12,7 +12,7 @@
 			case 'c':
 				# crear
 				#iniciamos las variables   que se envian desde el  formulario  y las  que necesito  para  almacenar la tabla.
-			$tipo_documento     	=$_POST["tipo_documento"];         
+			$tipo_documento     	=$_POST["tipo_documento"];
 			$numero_documento      	=$_POST["numero_documento"];
 			$clave 			=$_POST["clave"];
 			$nombre      	=$_POST["nombre"];
@@ -24,32 +24,32 @@
 			$celular     	=$_POST["celular"];
 			$fecha_nacimiento=$_POST["fecha_nacimiento"];
 			$sexo        	=$_POST["sexo"];
-			$estado         =$_POST["estado"];			
+			$estado         =$_POST["estado"];
 			$id_rol			=$_POST["id_rol"];
 			$autor			=$_POST["autor"];
-			
-			
+
+
 		    $existente=Gestion_Usuarios::veref_exist($correo,$numero);
-				
+
 			if($existente[2]==$numero_documento || $existente[9]==$correo){
 				$tm=base64_encode("warning");
 				$m=base64_encode("Su  numero  de documento  o correo ya se encuentran en uso");
                 header("location: ../views/index.php?m=".$m."&tm=".$tm);
 
 			 }else{
-			 	
+
 				try {
 				Gestion_usuarios::Create($tipo_documento,$numero_documento,$clave,$nombre,$apellido,$telefono,$direccion,$ciudad,$correo,$celular,$fecha_nacimiento,$sexo,$estado,$id_rol,$autor);
-				$msn= base64_encode("Su registro se creo correctamente :D");	
+				$msn= base64_encode("Su registro se creo correctamente :D");
 				$tm= "success";
 				header("location: ../views/index.php?m=".$msn."&tm=".$tm);
-						
+
 			     } catch (Exception $e) {
 				 $m=base64_encode(":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine());
 				 $tm= "error";
 				  header("location: ../views/registrate.php?m=".$m."&tm=".$tm);
 			         }
-			   
+
 			 }
 
 
@@ -57,7 +57,7 @@
 				case 'u':
 				# Actualizar
 				#iniciamos las variables   que se envian desde el  formulario  y las  que necesito  para  almacenar la tabla.
-			$tipo_documento     	=$_POST["tipo_documento"];         
+			$tipo_documento     	=$_POST["tipo_documento"];
 			$numero_documento      	=$_POST["numero_documento"];
 			$clave 			=$_POST["clave"];
 			$nombre      	=$_POST["nombre"];
@@ -69,7 +69,7 @@
 			$celular     	=$_POST["celular"];
 			$fecha_nacimiento=$_POST["fecha_nacimiento"];
 			$sexo        	=$_POST["sexo"];
-			$estado         =$_POST["estado"];			
+			$estado         =$_POST["estado"];
 			$id_rol			=$_POST["id_rol"];
 			$autor			=$_POST["autor"];
 			$id_usuario =$_POST["id_usuario"];
@@ -78,7 +78,7 @@
 				Gestion_usuarios::update($tipo_documento,$numero_documento,$clave,$nombre,$apellido,$telefono,$direccion,$ciudad,$correo,$celular,$fecha_nacimiento,$sexo,$estado,$id_rol,$autor,$id_usuario);
 				$m= base64_encode("se ha  actualizado correctamente :D");
 				$tm=base64_encode("Advertencia");
-				
+
 			} catch (Exception $e) {
 				$mensaje=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
 			}
@@ -89,14 +89,14 @@
 			case 'd':
 				# delete
 				#iniciamos las variables   que se envian desde el  formulario  y las  que necesito  para  almacenar la tabla.
-			       
+
 			$id_usuario=base64_decode($_REQUEST["ui"]);
-			
+
 			try {
 				Gestion_usuarios::desactivar($id_usuario);
 				$m=base64_encode("se Desactivo correctamente :D");
 				$tm=base64_encode("Advertencia");
-				
+
 			} catch (Exception $e) {
 				$mensaje=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
 			}
@@ -107,12 +107,12 @@
 
 		 case 'l':
 				# loguear usuario
-				#iniciamos las variables   que se envian desde el  formulario  
-			       
-			
+				#iniciamos las variables   que se envian desde el  formulario
+
+
 			$correo      	=$_POST["correo"];
 			$clave      	=$_POST["clave"];
-			
+
 			try {
 				$usuario=Gestion_usuarios::loguear($correo,$clave);
 				// El metodo count nos sirve para contar el numero de registros que retorno de la consulta
@@ -130,7 +130,7 @@
 
 				       header("Location: ../views/index.php?m=".$msn."&tm=".$tipo_msn);
 				    }
-				    else{	
+				    else{
 				    		if($usuario[14]==1 || $usuario[14]==4 ){
 				    		// Creamos variables de SESSION las  que necesitemos en sesion
 
@@ -147,17 +147,17 @@
 						        $_SESSION["apellido"]       = $usuario[5];
 						        $_SESSION["id_rol"]         = $usuario[14];
 						        $_SESSION["id_empresa"]       = $empresa[0];
-						        $_SESSION["nombre_empresa"]         = $empresa[1];
+						        $_SESSION["nombre_empresa"]   = $empresa[1];
 						        header("Location: ../views/dashboard.php");
 
 
 
 						    }
 						}
-						      
-						      
-						     
-						     
+
+
+
+
 			}catch (Exception $e) {
 				$m= base64_encode("A ocurrido un error ".$e->getMessage());
 				$tm = base64_encode("error");
@@ -165,11 +165,9 @@
 				header("Location: ../views/index.php?m=".$m."&tm=".$tm);
 				  }
 
-				
-			
-			
+
+
+
 			}
-			
+
 ?>
-
-

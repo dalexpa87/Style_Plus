@@ -19,7 +19,8 @@
     <div class="container l5 m10 s12 " id="tabla">
 		    <h4>GESTIONAR PROVEEDORES</h4>
 
-		    <a href='dashboard.php?p=<?php echo base64_encode('nuevo_proveedor')?>' class="white"><h4><i class="fa fa-building-o" aria-hidden="true"> Nuevo Proveedor</i></h4></a>
+		    
+		    <a class="waves-effect black btn" href='dashboard.php?p=<?php echo base64_encode('nuevo_proveedor')?>'><i class='fa fa-building-o'></i>  Nuevo Proveedor</a>
 		
 
 

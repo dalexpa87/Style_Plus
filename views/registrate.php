@@ -1,9 +1,20 @@
+<?php
 
+  
+
+  if(!isset($_SESSION["id_usuario"])){
+
+          $titulo= "Regístrate";
+  }else{
+
+          $titulo= "Registrar Usuario";
+  }
+ ?>
 
       <div class=" col s12">
 
       <form id="registrate" class="col s12 " action="../controller/usuarios.controller.php" method="POST">
-        <h2 class="center">Regístrate</h2>
+        <h2 class="center"><?php echo $titulo; ?></h2>
 
         <div class="row" >
           <div class="col s12">
@@ -17,14 +28,14 @@
                     <option value="RC">Registro Civil</option>
                     <option value="Pasaporte">Pasaporte</option>
                   </select>
-                  
+
                 </div>
                 <div class="input-field col s12 m6 black-text ">
                   <label class="black-text">Número de documento</label>
                   <br>
                   <input type="number" name="numero_documento" class="validate" required  />
               </div>
-        </div> 
+        </div>
         </div>
           <div class="row" >
           <div class="col s12">
@@ -45,7 +56,7 @@
             <label class="black-text">Número celular</label>
             <br>
             <input type="tel" name="celular" class="validate" required size="11" />
-          </div> 
+          </div>
 
           <div class="input-field col s12 m6 black-text">
             <label class="black-text">Número de telefono</label>
@@ -96,16 +107,16 @@
             <div class="class col s6">
                 <input name="sexo"  value="Hombre" type="radio" id="sex2" />
                 <label for="sex2" class="black-text">Masculino</label>
-            </div> 
-      </div> 
+            </div>
+      </div>
       <input type="hidden" name="estado" value="1">
-      <input type="hidden" name="id_rol" value="1">      
+      <input type="hidden" name="id_rol" value="1">
       <input type="hidden" name="autor" value="Autoregistrado">
           <div class="col s12 center">
             <button  name="acc" value="c" class="waves-effect black btn">Enviar</button>
             <button class="waves-effect black btn"><a href="index.php">Cancelar</a></button>
           </div>
-  </form> 
+  </form>
   </div>
      <script type="text/javascript">
                   <?php
@@ -113,7 +124,6 @@
                     if(isset($_GET["m"],$_GET[""])){
                   echo "swal({ title: 'STYLE +',   text: '".base64_decode($_GET["m"])."',   type: '".base64_decode($_GET["tm"])."'})";
 
-                  } 
-                  ?>  
+                  }
+                  ?>
                   </script>
-                    
