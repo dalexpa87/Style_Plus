@@ -43,10 +43,20 @@
       $('.carousel.carousel-slider').carousel({full_width: true});
 
       <?php
+
       if(isset($_GET["m"],$_GET["tm"])){
         echo 'swal({title: "STYLE +", text: "'.base64_decode($_GET["m"]).'", type: "'.base64_decode($_GET["tm"]).'"})';
       }
       ?>
+
+
+         }
+
+?>
+
+
+
+
 
 
       //$("#mySelect").change(function(){

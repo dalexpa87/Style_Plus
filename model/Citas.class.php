@@ -1,39 +1,39 @@
-<?php
+<?php 
 
 class Gestionar_citas{
 
 	// Reservar las citas
-	function Create($id_usuario,$id_empleado,$id_servicio,$fecha_hora,$fecha_creacion,$autor){
-		$conexion=style_plus_BD::Connect();
+	function Create($Cod_usu,$Telefono,$Fecha,$Hora,$formato,$Servicio,$empleado,$Cod_Emp){
+		$conexion=Softmar_BD::Connect();
 		$conexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-		$consulta="INSERT INTO citas (Cod_usu,Telefono,Fecha,Hora,Formato,Servicio,empleado,Cod_Emp) VALUES (?,?,?,?,?,?,?,?)";
+		$consulta="INSERT INTO citas (Cod_usu,Telefono,Fecha,Hora,Formato,Servicio,empleado,Cod_Emp) VALUES (?,?,?,?,?,?,?,?)";		
 		$query=$conexion->prepare($consulta);
 		$query->execute(array($Cod_usu,$Telefono,$Fecha,$Hora,$formato,$Servicio,$empleado,$Cod_Emp));
 
-		Softmar_BD::Disconnect();
+		Softmar_BD::Disconnect();			
 	}
 
 	// modificacion de las citas
 	function Update($Cod_cita,$Cod_usu,$Telefono,$Hora,$Fecha,$Estado,$Cod_empl,$Cod_serv,$Cod_Emp){
 		$conexion=Softmar_BD::Connect();
 		$conexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+		
 
-
-		$consulta="UPDATE citas SET Cod_usu=?,Telefono=?,Hora=?,Fecha=?,Estado=?,Cod_serv=?,Cod_Emp=? WHERE Cod_cita=? ";
+		$consulta="UPDATE citas SET Cod_usu=?,Telefono=?,Hora=?,Fecha=?,Estado=?,Cod_serv=?,Cod_Emp=? WHERE Cod_cita=? ";		
 		$query=$conexion->prepare($consulta);
 		$query->execute(array($Cod_usu,$Telefono,$Hora,$Fecha,$Estado,$Cod_serv,$Cod_Emp,$Cod_cita));
-
-		Softmar_BD::Disconect();
+		
+		Softmar_BD::Disconect();		
 
 	}
 
 	// eliminar cita
 
-	function Delete($Cod_cita){
+	function Delete($Cod_cita){ 
 		$conexion=Softmar_BD::Connect();
 		$conexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-
+		
 		$consulta="DELETE FROM citas WHERE Cod_cita=?";
 		$query=$conexion->prepare($consulta);
 		$query->execute(array($Cod_cita));
@@ -55,7 +55,7 @@ class Gestionar_citas{
 
 		Softmar_BD::Disconect();
 
-		return $resultado;
+		return $resultado;		
 	}
 
 	function Mi_Cita($Cod_usu){//para el modificar de todos los usuarios
@@ -70,7 +70,7 @@ class Gestionar_citas{
 
 		Softmar_BD::Disconect();
 
-		return $resultado;
+		return $resultado;		
 	}
 
 
@@ -78,7 +78,7 @@ class Gestionar_citas{
 	function ReadAll(){//para el administrador y el barbero
 		$conexion=Softmar_BD::Connect();
 		$conexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-
+		
 		$consulta="SELECT * FROM citas";
 		$query=$conexion->prepare($consulta);
 		$query->execute();
@@ -87,7 +87,7 @@ class Gestionar_citas{
 
 		Softmar_BD::Disconnect();
 
-		return $resultado;
+		return $resultado;		
 	}
 
 	function ValidoCita($Fecha, $Hora, $Empleado, $Formato){
@@ -96,7 +96,7 @@ class Gestionar_citas{
 		$Conexion = Softmar_BD::Connect();
 		$Conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-
+		
 
 		//Crear el query que vamos a realizar
 		$consulta = "SELECT * FROM citas WHERE Fecha =? AND Hora = ? AND empleado =? AND Formato=?";

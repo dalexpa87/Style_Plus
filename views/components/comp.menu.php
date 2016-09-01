@@ -86,7 +86,11 @@ if($_SESSION["id_rol"]==1){//Menu de Usuario Público
 	<div class="icon" >
 		<div>
 		<a href="dashboard.php?p=<?php echo base64_encode('registro_usuario')?>">
+<<<<<<< HEAD
 			<i class="fa fa-user-plus tooltipped data-delay="50" data-tooltip="Registrar Usuario" data-position="right""></i>
+=======
+			<i class="fa fa-user-plus" tooltipped data-delay="50" data-tooltip="Registrar Usuario" data-position="right"></i>
+>>>>>>> origin/master
 		</a>
 		</div>
 	</div>
@@ -163,7 +167,36 @@ if($_SESSION["id_rol"]==1){//Menu de Usuario Público
 	}elseif($_SESSION["id_rol"]==4){//Menú Administrador
 
 ?>
+<<<<<<< HEAD
 <ul style="cursor: pointer;">
+=======
+<ul id="menu_admin">
+
+	
+	<div class="icon">
+		<li><i class="fa fa-bar-chart"></i></li>
+		<p>Informes</p>
+	</div>
+
+	<div class="icon">
+		<div>
+			<a href="dashboard.php?p=<?php echo base64_encode('gestion_empresa')?>" >
+				<i class="fa fa-industry tooltipped data-delay="50" data-tooltip="Gestion Empresas" data-position="right""></i>
+			</a>
+		</div>
+	</div>
+
+	<div class="icon">
+		<div>
+			<a href="dashboard.php?p=<?php echo base64_encode('gestion_usuarios')?>" >
+				<li ><i class="fa fa-users tooltipped data-delay="50" data-tooltip="Gestion Usuarios" data-position="right" "></i></li>
+			
+			</a>
+		</div>
+	</div>
+	
+</ul>
+>>>>>>> origin/master
 
 
 	<div class="icon">

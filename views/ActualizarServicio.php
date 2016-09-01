@@ -41,11 +41,14 @@
           $('.modal-trigger').leanModal();
       $('select').material_select();
 
-      <?php
+        <?php
 
-      if(isset($_GET["m"],$_GET["tm"])){
-        echo "swal({ title: 'STYLE +',   text: '".$_GET["m"]."',   type: '".$_GET["tm"]."'})";//Sweet Alert, falta cuadrar
-      } 
+          if(isset($_GET["m"])){
+            if($_GET["m"] != ""){
+              echo "alert('".$_GET["m"]."');";
+            }
+          }
+
       ?>
 
   

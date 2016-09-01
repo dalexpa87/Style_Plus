@@ -127,6 +127,15 @@
          $(document).ready(function() {
          $('select').material_select();
          });
+          <?php
+
+          if(isset($_GET["m"])){
+            if($_GET["m"] != ""){
+              echo "alert('".$_GET["m"]."');";
+            }
+          }
+
+      ?>
     </script>
  
   

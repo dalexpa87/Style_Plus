@@ -33,17 +33,17 @@
 
         <?php
         $empleado = $_SESSION["id_usuario"];
+        
         $citas= Gestion_citas::ReadByCita($empleado);
 
 
         foreach ($citas as $row) {
 
           echo "<tr>
-                  <td>".$row[0].' '.$row[1]."</td>
+                  <td>".$row["id_usuario"]."</td>
+                  <td>".$row["id_servicio"]."</td>
+                  <td>".$row["fecha_hora"]."</td>
 
-
-                  <td>".$row[2]."</td>
-                  <td>".$row[3]."</td>
 
                   <td>
                     <a href='ActualizarEmpresa.php?ui=".base64_encode($row["id_empresa"])."'><i class='fa fa-pencil'></i></a>

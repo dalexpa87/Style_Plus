@@ -32,22 +32,29 @@
 		    $existente=Gestion_Usuarios::veref_exist($correo,$numero);
 
 			if($existente[2]==$numero_documento || $existente[9]==$correo){
-				$tm=base64_encode("warning");
+				$tipomensaje = base64_encode("success"); 
 				$m=base64_encode("Su  numero  de documento  o correo ya se encuentran en uso");
-                header("location: ../views/index.php?m=".$m."&tm=".$tm);
+                header("location: ../views/index.php?m=".$m."&tm=".$tipomensaje);
 
 			 }else{
 
 				try {
 				Gestion_usuarios::Create($tipo_documento,$numero_documento,$clave,$nombre,$apellido,$telefono,$direccion,$ciudad,$correo,$celular,$fecha_nacimiento,$sexo,$estado,$id_rol,$autor);
+<<<<<<< HEAD
 				$msn= base64_encode("Su registro se creo correctamente :D");
 				$tm= "success";
 				header("location: ../views/index.php?m=".$msn."&tm=".$tm);
 
+=======
+				$msn= base64_encode("Su registro se creo correctamente :D");	
+				$tipomensaje = base64_encode("success"); 
+				header("location: ../views/index.php?m=".$msn."&tm=".$tipomensaje);
+						
+>>>>>>> origin/master
 			     } catch (Exception $e) {
 				 $m=base64_encode(":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine());
 				 $tm= "error";
-				  header("location: ../views/registrate.php?m=".$m."&tm=".$tm);
+				  header("location: ../views/registrate.php?m=".$m."&tm=".$tipomensaje);
 			         }
 
 			 }
@@ -77,12 +84,18 @@
 			try {
 				Gestion_usuarios::update($tipo_documento,$numero_documento,$clave,$nombre,$apellido,$telefono,$direccion,$ciudad,$correo,$celular,$fecha_nacimiento,$sexo,$estado,$id_rol,$autor,$id_usuario);
 				$m= base64_encode("se ha  actualizado correctamente :D");
+<<<<<<< HEAD
 				$tm=base64_encode("Advertencia");
 
+=======
+				$tipomensaje = base64_encode("success"); 
+				
+>>>>>>> origin/master
 			} catch (Exception $e) {
 				$mensaje=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
+					$tm= "error";
 			}
-			header("location: ../views/dashboard.php?m=".$m."&tm=".$tm);
+			header("location: ../views/dashboard.php?m=".$m."&tm=".$tipomensaje);
 
 
 				break;
@@ -95,12 +108,18 @@
 			try {
 				Gestion_usuarios::desactivar($id_usuario);
 				$m=base64_encode("se Desactivo correctamente :D");
+<<<<<<< HEAD
 				$tm=base64_encode("Advertencia");
 
+=======
+				$tipomensaje = base64_encode("success"); 
+				
+>>>>>>> origin/master
 			} catch (Exception $e) {
+				$tipomensaje = base64_encode("error"); 
 				$mensaje=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
 			}
-			header("location: ../views/dashboard.php?m=".$m."&tm=".$tm);
+			header("location: ../views/dashboard.php?m=".$m."&tm=".$tipomensaje);
 
 
 				break;
@@ -118,17 +137,17 @@
 				// El metodo count nos sirve para contar el numero de registros que retorno de la consulta
                 $usuario_existe = count($usuario[0]);
 				if($usuario_existe == 0){
-				       $msn= base64_encode("Debe de Registrarse Primero");
-				       $tipo_msn= base64_encode("warning");
+				       $m= base64_encode("Debe de Registrarse Primero");
+				       $tipomensaje = base64_encode("success"); 
 
 
-				       header("Location: ../views/index.php?m=".$msn."&tm=".$tipo_msn);
+				       header("Location: ../views/index.php?m=".$m."&tm=".$tipomensaje);
 				    }
 				    elseif ($usuario[13]==0) {
 				       $msn= base64_encode("El usuario se encuentra inactivo,Por favor comunicate con el Admin del sistema");
 				       $tm= base64_encode("warning");
 
-				       header("Location: ../views/index.php?m=".$msn."&tm=".$tipo_msn);
+				       header("Location: ../views/index.php?m=".$m."&tm=".$tipomensaje);
 				    }
 				    else{
 				    		if($usuario[14]==1 || $usuario[14]==4 ){
@@ -162,7 +181,7 @@
 				$m= base64_encode("A ocurrido un error ".$e->getMessage());
 				$tm = base64_encode("error");
 
-				header("Location: ../views/index.php?m=".$m."&tm=".$tm);
+				header("Location: ../views/index.php?m=".$m."&tm=".$tipomensaje);
 				  }
 
 

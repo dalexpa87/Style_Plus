@@ -20,6 +20,7 @@
    	    $descuento         =$_POST["descuento"];
    	    $id_empresa        =$_POST["id_empresa"];
    	    $autor             =$_POST["autor"];
+<<<<<<< HEAD
 
 				try {
 				Gestion_Servicios::Create($codigo,$nombre,$descripcion,$duracion,$valor_venta,$iva,$descuento,$id_empresa,$autor);
@@ -32,6 +33,28 @@
 			         }
 			    header("location: ../views/dashboard.php?p=".base64_encode("gestion_servicios")."&m=".$m."&tm=".$tm);
 			 
+=======
+   	    
+   	    $existente=Gestion_Servicios::veref_exist($codigo,$id_empresa);
+				
+			if($existente[2]==$codigo){
+				$tipomensaje = base64_encode("success"); 
+				$m=  base64_encode("La referencia de la  ya se encuentra en uso");
+                header("location: ../views/gestion_servicios.php?m=".$m."&tm=".$tm);
+
+			 }else{
+			 	
+				try {
+				Gestion_Servicios::Create($codigo,$nombre,$descripcion,$duracion,$valor_venta,$iva,$descuento,$id_empresa,$autor);
+				$tipomensaje = base64_encode("success"); 
+				$m= base64_encode("su registro se creo correctamente :D");	
+						
+			     } catch (Exception $e) {
+				 $m=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
+			         }
+			    header("location: ../views/gestion_servicios.php?m=".$m."&tm=".$tipomensaje);
+			 }
+>>>>>>> origin/master
 
    	    break;
 

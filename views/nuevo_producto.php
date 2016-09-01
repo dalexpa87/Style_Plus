@@ -6,7 +6,15 @@
  
   $proveedor=Gestion_proveedores::ReadAll();
 ?>
+<?php
 
+          if(isset($_GET["m"])){
+            if($_GET["m"] != ""){
+              echo "<script>alert('".$_GET["m"]."')</script>";
+            }
+          }
+
+      ?>
  <div class="container s12 m10 l9" id="form">
 
     <form id="registrate" class="col s12 " action="../controller/productos.controller.php" method="POST">

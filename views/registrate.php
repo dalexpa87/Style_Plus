@@ -121,9 +121,16 @@
      <script type="text/javascript">
                   <?php
 
-                    if(isset($_GET["m"],$_GET[""])){
-                  echo "swal({ title: 'STYLE +',   text: '".base64_decode($_GET["m"])."',   type: '".base64_decode($_GET["tm"])."'})";
+          if(isset($_GET["m"])){
+            if($_GET["m"] != ""){
+              echo "<script>alert('".$_GET["m"]."')</script>";
+            }
+          }
 
+<<<<<<< HEAD
                   }
                   ?>
+=======
+      ?> 
+>>>>>>> origin/master
                   </script>

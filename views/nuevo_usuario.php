@@ -20,10 +20,22 @@
 
   }else{
 
+<<<<<<< HEAD
           $titulo= "Nuevo Empleado";
 
   }
 ?>
+=======
+<?php
+
+          if(isset($_GET["m"])){
+            if($_GET["m"] != ""){
+              echo "<script>alert('".$_GET["m"]."')</script>";
+            }
+          }
+
+      ?>
+>>>>>>> origin/master
 
   <form id="form" class="col s12 " action="../controller/usuarios.controller.php" method="POST">
         <h3 class="center"><?php echo $titulo ?></h3>
