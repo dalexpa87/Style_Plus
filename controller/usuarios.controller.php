@@ -32,7 +32,7 @@
 		    $existente=Gestion_Usuarios::veref_exist($correo,$numero);
 
 			if($existente[2]==$numero_documento || $existente[9]==$correo){
-				$tipomensaje = base64_encode("success"); 
+				$tipomensaje = base64_encode("success");
 				$m=base64_encode("Su  numero  de documento  o correo ya se encuentran en uso");
                 header("location: ../views/index.php?m=".$m."&tm=".$tipomensaje);
 
@@ -40,17 +40,17 @@
 
 				try {
 				Gestion_usuarios::Create($tipo_documento,$numero_documento,$clave,$nombre,$apellido,$telefono,$direccion,$ciudad,$correo,$celular,$fecha_nacimiento,$sexo,$estado,$id_rol,$autor);
-<<<<<<< HEAD
+
 				$msn= base64_encode("Su registro se creo correctamente :D");
 				$tm= "success";
 				header("location: ../views/index.php?m=".$msn."&tm=".$tm);
 
-=======
-				$msn= base64_encode("Su registro se creo correctamente :D");	
-				$tipomensaje = base64_encode("success"); 
+
+				$msn= base64_encode("Su registro se creo correctamente :D");
+				$tipomensaje = base64_encode("success");
 				header("location: ../views/index.php?m=".$msn."&tm=".$tipomensaje);
-						
->>>>>>> origin/master
+
+
 			     } catch (Exception $e) {
 				 $m=base64_encode(":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine());
 				 $tm= "error";
@@ -84,13 +84,13 @@
 			try {
 				Gestion_usuarios::update($tipo_documento,$numero_documento,$clave,$nombre,$apellido,$telefono,$direccion,$ciudad,$correo,$celular,$fecha_nacimiento,$sexo,$estado,$id_rol,$autor,$id_usuario);
 				$m= base64_encode("se ha  actualizado correctamente :D");
-<<<<<<< HEAD
+
 				$tm=base64_encode("Advertencia");
 
-=======
-				$tipomensaje = base64_encode("success"); 
-				
->>>>>>> origin/master
+
+				$tipomensaje = base64_encode("success");
+
+
 			} catch (Exception $e) {
 				$mensaje=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
 					$tm= "error";
@@ -108,15 +108,15 @@
 			try {
 				Gestion_usuarios::desactivar($id_usuario);
 				$m=base64_encode("se Desactivo correctamente :D");
-<<<<<<< HEAD
+
 				$tm=base64_encode("Advertencia");
 
-=======
-				$tipomensaje = base64_encode("success"); 
-				
->>>>>>> origin/master
+
+				$tipomensaje = base64_encode("success");
+
+
 			} catch (Exception $e) {
-				$tipomensaje = base64_encode("error"); 
+				$tipomensaje = base64_encode("error");
 				$mensaje=":( ha  ocurrido un error, el error  fue: ".$e->getMessage()." en ".$e->getFile(). " en la linea".$e->getLine();
 			}
 			header("location: ../views/dashboard.php?m=".$m."&tm=".$tipomensaje);
@@ -138,7 +138,7 @@
                 $usuario_existe = count($usuario[0]);
 				if($usuario_existe == 0){
 				       $m= base64_encode("Debe de Registrarse Primero");
-				       $tipomensaje = base64_encode("success"); 
+				       $tipomensaje = base64_encode("success");
 
 
 				       header("Location: ../views/index.php?m=".$m."&tm=".$tipomensaje);
